@@ -1,17 +1,29 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
-import Container from "./common/Container";
-import Title from "./common/Title";
-import { skills } from "../data/skills";
-import { TSkills } from "../data/skills";
+import Container from "@/components/ui/Container";
+import Title from "@/components/ui/Title";
 
-const MySkills = () => {
-  const skillsName: string[] = Object.keys(skills);
-  const [selectedSkill, setSelectedSkill] = useState(skillsName[0]);
-  const selectedSkills: TSkills[] = (skills as any)[selectedSkill];
+export type TSkills = {
+  name: string;
+  percent: number;
+  category: string;
+};
+
+const MySkills = async () => {
+  const res = await fetch(` ${process.env.NEXT_PUBLIC_SERVER_URL}/skills`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    cache: "no-store",
+  });
+  const skills = await res.json();
+  console.log(skills?.data);
+
+  // const skillsName: string[] = Object.keys(skills);
+
+  // const selectedSkills: TSkills[] = (skills as any)[selectedSkill];
   return (
     <div id="myskills" className="lg:mt-28 md:mt-20 mt-14  min-h-20 ">
-      <Container>
+      {/* <Container>
         <Title title="My Skills" />
         <div className="lg:px-20 md:px-14 lg:mt-10 mt-8">
           <ul className="flex flex-wrap lg:justify-start md:justify-start justify-center lg:mb-7 mb-5 lg:gap-5 md:gap-4 gap-3">
@@ -53,7 +65,7 @@ const MySkills = () => {
             </div>
           ))}
         </div>
-      </Container>
+      </Container> */}
     </div>
   );
 };
