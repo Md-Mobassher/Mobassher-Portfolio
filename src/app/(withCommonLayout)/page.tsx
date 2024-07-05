@@ -1,7 +1,7 @@
 import React from "react";
 import Intro from "./components/Intro";
 import About from "./components/About";
-import MySkills from "./components/MySkills";
+import MySkills from "./components/skills/MySkills";
 
 const HomePage = () => {
   return (
