@@ -1,16 +1,8 @@
-<<<<<<< HEAD
 # Md Mobassher Portfolio
 
 ## Deployment
 
-- **Live Link**: [Mobassher Portfolio]()
-=======
-# Project_name
-
-## Deployment
-
-- **Live Link**: [Pet Adoption Platform]()
->>>>>>> 09b79d9de211ffdc7c88b61bef197abbd497b430
+- **Live Link**: [Mobassher Portfolio](https://mobassher.vercel.app)
 
 ## Technologies Used
 
@@ -55,4 +47,4 @@ MIT License
 
 ## More Projects and Information
 
-👉 Explore additional projects and find out more about my work on my portfolio website: [Md Mobassher Hossain](https://dev-mobassher.web.app)
+👉 Explore additional projects and find out more about my work on my portfolio website: [Md Mobassher Hossain](https://mobassher.vercel.app)
