@@ -5,7 +5,7 @@ import assets from "@/assets";
 
 const Footer = () => {
   return (
-    <footer className=" border-t border-gray-300 lg:mt-20 md:mt-14 mt-10 mb-5 pt-5 pb-2 bg-slate-50">
+    <footer className=" border-t border-gray-700 lg:mt-20 md:mt-14 mt-10 mb-5 pt-5 pb-5">
       <div className="max-w-6xl mx-auto px-4 ">
         <div className="flex flex-wrap justify-between  lg:gap-10 gap-2 items-center py-3">
           <div>
