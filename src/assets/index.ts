@@ -8,6 +8,7 @@ const assets = {
     reddit: require("@/assets/icons/reddit.png"),
     twitter: require("@/assets/icons/twitter.png"),
     whatsapp: require("@/assets/icons/whatsapp.png"),
+    github: require("@/assets/icons/github.png"),
   },
   image: {
     logo: require("@/assets/images/logo.png"),

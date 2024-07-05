@@ -1,7 +1,12 @@
 import React from "react";
+import Intro from "./components/Intro";
 
 const HomePage = () => {
-  return <div className="max-w-7xl mx-auto px-4"></div>;
+  return (
+    <div className="container mx-auto px-4">
+      <Intro />
+    </div>
+  );
 };
 
 export default HomePage;
