@@ -1,8 +1,8 @@
 "use client";
 
-import { TPortfolio } from "@/type";
 import { ChangeEvent, useState } from "react";
-import PortfolioCard from "./PortfolioCard";
+import BlogCard from "./BlogCard";
+import { TBlog } from "@/type";
 import {
   Select,
   SelectContent,
@@ -13,71 +13,71 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 
-interface AllPortfoliosProps {
-  portfolios: TPortfolio[];
+interface AllBlogsProps {
+  blogs: TBlog[];
 }
 
-const AllPortfolios = ({ portfolios }: AllPortfoliosProps) => {
-  const [selectedTechnology, setSelectedTechnology] = useState<
+const AllBlogs = ({ blogs }: AllBlogsProps) => {
+  const [selectedCategory, setSelectedCategory] = useState<
     string | undefined
   >();
   const [search, setSearch] = useState<string>("");
 
-  const getFilteredPortfolios = () => {
-    let portfolio;
+  const getFilteredBlogs = () => {
+    let blog;
 
-    if (!selectedTechnology) {
-      portfolio = portfolios;
+    if (!selectedCategory) {
+      blog = blogs;
     }
     if (!search) {
-      portfolio = portfolios;
+      blog = blogs;
     }
 
-    if (selectedTechnology) {
-      portfolio = portfolios.filter((item: TPortfolio) =>
-        item.technology.includes(selectedTechnology)
+    if (selectedCategory) {
+      blog = blogs.filter((item: TBlog) =>
+        item.category.includes(selectedCategory)
       );
     }
     if (search) {
-      portfolio = portfolios.filter((item: TPortfolio) =>
-        item.name.toLowerCase().includes(search.toLowerCase())
+      blog = blogs?.filter((item: TBlog) =>
+        item?.title?.toLowerCase().includes(search.toLowerCase())
       );
     }
 
-    return portfolio;
+    return blog;
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
 
-  const uniqueTechnologies = Array.isArray(portfolios)
-    ? Array.from(new Set(portfolios.flatMap((project) => project.technology)))
-    : [];
+  const uniqueCategories = Array.from(
+    new Set(blogs.map((blog) => blog.category))
+  );
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-5">
+      <div className="flex justify-between items-center mb-10">
         <div className="flex items-center gap-1">
           <button
-            onClick={() => setSelectedTechnology(undefined)}
+            onClick={() => setSelectedCategory(undefined)}
             className="border border-green-500 text-md py-2 bg-green-500 hover:bg-green-700 text-white rounded-md transition duration-500 lg:px-6 md:px-5 px-3 uppercase cursor-pointer"
           >
             All
           </button>
-          <Select onValueChange={setSelectedTechnology} defaultValue="">
+          <Select onValueChange={setSelectedCategory} defaultValue="">
             <SelectTrigger className="lg:w-[180px] md:w-[170px] w-[140px] py-3  text-md hover:bg-green-500 bg-white text-green-600 border-green-500 hover:text-white rounded-md transition duration-500 lg:px-6 md:px-5 pl-3 pr-1  cursor-pointer text-center">
               <SelectValue className="" placeholder="Technology" />
             </SelectTrigger>
             <SelectContent className="w-[200px]">
               <SelectGroup>
-                {uniqueTechnologies.map((tech) => (
+                {uniqueCategories?.map((cat) => (
                   <SelectItem
-                    key={tech}
-                    value={tech}
+                    key={cat}
+                    value={cat}
                     className="py-2 m-0 text-md hover:bg-green-500 bg-white text-green-600 hover:text-white rounded-md transition duration-300 lg:px-6 md:px-5 pl-4  cursor-pointer"
                   >
-                    {tech}
+                    {cat}
                   </SelectItem>
                 ))}
               </SelectGroup>
@@ -88,9 +88,9 @@ const AllPortfolios = ({ portfolios }: AllPortfoliosProps) => {
           <h4 className="text-lg font-semibold">
             Total:{" "}
             <span className="text-green-500 px-1">
-              {getFilteredPortfolios()?.length || 0}
+              {getFilteredBlogs()?.length || 0}
             </span>{" "}
-            Project Found
+            Blog Found
           </h4>
         </div>
 
@@ -100,7 +100,7 @@ const AllPortfolios = ({ portfolios }: AllPortfoliosProps) => {
             type="text"
             className="border-green-500 text-center text-black"
             onChange={handleInputChange}
-            placeholder="Search Project"
+            placeholder="Search Blog"
           />
         </div>
       </div>
@@ -109,19 +109,19 @@ const AllPortfolios = ({ portfolios }: AllPortfoliosProps) => {
         <h4 className="text-md font-semibold">
           Total:{" "}
           <span className="text-cyan-500 px-1">
-            {getFilteredPortfolios()?.length || 0}
+            {getFilteredBlogs()?.length || 0}
           </span>{" "}
-          Project Found
+          Blog Found
         </h4>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 md:gap-7 gap-6 pt-5">
-        {getFilteredPortfolios()?.map((project: TPortfolio) => (
-          <PortfolioCard key={project._id} project={project} />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 md:gap-7 gap-6">
+        {getFilteredBlogs()?.map((blog) => (
+          <BlogCard key={blog._id} blog={blog} />
         ))}
       </div>
     </div>
   );
 };
 
-export default AllPortfolios;
+export default AllBlogs;

@@ -1,12 +1,12 @@
 export const navItemsData = [
   {
     title: "About",
-    url: "#about",
+    url: "/#about",
   },
 
   {
-    title: "Skill",
-    url: "#skill",
+    title: "Skills",
+    url: "/#myskills",
   },
 
   {

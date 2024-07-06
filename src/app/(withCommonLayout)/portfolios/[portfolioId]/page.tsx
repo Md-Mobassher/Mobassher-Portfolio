@@ -1,6 +1,5 @@
 import Container from "@/components/ui/Container";
 import Title from "@/components/ui/Title";
-import AllPortfolios from "../components/AllPortfolios";
 import PortfolioDetails from "../components/PortfolioDetails";
 
 type TPortfolioParams = {
