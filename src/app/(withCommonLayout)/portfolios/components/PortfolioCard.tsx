@@ -15,9 +15,9 @@ const PortfolioCard = ({ project }: { project: TPortfolio }) => {
   } = project;
   const router = useRouter();
 
-  const navigateToProjectDetail = (projectName: string) => {
-    console.log(projectName);
-    router.push(`/portfolios/${projectName.split(" ").join("-")}`);
+  const navigateToProjectDetail = (id: string) => {
+    // router.push(`/portfolios/${projectName.split(" ").join("-")}`);
+    router.push(`/portfolios/${id}`);
   };
 
   return (
@@ -81,7 +81,7 @@ const PortfolioCard = ({ project }: { project: TPortfolio }) => {
               )}
             </div>
             <div
-              onClick={() => navigateToProjectDetail(project.name)}
+              onClick={() => navigateToProjectDetail(project._id)}
               className="border-green-500 border px-2 rounded-sm transition text-md font-bold hover:text-white hover:bg-green-500  duration-300 cursor-pointer"
             >
               Details

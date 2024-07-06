@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <>
       <header className=" sticky top-0 z-50 bg-[#111A28] border-b border-gray-700 py-[2px] shadow-sm">
-        <div className="flex justify-between items-center container mx-auto px-4">
+        <div className="flex justify-between items-center max-w-7xl mx-auto px-4">
           <div className="w-[200px] ">
             <Link href="/">
               <Image
@@ -25,7 +25,7 @@ const Navbar = () => {
                 <Link
                   key={index}
                   href={item.url}
-                  className=" text-xl font-semibold  py-2 px-4 hover:text-white hover:bg-blue-500 rounded-md"
+                  className=" text-xl font-semibold  py-2 px-4 hover:text-white hover:bg-green-500 rounded-md"
                 >
                   {item.title}
                 </Link>

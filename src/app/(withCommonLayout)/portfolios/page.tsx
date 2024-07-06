@@ -35,7 +35,7 @@ const PortfoliosPage = async () => {
     return (
       <div id="portfolios" className=" ">
         <Container>
-          <Title title="Portfolios" />
+          <Title title="All Portfolios" />
           <p>Error loading projects.</p>
         </Container>
       </div>

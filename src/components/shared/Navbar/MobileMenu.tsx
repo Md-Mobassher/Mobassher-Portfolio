@@ -19,22 +19,22 @@ const MobileMenu = () => {
           aria-expanded={isOpen ? "true" : "false"}
         >
           {isOpen ? (
-            <div className="p-1 border border-blue-500 rounded-md text-blue-500 hover:bg-blue-500 hover:text-white">
+            <div className="p-1 border border-green-500 rounded-md bg-green-500 text-white">
               <X className="size-8" />
             </div>
           ) : (
-            <div className="p-1 flex justify-center items-center gap-2 border rounded-md hover:text-white hover:bg-blue-500">
+            <div className="p-1 flex justify-center items-center gap-2 border rounded-md hover:text-white hover:bg-green-500">
               <MenuIcon className="size-8" />
             </div>
           )}
           {isOpen && (
-            <div className=" mt-3 w-[250px] top-8 right-0 shadow-lg rounded-lg absolute transition-all duration-500 z-50 bg-gray-200 border border-blue-400 ">
+            <div className=" mt-3 w-[250px] top-8 right-0 shadow-lg rounded-lg absolute transition-all duration-500 z-50 bg-gray-200 border border-green-500 ">
               <nav className="w-full flex flex-col rounded-lg ">
                 {navItemsData.map((item, index) => (
                   <Link
                     key={index}
                     href={item.url}
-                    className=" text-xl font-semibold  py-2 px-4 hover:text-white hover:bg-blue-500 rounded-md"
+                    className=" text-xl font-semibold  py-2 px-4 hover:text-white hover:bg-green-500 rounded-md"
                   >
                     {item.title}
                   </Link>

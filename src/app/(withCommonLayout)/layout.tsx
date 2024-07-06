@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 
 const CommonLayoutPage = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="bg-[#111A28] text-slate-100 ">
+    <div className="bg-[#111A28]  text-slate-100 ">
       <Navbar />
-      {children}
+      <div className="max-w-7xl mx-auto">{children}</div>
       <Footer />
     </div>
   );
