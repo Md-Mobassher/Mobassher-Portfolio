@@ -6,7 +6,7 @@ type TTitle = {
 
 const Title = ({ title }: TTitle) => {
   return (
-    <div className="lg:mt-10 mt-5 flex lg:justify-start md:justify-start  justify-center lg:mb-5 md:mb-4 mb-2">
+    <div className="lg:mt-10 mt-5 flex lg:justify-start md:justify-start  justify-center lg:mb-8 md:mb-7 mb-5">
       <div className="lg:hidden md:hidden flex justify-end items-center mr-2">
         <Separator className="lg:w-40 md:w-36 w-20 border border-[#02CF5F]" />
       </div>

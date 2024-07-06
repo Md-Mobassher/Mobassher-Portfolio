@@ -18,10 +18,10 @@ export const navItemsData = [
     title: "Blog",
     url: "/blog",
   },
-  {
-    title: "Testimonials",
-    url: "/testimonials",
-  },
+  // {
+  //   title: "Testimonials",
+  //   url: "/testimonials",
+  // },
   {
     title: "Contact",
     url: "#contact",

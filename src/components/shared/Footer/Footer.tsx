@@ -6,21 +6,22 @@ import assets from "@/assets";
 const Footer = () => {
   return (
     <footer className=" border-t border-gray-700 lg:mt-20 md:mt-14 mt-10 pt-5 pb-5">
-      <div className="max-w-6xl mx-auto px-4 ">
-        <div className="flex flex-wrap justify-between  lg:gap-10 gap-2 items-center py-3">
-          <div>
+      <div className="max-w-7xl mx-auto px-4 ">
+        <div className="flex lg:flex-row md:flex-row flex-col lg:justify-between md:justify-between lg:gap-10 gap-2 items-center py-3">
+          <div className="flex gap-5 items-center">
             <Link href="/">
               <Image
-                src={assets.image.fLogo}
+                src={assets.image.logo}
                 alt="ngit logo"
                 width={100}
                 height={100}
               />
             </Link>
+            <p>Providing reliable tech since 2023</p>
           </div>
           <div>
             <h3 className="text-2xl font-semibold text-center">
-              Contact Us Via
+              Contact Me Via
             </h3>
             <div className="flex flex-wrap mt-4">
               {socialData.map((item) => (
@@ -46,7 +47,7 @@ const Footer = () => {
         </div>
 
         {/* copyright */}
-        <div className="flex md:flex-row flex-col lg:gap-5 gap-2 items-center justify-between mt-3">
+        <div className="flex items-center justify-center mt-3">
           <p className="text-center">
             Copyright &copy; {new Date().getFullYear()}. All right regerved to{" "}
             <Link

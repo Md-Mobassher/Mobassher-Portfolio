@@ -13,7 +13,7 @@ const PortfoliosPage = async () => {
     });
 
     if (!res.ok) {
-      throw new Error("Failed to fetch projects");
+      throw new Error("Failed to fetch portfolios");
     }
 
     const data = await res.json();
@@ -25,18 +25,18 @@ const PortfoliosPage = async () => {
     return (
       <div id="portfolios" className=" ">
         <Container>
-          <Title title="Portfolios" />
+          <Title title="All Portfolios" />
           <AllPortfolios portfolios={projects} />
         </Container>
       </div>
     );
   } catch (error) {
-    console.error("Error fetching projects:", error);
+    console.error("Error fetching portfolios:", error);
     return (
       <div id="portfolios" className=" ">
         <Container>
           <Title title="All Portfolios" />
-          <p>Error loading projects.</p>
+          <p>Error loading portfolios.</p>
         </Container>
       </div>
     );
