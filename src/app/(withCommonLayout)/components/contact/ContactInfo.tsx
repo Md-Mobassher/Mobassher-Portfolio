@@ -9,7 +9,7 @@ const ContactInfo = () => {
       <h1 className="lg:text-3xl md:text-2xl text-xl font-semibold text-center">
         Contact <span className="text-green-500"> Info</span>
       </h1>
-      <div className=" mx-auto lg:mt-10 mt-6">
+      <div className="max-w-sm mx-auto lg:mt-10 mt-6">
         <div className="flex justify-start max-w-sm items-center ">
           <div>
             <FcManager className="w-10 h-10 mr-6 text-green-500"></FcManager>

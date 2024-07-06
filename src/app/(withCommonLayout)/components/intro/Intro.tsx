@@ -1,6 +1,7 @@
 import { Dot, MoveRight } from "lucide-react";
-import UseIcon from "../../../components/ui/UseIcon";
+import UseIcon from "../../../../components/ui/UseIcon";
 import IntroButton from "./IntroButton";
+import { Separator } from "@/components/ui/separator";
 
 const Intro = () => {
   return (
@@ -29,10 +30,18 @@ const Intro = () => {
           </div>
 
           <IntroButton />
-          <div className="lg:mt-12 mt-10 flex lg:justify-start md:justify-start  justify-center mb-2">
-            <h4 className="lg:text-2xl md:text-xl text-xl  font-semibold divider lg:w-1/3 md:w-1/3 w-2/3 ">
-              Follow Me
-            </h4>
+
+          {/* follow */}
+          <div className="lg:mt-14  mt-14 flex lg:justify-start md:justify-start  justify-center ">
+            <div className="lg:hidden md:hidden flex justify-end items-center mr-2">
+              <Separator className="lg:w-40 md:w-36 w-20  border border-[#02CF5F]" />
+            </div>
+            <div>
+              <h4 className=" text-2xl  font-bold ">Follow Me</h4>
+            </div>
+            <div className="flex justify-start items-center ml-2">
+              <Separator className="lg:w-40 md:w-36 w-20  border border-[#02CF5F]" />
+            </div>
           </div>
           <UseIcon />
         </div>
