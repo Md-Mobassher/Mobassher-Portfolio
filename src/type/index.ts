@@ -11,3 +11,10 @@ export type TPortfolio = {
   clientUrl?: string;
   serverUrl?: string;
 };
+
+export type TSkill = {
+  _id: string;
+  name: string;
+  proficiencyLevel: string;
+  category: string;
+};

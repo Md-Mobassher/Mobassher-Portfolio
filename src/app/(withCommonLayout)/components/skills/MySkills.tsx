@@ -1,34 +1,43 @@
 import Container from "@/components/ui/Container";
 import Title from "@/components/ui/Title";
 import Skills from "./Skills";
-
-export type TSkill = {
-  _id: string;
-  name: string;
-  proficiencyLevel: string;
-  category: string;
-};
+import { TSkill } from "@/type";
 
 const MySkills = async () => {
-  const res = await fetch(` ${process.env.NEXT_PUBLIC_SERVER_URL}/skills`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    cache: "force-cache",
-  });
-  const skills = await res.json();
-  // console.log(skills?.data);
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/skills`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      cache: "force-cache",
+    });
 
-  return (
-    <div id="myskills" className="lg:mt-28 md:mt-20 mt-14  min-h-20 ">
-      <Container>
-        <Title title="My Skills" />
+    if (!res.ok) {
+      throw new Error("Failed to fetch skills");
+    }
 
-        <Skills {...(skills as TSkill[])} />
-      </Container>
-    </div>
-  );
+    const { data: skills } = await res.json();
+
+    return (
+      <div id="myskills" className="lg:mt-28 md:mt-20 mt-14 min-h-20">
+        <Container>
+          <Title title="My Skills" />
+          <Skills skills={skills as TSkill[]} />
+        </Container>
+      </div>
+    );
+  } catch (error) {
+    console.error(error);
+    return (
+      <div id="myskills" className="lg:mt-28 md:mt-20 mt-14 min-h-20">
+        <Container>
+          <Title title="My Skills" />
+          <p>Error loading skills. Please try again later.</p>
+        </Container>
+      </div>
+    );
+  }
 };
 
 export default MySkills;
