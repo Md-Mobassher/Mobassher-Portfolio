@@ -28,7 +28,7 @@ const MobileMenu = () => {
             </div>
           )}
           {isOpen && (
-            <div className=" mt-3 w-[250px] top-8 right-0 shadow-lg rounded-lg absolute transition-all duration-500 z-50 bg-gray-200 border border-green-500 ">
+            <div className=" mt-3 w-[250px] top-8 right-0 shadow-lg rounded-lg absolute transition-all duration-500 z-50 bg-gray-300 border border-green-500 ">
               <nav className="w-full flex flex-col rounded-lg ">
                 {navItemsData.map((item, index) => (
                   <Link

@@ -3,7 +3,7 @@ import Navbar from "@/components/shared/Navbar/Navbar";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mobassher Portfolio",
+  title: "Mobassher Hossain | Full-Stack Developer",
   description: "This is Md Mobassher Hossain Portfolio website",
 };
 

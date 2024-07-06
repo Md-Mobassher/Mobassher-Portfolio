@@ -7,15 +7,15 @@ import MobileMenu from "./MobileMenu";
 const Navbar = () => {
   return (
     <>
-      <header className=" sticky top-0 z-50 bg-[#111A28] border-b border-gray-700 py-[2px] shadow-sm">
+      <header className=" sticky top-0 z-50 bg-[#111A28] border-b border-gray-700 py-2 shadow-sm">
         <div className="flex justify-between items-center max-w-7xl mx-auto px-4">
           <div className="w-[200px] ">
             <Link href="/">
               <Image
                 src={assets.image.logo}
                 alt="logo"
-                width={60}
-                height={60}
+                width={50}
+                height={50}
               />
             </Link>
           </div>
