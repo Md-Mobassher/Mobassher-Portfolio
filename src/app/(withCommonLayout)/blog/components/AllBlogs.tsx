@@ -56,7 +56,7 @@ const AllBlogs = ({ blogs }: AllBlogsProps) => {
   );
 
   return (
-    <div>
+    <div className="min-h-[300px]">
       <div className="flex justify-between items-center mb-10">
         <div className="flex items-center gap-1">
           <button

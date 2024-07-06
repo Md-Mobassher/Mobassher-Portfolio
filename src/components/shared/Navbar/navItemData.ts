@@ -24,7 +24,7 @@ export const navItemsData = [
   // },
   {
     title: "Contact",
-    url: "#contact",
+    url: "/#contact",
   },
   {
     title: "Resume",
