@@ -23,7 +23,7 @@ const MobileMenu = () => {
               <X className="size-8" />
             </div>
           ) : (
-            <div className="p-1 flex justify-center items-center gap-2 border rounded-md hover:text-white hover:bg-green-500">
+            <div className="p-1 flex justify-center items-center gap-2 rounded-md text-white hover:border bg-green-500">
               <MenuIcon className="size-8" />
             </div>
           )}
