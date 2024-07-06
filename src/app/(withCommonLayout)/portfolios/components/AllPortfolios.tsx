@@ -1,67 +1,125 @@
 "use client";
 
 import { TPortfolio } from "@/type";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import PortfolioCard from "./PortfolioCard";
+import Button from "@/components/ui/Button";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
 
-const AllPortfolios = (portfolios: TPortfolio[]) => {
-  const [projects] = useState<TPortfolio[]>(portfolios);
-  const [selectedCategory, setSelectedCategory] = useState<
+interface AllPortfoliosProps {
+  portfolios: TPortfolio[];
+}
+
+const AllPortfolios = ({ portfolios }: AllPortfoliosProps) => {
+  const [selectedTechnology, setSelectedTechnology] = useState<
     string | undefined
   >();
+  const [search, setSearch] = useState<string>("");
 
-  const getFilteredProjects = () => {
-    if (!selectedCategory) {
-      return projects;
+  const getFilteredPortfolios = () => {
+    let portfolio;
+
+    if (!selectedTechnology) {
+      portfolio = portfolios;
     }
-    return projects.filter((item: TPortfolio) =>
-      item.technology.some(
-        (tech) => tech.toLowerCase() === selectedCategory.toLowerCase()
-      )
-    );
+    if (!search) {
+      portfolio = portfolios;
+    }
+
+    if (selectedTechnology) {
+      portfolio = portfolios.filter((item: TPortfolio) =>
+        item.technology.includes(selectedTechnology)
+      );
+    }
+    if (search) {
+      portfolio = portfolios.filter((item: TPortfolio) =>
+        item.name.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
+    return portfolio;
   };
 
-  const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCategory(e.target.value);
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
   };
 
-  const uniqueTechnologies = Array.from(
-    new Set(portfolios.flatMap((project) => project.technology))
-  );
+  const uniqueTechnologies = Array.isArray(portfolios)
+    ? Array.from(new Set(portfolios.flatMap((project) => project.technology)))
+    : [];
 
   return (
     <div>
-      <div className="lg:px-20 md:px-14 lg:mt-10 mt-8">
-        <div className="flex flex-wrap lg:justify-start md:justify-start justify-center lg:mb-10 mb-7 md:mb-8">
+      <div className="flex justify-between items-center mb-5">
+        <div className="flex gap-1">
           <button
-            onClick={() => setSelectedCategory(undefined)}
-            className="btn btn-primary hover:bg-green-400 transition duration-500 text-white mr-1"
+            onClick={() => setSelectedTechnology(undefined)}
+            className="border border-green-500 text-md py-2 bg-green-500 hover:bg-green-700 text-white rounded-md transition duration-500 lg:px-6 md:px-5 px-3 uppercase cursor-pointer"
           >
             All
           </button>
+          <Select onValueChange={setSelectedTechnology} defaultValue="">
+            <SelectTrigger className="lg:w-[180px] md:w-[170px] w-[140px] py-3  text-md hover:bg-green-500 bg-white text-green-600 border-green-500 hover:text-white rounded-md transition duration-500 lg:px-6 md:px-5 pl-3 pr-1  cursor-pointer text-center">
+              <SelectValue className="" placeholder="Technology" />
+            </SelectTrigger>
+            <SelectContent className="w-[200px]">
+              <SelectGroup>
+                {uniqueTechnologies.map((tech) => (
+                  <SelectItem
+                    key={tech}
+                    value={tech}
+                    className="py-2 m-0 text-md hover:bg-green-500 bg-white text-green-600 hover:text-white rounded-md transition duration-300 lg:px-6 md:px-5 pl-4  cursor-pointer"
+                  >
+                    {tech}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="hidden md:flex">
+          <h4 className="text-lg font-semibold">
+            Total:{" "}
+            <span className="text-green-500 px-1">
+              {getFilteredPortfolios()?.length || 0}
+            </span>{" "}
+            Project Found
+          </h4>
+        </div>
 
-          <select
-            onChange={handleCategoryChange}
-            className="select select-primary bg-gray-800"
-          >
-            <option value="" disabled selected>
-              Select Technology
-            </option>
-            {uniqueTechnologies.map((tech) => (
-              <option key={tech} value={tech}>
-                {tech}
-              </option>
-            ))}
-          </select>
+        {/* Search */}
+        <div className="lg:w-[180px] md:w-[170px] w-[120px] ">
+          <Input
+            type="text"
+            className="border-green-500 text-center text-black"
+            onChange={handleInputChange}
+            placeholder="Search Project"
+          />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 md:gap-7 gap-6">
-        {getFilteredProjects()
-          .slice(0, 6)
-          .map((project: TPortfolio) => (
-            <PortfolioCard key={project.name} project={project} />
-          ))}
+      <div className="flex md:hidden justify-center mb-5">
+        <h4 className="text-md font-semibold">
+          Total:{" "}
+          <span className="text-cyan-500 px-1">
+            {getFilteredPortfolios()?.length || 0}
+          </span>{" "}
+          Project Found
+        </h4>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 md:gap-7 gap-6 pt-5">
+        {getFilteredPortfolios()?.map((project: TPortfolio) => (
+          <PortfolioCard key={project._id} project={project} />
+        ))}
       </div>
     </div>
   );

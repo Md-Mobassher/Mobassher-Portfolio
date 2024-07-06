@@ -1,4 +1,5 @@
 export type TPortfolio = {
+  _id: string;
   name: string;
   type: string;
   description: string[];
