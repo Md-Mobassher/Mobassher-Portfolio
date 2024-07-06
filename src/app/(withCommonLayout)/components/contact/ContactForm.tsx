@@ -1,7 +1,6 @@
 "use client";
 
 import { toast } from "react-toastify";
-// import emailjs from "@emailjs/browser";
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 
@@ -13,13 +12,27 @@ const ContactForm = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data: Record<string, string>) => {
+  const onSubmit = async (value: Record<string, string>) => {
     try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(value),
+        cache: "no-store",
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to contact.");
+      }
+
+      const data = await res.json();
       console.log(data);
-      //   await emailjs.send("service_6ioyfyn", "template_vcxutb8", data, {
-      //     publicKey: "KYzXXSYc5Sml-ySqX",
-      //   });
-      toast.success("Successfully Contacted.");
+
+      if (data.success) {
+        toast.success(data?.message || "Successfully Contacted.");
+      }
       reset();
     } catch (err) {
       if (err instanceof Error) {
@@ -133,7 +146,7 @@ const ContactForm = () => {
 
               <div className="flex lg:justify-end md:justify-end justify-center mt-2 hover:text-white">
                 <Input
-                  className="btn px-10  btn-primary bg-green-500 border-0 text-center text-white "
+                  className="btn px-10  btn-primary bg-green-500 border-0 text-center text-white cursor-pointer"
                   type="submit"
                   value="Contact"
                 />
