@@ -16,7 +16,7 @@ const BlogDetailsPage = async ({ params }: TBlogParams) => {
         headers: {
           "Content-Type": "application/json",
         },
-        cache: "force-cache",
+        cache: "no-store",
       }
     );
 

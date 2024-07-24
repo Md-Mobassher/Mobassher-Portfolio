@@ -7,7 +7,7 @@ import { ToastContainer } from "react-toastify";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Mobassher Hossain | Full Stack Developer",
+  title: "Mobassher Hossain | Full-Stack Developer",
   description: "This is Md Mobassher Hossain Portfolio website",
 };
 

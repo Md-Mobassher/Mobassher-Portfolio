@@ -1,4 +1,4 @@
-import { Dot, MoveRight } from "lucide-react";
+import { MoveRight } from "lucide-react";
 import UseIcon from "../../../../components/ui/UseIcon";
 import IntroButton from "./IntroButton";
 import { Separator } from "@/components/ui/separator";

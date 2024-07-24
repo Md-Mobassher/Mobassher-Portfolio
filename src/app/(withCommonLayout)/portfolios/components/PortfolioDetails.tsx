@@ -112,7 +112,7 @@ const PortfolioDetails = (project: TPortfolio) => {
         </div>
       </div>
 
-      <div>{image.landing && <Image src={image.landing} alt={name} />}</div>
+      <div>{image.landing && <Image src={image?.landing} alt={name} />}</div>
     </div>
   );
 };

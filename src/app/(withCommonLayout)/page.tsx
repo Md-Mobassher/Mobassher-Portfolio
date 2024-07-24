@@ -8,7 +8,7 @@ import MyPortfolios from "./components/portfolios/MyPortfolios";
 
 const HomePage = () => {
   return (
-    <div className="container mx-auto px-4">
+    <div className="">
       <Intro />
       <About />
       <MySkills />

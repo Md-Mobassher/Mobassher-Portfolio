@@ -10,7 +10,7 @@ const MyPortfolios = async () => {
       headers: {
         "Content-Type": "application/json",
       },
-      cache: "force-cache",
+      cache: "no-store",
     });
 
     if (!res.ok) {

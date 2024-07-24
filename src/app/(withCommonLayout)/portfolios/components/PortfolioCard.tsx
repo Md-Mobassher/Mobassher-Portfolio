@@ -26,7 +26,7 @@ const PortfolioCard = ({ project }: { project: TPortfolio }) => {
         <figure className="h-full">
           <Image
             className="w-full h-full object-cover object-center rounded-t-md "
-            src={image.cover}
+            src={image?.cover}
             alt={name}
             width={350}
             height={200}

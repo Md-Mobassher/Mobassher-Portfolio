@@ -14,13 +14,15 @@ const BlogCard = ({ blog }: BlogCardProps) => {
 
   return (
     <div className="border bg-gray-800 rounded-md border-gray-700">
-      <Image
-        src={blog.coverImage}
-        alt={blog.title}
-        className="card-img-top border-b border-gray-700"
-        width={600}
-        height={300}
-      />
+      {blog.coverImage && (
+        <Image
+          src={blog?.coverImage}
+          alt={blog.title}
+          className="card-img-top border-b border-gray-700"
+          width={600}
+          height={300}
+        />
+      )}
       <div className="card-body p-4">
         <h5 className="card-title">{blog.title}</h5>
         <p className="card-text">{blog.content}</p>
