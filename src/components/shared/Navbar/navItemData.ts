@@ -11,12 +11,12 @@ export const navItemsData = [
 
   {
     title: "Portfolios",
-    url: "/portfolios",
+    url: "/#portfolios",
   },
 
   {
     title: "Blog",
-    url: "/blog",
+    url: "/#blog",
   },
   // {
   //   title: "Testimonials",
