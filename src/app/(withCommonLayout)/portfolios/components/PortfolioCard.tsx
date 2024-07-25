@@ -30,7 +30,7 @@ const PortfolioCard = ({ project }: { project: TPortfolio }) => {
               src={image?.cover}
               alt={name}
               width={350}
-              height={200}
+              height={250}
             />
           ) : (
             <Image
@@ -38,7 +38,7 @@ const PortfolioCard = ({ project }: { project: TPortfolio }) => {
               src={assets.image.noImage}
               alt={name}
               width={350}
-              height={200}
+              height={250}
             />
           )}
         </figure>

@@ -35,14 +35,14 @@ const BlogDetails = ({
         />
       </div>
       <div className="lg:flex gap-10">
-        <div className="lg:w-3/4">
+        <div className="lg:w-3/4 mx-auto">
           {content && <BlogContent content={content} />}
         </div>
-        <div className="lg:w-1/4 border border-gray-700 p-4 rounded-lg ">
+        {/* <div className="lg:w-1/4 border border-gray-700 p-4 rounded-lg ">
           <h2 className="text-xl font-semibold mb-4">Category</h2>
           <p className="mb-4">{category}</p>
           <h2 className="text-xl font-semibold mb-4">Recent Posts</h2>
-          {/* Replace with dynamic recent posts */}
+  
           <ul>
             <li className="mb-2">
               <a href="#" className="text-blue-600 hover:underline">
@@ -60,7 +60,7 @@ const BlogDetails = ({
               </a>
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </div>
   );

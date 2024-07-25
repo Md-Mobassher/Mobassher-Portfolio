@@ -1,0 +1,16 @@
+export const uniqueTechnologies = [
+  "React",
+  "Next.js",
+  "Redux",
+  "TypeScript",
+  "Node",
+  "Express",
+  "MongoDB",
+  "Mongoose",
+  "Tailwind",
+  "Material UI",
+  "Ant Design",
+  "Shadcn",
+  "Firebase",
+  "Vercel",
+];

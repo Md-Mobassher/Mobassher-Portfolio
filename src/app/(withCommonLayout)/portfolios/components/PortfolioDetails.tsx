@@ -17,33 +17,31 @@ const PortfolioDetails = (project: TPortfolio) => {
   return (
     <div>
       <div className=" bg-gray-800 border-gray-700 border rounded-lg mt-1 z-0">
-        <div className="items-center text-justify justify-start  lg:pt-10 p-5 lg:px-20 ">
+        <div className="items-center justify-start  lg:py-10 p-5 lg:px-20 ">
           {name && (
-            <div className="flex">
-              <p className="mb-3 font-bold lg:text-xl">
-                Project Name:
-                <span className="text-white ml-2 font-semibold lg:text-xl">
-                  {name}
-                </span>
+            <div className="flex lg:text-2xl">
+              <p className="mb-3 font-bold ">
+                Name:
+                <span className=" ml-2 font-bold text-green-500">{name}</span>
               </p>
             </div>
           )}
           {type && (
             <div className="flex">
               <p className="mb-3 font-bold lg:text-xl">
-                Project Type:
+                Type:
                 <span className=" ml-2 font-semibold lg:text-xl">{type}</span>
               </p>
             </div>
           )}
           {description.length > 0 && (
             <div className="">
-              <p className="mb-1 font-bold lg:text-xl ">Project Details:</p>
-              <div className="mb-3 ml-10">
+              <p className="mb-3 font-bold lg:text-xl ">Details:</p>
+              <div className="mb-3 lg:ml-10 md:ml-5">
                 {description.map((item, index) => (
                   <div
                     key={index}
-                    className="flex justify-start items-start gap-3"
+                    className="flex justify-start items-start gap-3 mb-2"
                   >
                     <div className="flex justify-center items-start">
                       <MoveRight className="size-7 text-[#02CF5F]" />
@@ -56,20 +54,18 @@ const PortfolioDetails = (project: TPortfolio) => {
           )}
 
           {technology.length > 0 && (
-            <div className="flex">
-              <p className="mb-3 font-bold lg:text-xl ">
-                Technology:
-                <span className=" ml-2 font-semibold lg:text-lg">
-                  {technology.map((tech, index) => (
-                    <div key={index}>
-                      <div className="flex justify-start gap-4 items-start ml-10">
-                        <MoveRight className="size-7 text-[#02CF5F]" />{" "}
-                        <div className="text-md font-semibold">{tech}</div>
-                      </div>
+            <div className=" mt-8 pb-3">
+              <p className=" font-bold lg:text-xl mb-3 ">Technology: </p>
+              <div className="font-semibold lg:text-lg ">
+                {technology.map((tech, index) => (
+                  <div key={index}>
+                    <div className="flex justify-start gap-4 items-start lg:ml-10 md:ml-5 mb-1">
+                      <MoveRight className="size-7 text-[#02CF5F]" />{" "}
+                      <div className="text-md ">{tech}</div>
                     </div>
-                  ))}
-                </span>
-              </p>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
