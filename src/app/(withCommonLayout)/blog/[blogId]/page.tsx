@@ -25,7 +25,7 @@ const BlogDetailsPage = async ({ params }: TBlogParams) => {
     }
 
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
 
     return (
       <div id="blogDetails" className=" ">

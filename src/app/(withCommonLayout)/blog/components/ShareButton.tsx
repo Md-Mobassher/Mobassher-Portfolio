@@ -3,13 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import assets from "@/assets";
-import {
-  FaFacebook,
-  FaTwitter,
-  FaLinkedin,
-  FaWhatsapp,
-  FaLink,
-} from "react-icons/fa";
 
 const ShareButton = ({ title }: { title: string }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,7 +52,7 @@ const ShareButton = ({ title }: { title: string }) => {
       </button>
 
       {isOpen && (
-        <div className="absolute top-10 mt-2 w-48 bg-gray-700 border border-green-400 rounded-lg shadow-lg">
+        <div className="absolute right-0 mt-2 w-48 bg-gray-700 border border-green-400 rounded-lg shadow-lg">
           <button
             onClick={() => shareOnSocialMedia("linkedin")}
             className="w-full px-4 py-2 text-left flex items-center gap-2 hover:bg-green-500 rounded-t-lg"

@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import PortfolioCard from "../../portfolios/components/PortfolioCard";
+import { uniqueTechnologies } from "../../portfolios/components/Technology";
 
 interface AllPortfoliosProps {
   portfolios: TPortfolio[];
@@ -51,9 +52,9 @@ const Portfolios = ({ portfolios }: AllPortfoliosProps) => {
     setSearch(event.target.value);
   };
 
-  const uniqueTechnologies = Array.isArray(portfolios)
-    ? Array.from(new Set(portfolios.flatMap((project) => project.technology)))
-    : [];
+  // const uniqueTechnologies = Array.isArray(portfolios)
+  //   ? Array.from(new Set(portfolios.flatMap((project) => project.technology)))
+  //   : [];
 
   return (
     <div>
@@ -90,7 +91,7 @@ const Portfolios = ({ portfolios }: AllPortfoliosProps) => {
             <span className="text-green-500 px-1">
               {getFilteredPortfolios()?.length || 0}
             </span>{" "}
-            Project Found
+            Portfolios Found
           </h4>
         </div>
 
@@ -100,7 +101,7 @@ const Portfolios = ({ portfolios }: AllPortfoliosProps) => {
             type="text"
             className="border-green-500 text-center text-black"
             onChange={handleInputChange}
-            placeholder="Search Project"
+            placeholder="Search"
           />
         </div>
       </div>
@@ -111,7 +112,7 @@ const Portfolios = ({ portfolios }: AllPortfoliosProps) => {
           <span className="text-cyan-500 px-1">
             {getFilteredPortfolios()?.length || 0}
           </span>{" "}
-          Project Found
+          Portfolios Found
         </h4>
       </div>
 
