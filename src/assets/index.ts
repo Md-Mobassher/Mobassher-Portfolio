@@ -9,6 +9,8 @@ const assets = {
     twitter: require("./icons/twitter.png"),
     whatsapp: require("./icons/whatsapp.png"),
     github: require("./icons/github.png"),
+    link: require("./icons/link.png"),
+    share: require("./icons/share.png"),
   },
   image: {
     favicon: require("./images/logo.webp"),

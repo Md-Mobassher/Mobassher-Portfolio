@@ -1,9 +1,10 @@
 import Container from "@/components/ui/Container";
 import Title from "@/components/ui/Title";
 import { TBlog } from "@/type";
-import AllBlogs from "./components/AllBlogs";
+import Blogs from "./Blogs";
+import Link from "next/link";
 
-const BlogPage = async () => {
+const MyBlogs = async () => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/blogs`, {
       method: "GET",
@@ -20,11 +21,20 @@ const BlogPage = async () => {
     const data = await res.json();
     // console.log(data);
 
+    const blogs = Array.isArray(data?.data) ? data?.data : [];
+
     return (
-      <div id="blog" className="">
+      <div id="blog" className=" lg:mt-28 md:mt-24 mt-20">
         <Container>
-          <Title title="My Blogs" />
-          <AllBlogs blogs={data?.data as TBlog[]} />
+          <Title title="My Blog" />
+          <Blogs blogs={blogs as TBlog[]} />
+          <div className="mt-10 text-center">
+            <Link href={"/blog"}>
+              <button className="bg-green-500 rounded-md px-5 py-2">
+                View All Blog
+              </button>
+            </Link>
+          </div>
         </Container>
       </div>
     );
@@ -41,4 +51,4 @@ const BlogPage = async () => {
   }
 };
 
-export default BlogPage;
+export default MyBlogs;

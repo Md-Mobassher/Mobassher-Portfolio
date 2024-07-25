@@ -67,7 +67,7 @@ const AllBlogs = ({ blogs }: AllBlogsProps) => {
           </button>
           <Select onValueChange={setSelectedCategory} defaultValue="">
             <SelectTrigger className="lg:w-[180px] md:w-[170px] w-[140px] py-3  text-md hover:bg-green-500 bg-white text-green-600 border-green-500 hover:text-white rounded-md transition duration-500 lg:px-6 md:px-5 pl-3 pr-1  cursor-pointer text-center">
-              <SelectValue className="" placeholder="Technology" />
+              <SelectValue className="" placeholder="Category" />
             </SelectTrigger>
             <SelectContent className="w-[200px]">
               <SelectGroup>
