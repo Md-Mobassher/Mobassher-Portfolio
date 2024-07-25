@@ -1,6 +1,6 @@
 const assets = {
   icons: {
-    email: require("./icons/email.png"),
+    email: require("./icons/gmail.png"),
     facebook: require("./icons/facebook.png"),
     instagram: require("./icons/instagram.png"),
     linkedIn: require("./icons/linkedin.png"),

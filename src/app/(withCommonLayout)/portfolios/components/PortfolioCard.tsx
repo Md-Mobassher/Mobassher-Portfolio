@@ -1,3 +1,4 @@
+import assets from "@/assets";
 import { TPortfolio } from "@/type";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -16,7 +17,6 @@ const PortfolioCard = ({ project }: { project: TPortfolio }) => {
   const router = useRouter();
 
   const navigateToProjectDetail = (id: string) => {
-    // router.push(`/portfolios/${projectName.split(" ").join("-")}`);
     router.push(`/portfolios/${id}`);
   };
 
@@ -24,13 +24,23 @@ const PortfolioCard = ({ project }: { project: TPortfolio }) => {
     <div className="card bg-slate-800 rounded-md  max-w-sm mx-auto shadow-2xl">
       <div className="h-44 ">
         <figure className="h-full">
-          <Image
-            className="w-full h-full object-cover object-center rounded-t-md "
-            src={image?.cover}
-            alt={name}
-            width={350}
-            height={200}
-          />
+          {image.cover ? (
+            <Image
+              className="w-full h-full object-cover object-center rounded-t-md "
+              src={image?.cover}
+              alt={name}
+              width={350}
+              height={200}
+            />
+          ) : (
+            <Image
+              className="w-full h-full object-cover object-center rounded-t-md "
+              src={assets.image.noImage}
+              alt={name}
+              width={350}
+              height={200}
+            />
+          )}
         </figure>
       </div>
 

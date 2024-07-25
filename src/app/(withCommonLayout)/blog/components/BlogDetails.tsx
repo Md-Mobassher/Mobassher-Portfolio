@@ -36,7 +36,7 @@ const BlogDetails = ({
       </div>
       <div className="lg:flex gap-10">
         <div className="lg:w-3/4">
-          <BlogContent content={content} />
+          {content && <BlogContent content={content} />}
         </div>
         <div className="lg:w-1/4 border border-gray-700 p-4 rounded-lg ">
           <h2 className="text-xl font-semibold mb-4">Category</h2>
