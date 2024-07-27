@@ -35,7 +35,7 @@ const BlogCard = ({ blog }: BlogCardProps) => {
         <div className="flex justify-between items-end mt-auto">
           <button
             onClick={() => navigateToBlogDetail(blog?._id)}
-            className="bg-green-500 px-5 py-2 rounded-md mt-5"
+            className="bg-[#00CF5D] hover:bg-green-500 px-5 py-2 rounded-md mt-5"
           >
             Details
           </button>

@@ -45,7 +45,7 @@ const ShareButton = ({ title }: { title: string }) => {
     <div className="relative inline-block">
       <button
         onClick={toggleDropdown}
-        className="border border-green-500 hover:bg-green-500 text-white rounded-lg px-4 py-2 flex justify-center items-center gap-2 bg-gray-700"
+        className="border border-green-500 hover:bg-green-500 text-white rounded-lg px-4 py-2 flex justify-center items-center gap-2 bg-gray-800"
       >
         <Image src={assets.icons.share} alt="share" width={20} height={20} />{" "}
         Share

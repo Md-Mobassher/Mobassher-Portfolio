@@ -22,7 +22,7 @@ const PortfolioDetails = (project: TPortfolio) => {
             <div className="flex lg:text-2xl">
               <p className="mb-3 font-bold ">
                 Name:
-                <span className=" ml-2 font-bold text-green-500">{name}</span>
+                <span className=" ml-2 font-bold text-[#00CF5D]">{name}</span>
               </p>
             </div>
           )}
@@ -34,6 +34,7 @@ const PortfolioDetails = (project: TPortfolio) => {
               </p>
             </div>
           )}
+
           {description.length > 0 && (
             <div className="">
               <p className="mb-3 font-bold lg:text-xl ">Details:</p>
@@ -44,7 +45,7 @@ const PortfolioDetails = (project: TPortfolio) => {
                     className="flex justify-start items-start gap-3 mb-2"
                   >
                     <div className="flex justify-center items-start">
-                      <MoveRight className="size-7 text-[#02CF5F]" />
+                      <MoveRight className="size-7 text-[#00CF5D]" />
                     </div>
                     <div>{item}</div>
                   </div>
@@ -56,11 +57,11 @@ const PortfolioDetails = (project: TPortfolio) => {
           {technology.length > 0 && (
             <div className=" mt-8 pb-3">
               <p className=" font-bold lg:text-xl mb-3 ">Technology: </p>
-              <div className="font-semibold lg:text-lg ">
+              <div className="font-semibold lg:text-md">
                 {technology.map((tech, index) => (
                   <div key={index}>
                     <div className="flex justify-start gap-4 items-start lg:ml-10 md:ml-5 mb-1">
-                      <MoveRight className="size-7 text-[#02CF5F]" />{" "}
+                      <MoveRight className="size-7 text-[#00CF5D]" />{" "}
                       <div className="text-md ">{tech}</div>
                     </div>
                   </div>
@@ -70,36 +71,36 @@ const PortfolioDetails = (project: TPortfolio) => {
           )}
 
           {liveUrl && (
-            <p className="mb-8 mt-5 font-bold  lg:text-xl">
+            <p className="mb-8 mt-5 font-bold  lg:text-lg">
               Go to Live site -{" "}
               <a
                 target="_black"
                 href={liveUrl}
-                className="bg-green-500 rounded-md px-5 py-3 hover:bg-green-400 transition duration-500 ml-auto text-md text-white"
+                className="bg-[#00CF5D] hover:bg-green-500 rounded-md px-5 py-3  transition duration-500 ml-auto text-md text-white"
               >
                 Click here{" "}
               </a>
             </p>
           )}
           {clientUrl && (
-            <p className="mb-8 mt-5 font-bold  lg:text-xl">
+            <p className="mb-8 mt-5 font-bold  lg:text-lg">
               Client-Side code -{" "}
               <a
                 target="_black"
                 href={clientUrl}
-                className="bg-green-500 rounded-md px-5 py-3 hover:bg-green-400 transition duration-500 ml-auto text-md text-white"
+                className="bg-[#00CF5D] hover:bg-green-500 rounded-md px-5 py-3  transition duration-500 ml-auto text-md text-white"
               >
                 Click here{" "}
               </a>
             </p>
           )}
           {serverUrl && (
-            <p className="mb-3 mt-5 font-bold  lg:text-xl">
+            <p className="mb-3 mt-5 font-bold  lg:text-lg">
               Server-Side code -{" "}
               <a
                 target="_black"
                 href={serverUrl}
-                className="bg-green-500 rounded-md px-5 py-3 hover:bg-green-400 transition duration-500 ml-auto text-md text-white"
+                className="bg-[#00CF5D] hover:bg-green-500 rounded-md px-5 py-3 transition duration-500 ml-auto text-md text-white"
               >
                 Click here{" "}
               </a>

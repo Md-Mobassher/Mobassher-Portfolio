@@ -3,6 +3,7 @@ import Title from "@/components/ui/Title";
 import Image from "next/image";
 import AboutButton from "./AboutButton";
 import Container from "@/components/ui/Container";
+import mobassher from "@/assets/images/mobassher.png";
 
 const About = () => {
   return (
@@ -14,7 +15,7 @@ const About = () => {
             <Image
               className=" rounded-xl transform scale-[0.95] filter grayscale hover:scale-[1] hover:grayscale-0 transition-all duration-1000 z-0"
               alt="profile"
-              src={assets.image.mobassher}
+              src={mobassher}
             />
           </div>
 

@@ -59,7 +59,7 @@ const PortfolioCard = ({ project }: { project: TPortfolio }) => {
                 <div className="group  relative">
                   <a target="_blank" href={clientUrl}>
                     <FaGithub className="size-6  hover:text-green-500  transition duration-400"></FaGithub>
-                    <div className="absolute bottom-7 left-20 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-green-500 text-white text-center p-1 w-36 rounded-sm  transition-opacity duration-300 ">
+                    <div className="absolute bottom-7 left-20 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-[#00CF5D] hover:bg-green-500 text-white text-center p-1 w-36 rounded-sm  transition-opacity duration-300 ">
                       Client Site Code
                     </div>
                   </a>
@@ -70,7 +70,7 @@ const PortfolioCard = ({ project }: { project: TPortfolio }) => {
                 <div className="group  relative">
                   <a target="_blank" href={serverUrl}>
                     <FaGithub className="size-6  hover:text-green-500 transition duration-400"></FaGithub>
-                    <div className="absolute bottom-7 left-20 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-green-500 text-white text-center p-1 w-36 rounded-sm  transition-opacity duration-300">
+                    <div className="absolute bottom-7 left-20 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-[#00CF5D] hover:bg-green-500 text-white text-center p-1 w-36 rounded-sm  transition-opacity duration-300">
                       Server Site Code
                     </div>
                   </a>
@@ -81,7 +81,7 @@ const PortfolioCard = ({ project }: { project: TPortfolio }) => {
                 <div className="group  relative">
                   <a target="_blank" href={liveUrl}>
                     <FaShareSquare className="size-6  hover:text-green-500 transition duration-400"></FaShareSquare>
-                    <div className="absolute bottom-7 left-12 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-green-500 text-white text-center p-1 w-20 rounded-sm  transition-opacity duration-300">
+                    <div className="absolute bottom-7 left-12 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-[#00CF5D] hover:bg-green-500 text-white text-center p-1 w-20 rounded-sm  transition-opacity duration-300">
                       Live Site
                     </div>
                   </a>
@@ -90,7 +90,7 @@ const PortfolioCard = ({ project }: { project: TPortfolio }) => {
             </div>
             <div
               onClick={() => navigateToProjectDetail(project._id)}
-              className="border-green-500 border px-2 rounded-sm transition text-md font-bold hover:text-white hover:bg-green-500  duration-300 cursor-pointer"
+              className="border-green-500 border px-2 rounded-sm transition text-md font-bold hover:text-white hover:bg-[#00CF5D]   duration-300 cursor-pointer"
             >
               Details
             </div>

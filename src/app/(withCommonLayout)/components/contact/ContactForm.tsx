@@ -56,7 +56,7 @@ const ContactForm = () => {
                 <Input
                   type="text"
                   placeholder="Your Name"
-                  className="input input-bordered input-primary text-sm w-full bg-slate-800 mb-5"
+                  className="border border-green-500 w-full bg-gray-800 mb-5 p-5"
                   {...register("name", {
                     required: {
                       value: true,
@@ -77,7 +77,7 @@ const ContactForm = () => {
                 <Input
                   type="email"
                   placeholder="Your Email"
-                  className="input input-bordered input-primary text-sm w-full bg-slate-800  mb-5"
+                  className="border border-green-500 w-full bg-gray-800 mb-5 p-5"
                   {...register("email", {
                     required: {
                       value: true,
@@ -107,7 +107,7 @@ const ContactForm = () => {
                 <Input
                   type="text"
                   placeholder="Subject"
-                  className="input input-bordered input-primary text-sm w-full bg-slate-800  mb-5"
+                  className="border border-green-500 w-full bg-gray-800 mb-5 p-5"
                   {...register("subject", {
                     required: {
                       value: true,
@@ -125,9 +125,9 @@ const ContactForm = () => {
               </div>
 
               <div className="form-control w-full ">
-                <Input
+                <textarea
                   placeholder="Your Message"
-                  className="textarea  textarea-bordered textarea-primary text-md  w-full bg-slate-800  mb-5"
+                  className="border border-green-500 w-full bg-gray-800 mb-5 p-5 text-sm rounded-md"
                   {...register("message", {
                     required: {
                       value: true,
@@ -144,9 +144,9 @@ const ContactForm = () => {
                 </label>
               </div>
 
-              <div className="flex lg:justify-end md:justify-end justify-center mt-2 hover:text-white">
+              <div className="flex lg:justify-end md:justify-end justify-center hover:text-white">
                 <Input
-                  className="btn px-10  btn-primary bg-green-500 border-0 text-center text-white cursor-pointer"
+                  className="btn px-10  btn-primary bg-[#00CF5D] hover:bg-green-500 border-0 text-center text-white cursor-pointer"
                   type="submit"
                   value="Contact"
                 />

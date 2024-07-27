@@ -17,8 +17,7 @@ const SkillCard = ({
       </div>
 
       <Progress
-        style={{ color: "#00CF5D" }}
-        className="border-[#00CF5D] border bg-white lg:h-3 h-2"
+        className=" bg-white lg:h-3 h-2 "
         value={Number(proficiencyLevel)}
       />
     </div>
