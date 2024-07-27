@@ -16,10 +16,10 @@ const BlogDetails = ({
   updatedAt,
 }: TBlog) => {
   return (
-    <div className=" rounded-lg shadow-lg p-6 lg:p-10">
+    <div className=" rounded-lg shadow-lg py-4 md:py-6 lg:py-10">
       <div className="text-center">
         <h1 className="text-3xl lg:text-5xl font-bold mb-4">{title}</h1>
-        <div className="text-sm text-gray-300 mb-6 flex gap-5 justify-center lg:flex-row md:flex-row flex-col">
+        <div className="text-sm text-gray-300 mb-6 flex lg:gap-5 md:gap-4 gap-3 justify-center lg:flex-row md:flex-row flex-col">
           <p>Author: {author?.name}</p>
           <p>Updated At: {new Date(updatedAt).toLocaleDateString()}</p>
         </div>
@@ -29,13 +29,13 @@ const BlogDetails = ({
         <Image
           src={coverImage}
           alt={title}
-          width={1100}
+          width={1280}
           height={500}
           className="rounded-lg mx-auto"
         />
       </div>
       <div className="lg:flex gap-10">
-        <div className="lg:w-3/4 mx-auto">
+        <div className="lg:w-3/4 mx-auto w-full">
           {content && <BlogContent content={content} />}
         </div>
         {/* <div className="lg:w-1/4 border border-gray-700 p-4 rounded-lg ">

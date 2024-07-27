@@ -16,20 +16,20 @@ const BlogCard = ({ blog }: BlogCardProps) => {
   };
 
   return (
-    <div className="border bg-gray-800 rounded-md border-gray-700">
+    <div className="border bg-gray-800 rounded-md border-gray-700 max-w-sm mx-auto">
       {blog?.coverImage && (
         <Image
           src={blog?.coverImage}
           alt={blog?.title}
-          className="card-img-top border-b border-gray-700"
+          className="card-img-top border-b border-gray-700 rounded-t-md"
           width={600}
           height={300}
         />
       )}
       <div className="card-body p-4">
-        <h5 className="card-title">{blog?.title}</h5>
+        <h5 className=" text-xl font-bold">{blog?.title}</h5>
 
-        <div className="card-author">
+        <div className="card-author mt-4">
           <p>Author: {blog?.author?.name}</p>
         </div>
         <div className="flex justify-between items-end mt-auto">

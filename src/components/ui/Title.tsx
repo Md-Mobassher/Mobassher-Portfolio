@@ -11,7 +11,7 @@ const Title = ({ title }: TTitle) => {
         <Separator className="lg:w-40 md:w-36 w-20 border border-[#02CF5F]" />
       </div>
       <div>
-        <h4 className="lg:text-4xl md:text-3xl text-2xl  font-bold ">
+        <h4 className="lg:text-4xl md:text-3xl text-2xl text-center font-bold ">
           {title}
         </h4>
       </div>

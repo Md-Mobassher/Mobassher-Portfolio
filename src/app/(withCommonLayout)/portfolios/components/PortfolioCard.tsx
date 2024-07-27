@@ -46,9 +46,7 @@ const PortfolioCard = ({ project }: { project: TPortfolio }) => {
 
       <div className="card-body px-5 pt-5 pb-6 justify-between items-between">
         <div className="">
-          <h2 className="text-justify mb-1 text-xl font-bold  hover:text-secondary ">
-            {name}
-          </h2>
+          <h2 className=" mb-1 text-xl font-bold ">{name}</h2>
           <p className="text-justify text-sm mt-2 text-gray-300">
             {description[0]}
           </p>

@@ -12,7 +12,7 @@ const About = () => {
         <div className="lg:flex sm:flex-row-reverse  md:flex  items-center justify-between">
           <div className="lg:max-w-[350px]  flex  justify-center lg:mt-0 mt-0">
             <Image
-              className="w-[320px] rounded-xl transform scale-[0.95] filter grayscale hover:scale-[1] hover:grayscale-0 transition-all duration-1000 z-0"
+              className=" rounded-xl transform scale-[0.95] filter grayscale hover:scale-[1] hover:grayscale-0 transition-all duration-1000 z-0"
               alt="profile"
               src={assets.image.mobassher}
             />

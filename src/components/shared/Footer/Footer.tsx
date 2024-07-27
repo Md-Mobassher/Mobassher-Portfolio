@@ -2,13 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { socialData } from "./SocialData";
 import assets from "@/assets";
+import SocialIcon from "@/components/ui/SocialIcon";
+import Container from "@/components/ui/Container";
 
 const Footer = () => {
   return (
     <footer className=" border-t border-gray-700 lg:mt-20 md:mt-14 mt-10 pt-5 pb-5">
-      <div className="max-w-7xl mx-auto lg:px-8 md:px-6 px-4">
-        <div className="flex lg:flex-row md:flex-row flex-col lg:justify-between md:justify-between lg:gap-10 gap-2 items-center py-3">
-          <div className="flex gap-5 items-center">
+      <Container>
+        <div className="flex lg:flex-row md:flex-row flex-col justify-between lg:gap-10 gap-2 items-center py-3">
+          <div className="flex gap-5 items-center justify-between">
             <Link href="/">
               <Image
                 src={assets?.image?.logo}
@@ -21,7 +23,7 @@ const Footer = () => {
           </div>
           <div>
             <h3 className="text-2xl font-semibold text-center">Contact Me</h3>
-            <div className="flex flex-wrap mt-4">
+            {/* <div className="flex flex-wrap mt-4">
               {socialData.map((item) => (
                 <a
                   href={item?.link}
@@ -40,7 +42,8 @@ const Footer = () => {
                   />
                 </a>
               ))}
-            </div>
+            </div> */}
+            <SocialIcon />
           </div>
         </div>
 
@@ -56,7 +59,7 @@ const Footer = () => {
             </Link>
           </p>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 };

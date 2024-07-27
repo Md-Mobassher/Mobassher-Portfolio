@@ -1,7 +1,7 @@
 import { socialData } from "../shared/Footer/SocialData";
 import Image from "next/image";
 
-const UseIcon = () => {
+const SocialIcon = () => {
   return (
     <div className="flex gap-5 lg:justify-start md:justify-start justify-center lg: items-center transition duration-500 ">
       <div className="flex flex-wrap mt-4">
@@ -26,4 +26,4 @@ const UseIcon = () => {
   );
 };
 
-export default UseIcon;
+export default SocialIcon;
