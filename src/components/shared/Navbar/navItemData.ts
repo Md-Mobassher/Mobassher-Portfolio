@@ -28,6 +28,6 @@ export const navItemsData = [
   },
   {
     title: "Resume",
-    url: "https://drive.google.com/file/d/1do9DTe38XXl99OyMsRiFROU-yNAzDqUJ/view",
+    url: "https://drive.google.com/file/d/1lrAMInBo2I610RC-oMsihi2_Tt2sZW7j/view?usp=sharing",
   },
 ];
