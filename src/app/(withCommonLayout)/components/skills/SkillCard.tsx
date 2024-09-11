@@ -17,7 +17,7 @@ const SkillCard = ({
       </div>
 
       <Progress
-        className=" bg-white lg:h-3 h-2 "
+        className=" bg-gray-800 lg:h-3 h-2 "
         value={Number(proficiencyLevel)}
       />
     </div>

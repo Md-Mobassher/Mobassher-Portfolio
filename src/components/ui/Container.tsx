@@ -1,7 +1,7 @@
 const Container = ({ children, padding }: any) => {
   return (
     <div
-      className="max-w-7xl mx-auto lg:px-8 md:px-6 px-4"
+      className="container mx-auto xl:px-28 lg:px-16 md:px-14 px-4"
       style={{
         padding,
       }}

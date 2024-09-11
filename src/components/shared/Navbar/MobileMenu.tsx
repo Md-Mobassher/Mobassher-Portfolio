@@ -28,13 +28,13 @@ const MobileMenu = () => {
             </div>
           )}
           {isOpen && (
-            <div className=" mt-3 w-[250px] top-8 right-0 shadow-lg rounded-lg absolute transition-all duration-500 z-50 bg-gray-300 border border-green-500 ">
+            <div className=" mt-3 w-[250px] top-8 right-0 shadow-lg rounded-lg absolute transition-all duration-500 z-50 bg-gray-700 border border-green-500 ">
               <nav className="w-full flex flex-col rounded-lg ">
                 {navItemsData.map((item, index) => (
                   <Link
                     key={index}
                     href={item.url}
-                    className=" text-xl font-semibold  py-2 px-4 hover:text-white hover:bg-green-500 rounded-md"
+                    className=" text-xl font-semibold  py-2 px-4 text-white hover:bg-green-500 rounded-md"
                   >
                     {item.title}
                   </Link>

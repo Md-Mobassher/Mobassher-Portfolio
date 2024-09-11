@@ -66,16 +66,16 @@ const AllBlogs = ({ blogs }: AllBlogsProps) => {
             All
           </button>
           <Select onValueChange={setSelectedCategory} defaultValue="">
-            <SelectTrigger className="lg:w-[180px] md:w-[170px] w-[140px] py-3  text-md hover:bg-green-500 bg-white text-green-600 border-green-500 hover:text-white rounded-md transition duration-500 lg:px-6 md:px-5 pl-3 pr-1  cursor-pointer text-center">
+            <SelectTrigger className="lg:w-[180px] md:w-[170px] w-[140px]   text-md hover:bg-green-500 bg-gray-700 text-white border-green-500 rounded-md transition duration-500   cursor-pointer text-center">
               <SelectValue className="" placeholder="Category" />
             </SelectTrigger>
-            <SelectContent className="w-[200px]">
+            <SelectContent className="w-[200px] bg-gray-700">
               <SelectGroup>
-                {uniqueCategories?.map((cat) => (
+                {uniqueCategories.map((cat) => (
                   <SelectItem
                     key={cat}
                     value={cat}
-                    className="py-2 m-0 text-md hover:bg-green-500 bg-white text-green-600 hover:text-white rounded-md transition duration-300 lg:px-6 md:px-5 pl-4  cursor-pointer"
+                    className="py-2 m-0 text-md  bg-gray-700 hover:bg-white text-white hover:text-green-600 hover:font-semibold rounded-md transition duration-300 lg:px-6 md:px-5 pl-4  cursor-pointer"
                   >
                     {cat}
                   </SelectItem>
@@ -98,9 +98,9 @@ const AllBlogs = ({ blogs }: AllBlogsProps) => {
         <div className="lg:w-[180px] md:w-[170px] w-[120px] ">
           <Input
             type="text"
-            className="border-green-500 text-center text-black"
+            className="border-green-500 text-center text-white focus:border-0  bg-gray-700 text-md"
             onChange={handleInputChange}
-            placeholder="Search Blog"
+            placeholder="Search"
           />
         </div>
       </div>

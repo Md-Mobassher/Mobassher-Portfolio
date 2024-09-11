@@ -61,22 +61,22 @@ const Portfolios = ({ portfolios }: AllPortfoliosProps) => {
       <div className="flex justify-between items-center mb-5">
         <div className="flex items-center gap-1">
           <button
-            onClick={() => setSelectedTechnology(undefined)}
+            onClick={() => setSelectedTechnology("")}
             className="border border-green-500 text-md py-2 bg-green-500 hover:bg-green-700 text-white rounded-md transition duration-500 lg:px-6 md:px-5 px-3 uppercase cursor-pointer"
           >
             All
           </button>
           <Select onValueChange={setSelectedTechnology} defaultValue="">
-            <SelectTrigger className="lg:w-[180px] md:w-[170px] w-[140px] py-3  text-md hover:bg-green-500 bg-white text-green-600 border-green-500 hover:text-white rounded-md transition duration-500 lg:px-6 md:px-5 pl-3 pr-1  cursor-pointer text-center">
+            <SelectTrigger className="lg:w-[180px] md:w-[170px] w-[140px]   text-md hover:bg-green-500 bg-gray-700 text-white border-green-500 rounded-md transition duration-500   cursor-pointer text-center">
               <SelectValue className="" placeholder="Technology" />
             </SelectTrigger>
-            <SelectContent className="w-[200px]">
+            <SelectContent className="w-[200px] bg-gray-700">
               <SelectGroup>
                 {uniqueTechnologies.map((tech) => (
                   <SelectItem
                     key={tech}
                     value={tech}
-                    className="py-2 m-0 text-md hover:bg-green-500 bg-white text-green-600 hover:text-white rounded-md transition duration-300 lg:px-6 md:px-5 pl-4  cursor-pointer"
+                    className="py-2 m-0 text-md  bg-gray-700 hover:bg-white text-white hover:text-green-500 hover:font-semibold rounded-md transition duration-300 lg:px-6 md:px-5 pl-4  cursor-pointer"
                   >
                     {tech}
                   </SelectItem>
@@ -99,7 +99,7 @@ const Portfolios = ({ portfolios }: AllPortfoliosProps) => {
         <div className="lg:w-[180px] md:w-[170px] w-[120px] ">
           <Input
             type="text"
-            className="border-green-500 text-center text-black"
+            className="border-green-500 text-center text-white focus:border-0  bg-gray-700 text-md"
             onChange={handleInputChange}
             placeholder="Search"
           />
@@ -116,7 +116,8 @@ const Portfolios = ({ portfolios }: AllPortfoliosProps) => {
         </h4>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 md:gap-7 gap-6 pt-5">
+      {/* show projects */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  lg:gap-8 md:gap-7 gap-6 pt-5">
         {getFilteredPortfolios()
           ?.slice(0, 6)
           ?.map((project: TPortfolio) => (

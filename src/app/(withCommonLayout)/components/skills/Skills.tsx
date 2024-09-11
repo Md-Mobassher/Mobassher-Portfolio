@@ -39,8 +39,8 @@ const Skills = ({ skills }: SkillsProps) => {
               onClick={() => setSelectedCategory(category)}
               className={`border border-green-500 py-2 bg-gray-800 lg:px-7 md:px-5 px-4 rounded-md text-white hover:text-white hover:bg-green-500 transition duration-300  cursor-pointer ${
                 category === selectedCategory
-                  ? "text-md text-white py-2 bg-green-500 cursor-pointer"
-                  : "border-green-500"
+                  ? "text-md text-white py-2 bg-green-500 cursor-pointer font-bold"
+                  : "border-green-500 font-semibold"
               }`}
               key={category}
             >
@@ -50,7 +50,7 @@ const Skills = ({ skills }: SkillsProps) => {
         </ul>
       </div>
 
-      <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 lg:gap-5 gap-3 md:gap-4">
+      <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 lg:gap-6 gap-4 md:gap-5">
         {getFilteredSkills().map((skill) => (
           <SkillCard key={skill._id} {...skill} />
         ))}
