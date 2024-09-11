@@ -7,10 +7,13 @@ export const uniqueTechnologies = [
   "Express",
   "MongoDB",
   "Mongoose",
+  "PostgreSQL",
+  "Prisma",
   "Tailwind",
   "Material UI",
   "Ant Design",
   "Shadcn",
   "Firebase",
   "Vercel",
+  "WordPress",
 ];

@@ -22,23 +22,23 @@ const PortfolioCard = ({ project }: { project: TPortfolio }) => {
 
   return (
     <div className="card bg-slate-800 rounded-md  max-w-sm mx-auto shadow-2xl">
-      <div className="h-44 ">
+      <div className="h-48">
         <figure className="h-full">
-          {image.cover ? (
+          {image?.cover ? (
             <Image
-              className="w-full h-full object-cover object-center rounded-t-md "
+              className="w-full h-full object-fill object-center rounded-t-md "
               src={image?.cover}
               alt={name}
-              width={350}
-              height={250}
+              width={600}
+              height={300}
             />
           ) : (
             <Image
-              className="w-full h-full object-cover object-center rounded-t-md "
-              src={assets.image.noImage}
+              className="w-full h-full object-fill object-center rounded-t-md "
+              src={assets?.image?.noImage}
               alt={name}
-              width={350}
-              height={250}
+              width={600}
+              height={300}
             />
           )}
         </figure>
@@ -97,8 +97,8 @@ const PortfolioCard = ({ project }: { project: TPortfolio }) => {
           </div>
 
           <div className="pt-4">
-            <div className="text-sm text-slate-300 flex flex-wrap justify-start items-center gap-1">
-              {technology.map((item, index) => (
+            <div className="text-sm text-gray-300 flex flex-wrap justify-start items-center gap-[3px]">
+              {technology?.map((item, index) => (
                 <span key={index} className="">
                   {item},
                 </span>
