@@ -6,7 +6,7 @@ const AboutButton = () => {
   return (
     <div className="lg:mt-10 md:mt-8 mt-5 flex lg:justify-start md:justify-start justify-center">
       <Button
-        link="https://drive.google.com/file/d/1do9DTe38XXl99OyMsRiFROU-yNAzDqUJ/view?usp=sharing"
+        link="https://drive.google.com/file/d/1lrAMInBo2I610RC-oMsihi2_Tt2sZW7j/view?usp=sharing"
         target="__blank"
         color="white"
         bgColor="#00cf5d"

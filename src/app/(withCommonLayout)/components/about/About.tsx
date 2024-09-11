@@ -35,7 +35,7 @@ const About = () => {
               my expertise, I pursued advanced topics in MERN stack web
               development through the Next Level Web Development (ID: L2B2-0353)
               course at Programming Hero, where I excelled and secured a
-              position among the top 100 students.
+              position among the top 50 students.
             </p>
             <p className="mt-2 lg:text-start md:text-start text-center">
               Currently, I am a skilled Full Stack Developer, known for

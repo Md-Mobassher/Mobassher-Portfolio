@@ -29,9 +29,6 @@ const BlogCard = ({ blog }: BlogCardProps) => {
       <div className="card-body p-4">
         <h5 className=" text-xl font-bold">{blog?.title}</h5>
 
-        <div className="card-author mt-4">
-          <p>Author: {blog?.author?.name}</p>
-        </div>
         <div className="flex justify-between items-end mt-auto">
           <button
             onClick={() => navigateToBlogDetail(blog?._id)}
