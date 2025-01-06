@@ -3,7 +3,6 @@ import Intro from "./components/intro/Intro";
 import About from "./components/about/About";
 import MySkills from "./components/skills/MySkills";
 import Contact from "./components/contact/Contact";
-import Portfolios from "./components/portfolios/Portfolios";
 import MyPortfolios from "./components/portfolios/MyPortfolios";
 import MyBlogs from "./components/blog/MyBlogs";
 

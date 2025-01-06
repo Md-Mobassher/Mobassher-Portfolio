@@ -8,7 +8,7 @@ const Intro = () => {
   return (
     <div className="">
       <Container>
-        <div className="min-h-screen flex items-center -mt-12">
+        <div className="min-h-screen flex items-center">
           <div className="text-center md:text-start lg:text-start">
             <p className="lg:text-2xl md:text-xl text-xl font-semibold text-[#02CF5F]">
               Hello! I am
@@ -34,18 +34,20 @@ const Intro = () => {
             <IntroButton />
 
             {/* follow */}
-            <div className="lg:mt-14  mt-14 flex lg:justify-start md:justify-start  justify-center ">
-              <div className="lg:hidden md:hidden flex justify-end items-center mr-2">
-                <Separator className="lg:w-40 md:w-36 w-20  border border-[#02CF5F]" />
+            <div className="flex flex-col  lg:justify-start md:justify-start justify-center">
+              <div className="lg:mt-14  mt-14 flex lg:justify-start md:justify-start  justify-center ">
+                <div className="lg:hidden md:hidden flex justify-end items-center mr-2">
+                  <Separator className="lg:w-40 md:w-36 w-20  border border-[#02CF5F]" />
+                </div>
+                <div>
+                  <h4 className=" text-2xl  font-bold ">Follow Me</h4>
+                </div>
+                <div className="flex justify-start items-center ml-2">
+                  <Separator className="lg:w-40 md:w-36 w-20  border border-[#02CF5F]" />
+                </div>
               </div>
-              <div>
-                <h4 className=" text-2xl  font-bold ">Follow Me</h4>
-              </div>
-              <div className="flex justify-start items-center ml-2">
-                <Separator className="lg:w-40 md:w-36 w-20  border border-[#02CF5F]" />
-              </div>
+              <SocialIcon />
             </div>
-            <SocialIcon />
           </div>
         </div>
       </Container>
