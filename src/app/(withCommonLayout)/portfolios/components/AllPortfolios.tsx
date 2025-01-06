@@ -1,8 +1,8 @@
 "use client";
 
-import { TPortfolio } from "@/type";
+import { TProject } from "@/type";
 import { ChangeEvent, useState } from "react";
-import PortfolioCard from "./PortfolioCard";
+import ProjectCard from "./ProjectCard";
 import {
   Select,
   SelectContent,
@@ -15,7 +15,7 @@ import { Input } from "@/components/ui/input";
 import { uniqueTechnologies } from "./Technology";
 
 interface AllPortfoliosProps {
-  portfolios: TPortfolio[];
+  portfolios: TProject[];
 }
 
 const AllPortfolios = ({ portfolios }: AllPortfoliosProps) => {
@@ -35,12 +35,12 @@ const AllPortfolios = ({ portfolios }: AllPortfoliosProps) => {
     }
 
     if (selectedTechnology) {
-      portfolio = portfolios.filter((item: TPortfolio) =>
+      portfolio = portfolios.filter((item: TProject) =>
         item.technology.includes(selectedTechnology)
       );
     }
     if (search) {
-      portfolio = portfolios.filter((item: TPortfolio) =>
+      portfolio = portfolios.filter((item: TProject) =>
         item.name.toLowerCase().includes(search.toLowerCase())
       );
     }
@@ -117,8 +117,8 @@ const AllPortfolios = ({ portfolios }: AllPortfoliosProps) => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 md:gap-7 gap-6 pt-5">
-        {getFilteredPortfolios()?.map((project: TPortfolio) => (
-          <PortfolioCard key={project._id} project={project} />
+        {getFilteredPortfolios()?.map((project: TProject) => (
+          <ProjectCard key={project._id} project={project} />
         ))}
       </div>
     </div>

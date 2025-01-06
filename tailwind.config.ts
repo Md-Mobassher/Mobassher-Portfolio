@@ -19,6 +19,26 @@ const config = {
     },
     extend: {
       colors: {
+        dark: {
+          background: "#0000",
+          text: "#fff",
+          primary: "#00CF5D",
+          secondary: "#1E293B",
+          destructive: "#374151",
+          muted: "#808080",
+          accent: "#FFA500",
+          popover: "#F8312F",
+        },
+        light: {
+          background: "#fff",
+          text: "#1a202c",
+          primary: "#00CF5D",
+          secondary: "#F8FAFC",
+          destructive: "#374151",
+          muted: "#808080",
+          accent: "#FFA500",
+          popover: "#F8312F",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

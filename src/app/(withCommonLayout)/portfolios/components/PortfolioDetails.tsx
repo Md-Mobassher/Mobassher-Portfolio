@@ -1,8 +1,8 @@
-import { TPortfolio } from "@/type";
+import { TProject } from "@/type";
 import { MoveRight } from "lucide-react";
 import Image from "next/image";
 
-const PortfolioDetails = (project: TPortfolio) => {
+const PortfolioDetails = (project: TProject) => {
   const {
     name,
     type,
@@ -12,7 +12,7 @@ const PortfolioDetails = (project: TPortfolio) => {
     liveUrl,
     clientUrl,
     serverUrl,
-  } = project as TPortfolio;
+  } = project as TProject;
 
   return (
     <div>

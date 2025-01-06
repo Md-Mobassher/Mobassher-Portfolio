@@ -1,9 +1,9 @@
 import Container from "@/components/ui/Container";
 import Title from "@/components/ui/Title";
-import Portfolios from "./Portfolios";
+import Projects from "./Projects";
 import Link from "next/link";
 
-const MyPortfolios = async () => {
+const MyProjects = async () => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/projects`, {
       method: "GET",
@@ -16,7 +16,7 @@ const MyPortfolios = async () => {
     });
 
     if (!res.ok) {
-      throw new Error("Failed to fetch portfolios");
+      throw new Error("Failed to fetch projects");
     }
 
     const data = await res.json();
@@ -26,14 +26,14 @@ const MyPortfolios = async () => {
     const projects = Array.isArray(data?.data) ? data?.data : [];
 
     return (
-      <div id="portfolios" className=" lg:mt-28 md:mt-24 mt-20">
+      <div id="projects" className=" lg:mt-28 md:mt-24 mt-20">
         <Container>
-          <Title title="My Portfolios" />
-          <Portfolios portfolios={projects} />
+          <Title title="My Projects" />
+          <Projects projects={projects} />
           <div className="mt-10 text-center">
-            <Link href={"/portfolios"}>
+            <Link href={"/projects"}>
               <button className="bg-[#00CF5D] hover:bg-green-500 rounded-md px-5 py-2">
-                View All Portfolios
+                View All Projects
               </button>
             </Link>
           </div>
@@ -43,14 +43,14 @@ const MyPortfolios = async () => {
   } catch (error) {
     console.error("Error fetching projects:", error);
     return (
-      <div id="portfolios" className=" ">
+      <div id="projects" className=" ">
         <Container>
-          <Title title="My Portfolios" />
-          <p>Error loading portfolios.</p>
+          <Title title="My Projects" />
+          <p>Error loading Projects.</p>
         </Container>
       </div>
     );
   }
 };
 
-export default MyPortfolios;
+export default MyProjects;

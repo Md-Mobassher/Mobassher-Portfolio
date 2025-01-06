@@ -4,14 +4,14 @@ import PortfolioDetails from "../components/PortfolioDetails";
 
 type TPortfolioParams = {
   params: {
-    portfolioId: string;
+    projectId: string;
   };
 };
 
 const PortfolioDetailsPage = async ({ params }: TPortfolioParams) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}/projects/${params.portfolioId}`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/projects/${params.projectId}`,
       {
         method: "GET",
         headers: {
@@ -29,9 +29,9 @@ const PortfolioDetailsPage = async ({ params }: TPortfolioParams) => {
     // console.log(data);
 
     return (
-      <div id="portfolios" className=" ">
+      <div id="projects" className=" ">
         <Container>
-          <Title title="Portfolio Details" />
+          <Title title="Project Details" />
           <PortfolioDetails {...data?.data} />
         </Container>
       </div>
@@ -39,9 +39,9 @@ const PortfolioDetailsPage = async ({ params }: TPortfolioParams) => {
   } catch (error) {
     console.error("Error fetching projects:", error);
     return (
-      <div id="portfolios" className=" ">
+      <div id="projects" className=" ">
         <Container>
-          <Title title="All Portfolios" />
+          <Title title="All Projects" />
           <p>Error loading projects.</p>
         </Container>
       </div>

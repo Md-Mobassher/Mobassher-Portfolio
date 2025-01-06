@@ -37,10 +37,10 @@ const Skills = ({ skills }: SkillsProps) => {
           {uniqueCategories?.map((category) => (
             <li
               onClick={() => setSelectedCategory(category)}
-              className={`border border-green-500 py-2 bg-gray-800 lg:px-7 md:px-5 px-4 rounded-md text-white hover:text-white hover:bg-green-500 transition duration-300  cursor-pointer ${
+              className={`border border-green-500 py-2 bg-secondary lg:px-7 md:px-5 px-4 rounded-md  hover:text-white hover:bg-green-500 transition duration-300  cursor-pointer ${
                 category === selectedCategory
-                  ? "text-md text-white py-2 bg-green-500 cursor-pointer font-bold"
-                  : "border-green-500 font-semibold"
+                  ? "text-md dark:text-dark-text text-white py-2 bg-dark-primary cursor-pointer font-bold"
+                  : "border-dark-primary font-semibold"
               }`}
               key={category}
             >

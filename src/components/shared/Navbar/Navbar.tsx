@@ -6,6 +6,7 @@ import { navItemsData } from "./navItemData";
 import { useEffect, useState } from "react";
 import { MenuIcon, X } from "lucide-react";
 import Container from "@/components/ui/Container";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,8 +36,8 @@ const Navbar = () => {
       <div
         className={`py-2 fixed  top-0 left-0 w-full z-50 transition-colors duration-300 ${
           isScrolled
-            ? "bg-background shadow-md text-black"
-            : "bg-transparent text-white"
+            ? "dark:bg-background bg-light-background  border-b dark:border-gray-600"
+            : "bg-transparent "
         } `}
       >
         <Container className="container mx-auto px-4  flex justify-between items-center">
@@ -56,6 +57,7 @@ const Navbar = () => {
           <>
             {/* Hamburger Menu Icon for Mobile */}
             <div className="lg:hidden">
+              <ThemeToggle />
               <button onClick={toggleDrawer} className="text-2xl">
                 <div className="p-1 flex justify-center items-center gap-2 rounded-md text-white hover:border bg-green-500">
                   <MenuIcon className="size-8" />
@@ -81,7 +83,7 @@ const Navbar = () => {
                   <Link
                     key={index}
                     href={item?.url}
-                    className=" text-xl font-semibold px-4 py-2 text-center  hover:text-white hover:bg-green-500 rounded-md"
+                    className=" text-xl font-semibold px-4 py-2 text-center text-light-text  hover:text-white hover:bg-green-500 rounded-md"
                   >
                     {item?.title}
                   </Link>
@@ -103,6 +105,7 @@ const Navbar = () => {
                 </Link>
               ))}
             </nav>
+            <ThemeToggle />
           </div>
         </Container>
       </div>

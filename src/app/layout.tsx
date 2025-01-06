@@ -3,6 +3,7 @@ import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import { ThemeProvider } from "next-themes";
 
 // const inter = Inter({ subsets: ["latin"] });
 const roboto = Roboto({
@@ -24,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="light">
       <body className={roboto.className}>
-        {children}
+        <ThemeProvider attribute="class">{children}</ThemeProvider>
         <ToastContainer />
       </body>
     </html>

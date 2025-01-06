@@ -16,7 +16,7 @@ const BlogCard = ({ blog }: BlogCardProps) => {
   };
 
   return (
-    <div className="border bg-gray-800 rounded-md border-gray-700 max-w-sm mx-auto">
+    <div className="border dark:bg-dark-secondary bg-light-background rounded-md border-dark-secondary max-w-md mx-auto">
       <div className="h-48 ">
         <figure className="h-full">
           {blog?.coverImage ? (
@@ -45,7 +45,7 @@ const BlogCard = ({ blog }: BlogCardProps) => {
         <div className="flex justify-between items-end mt-auto">
           <button
             onClick={() => navigateToBlogDetail(blog?._id)}
-            className="bg-[#00CF5D] hover:bg-green-500 px-5 py-2 rounded-md mt-5"
+            className="bg-[#00CF5D] hover:bg-green-500 px-5 py-2 rounded-md mt-5 text-white"
           >
             Details
           </button>

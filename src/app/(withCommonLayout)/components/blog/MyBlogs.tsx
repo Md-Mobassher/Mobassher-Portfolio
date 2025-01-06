@@ -32,7 +32,7 @@ const MyBlogs = async () => {
           <Blogs blogs={blogs as TBlog[]} />
           <div className="mt-10 text-center">
             <Link href={"/blog"}>
-              <button className="bg-[#00CF5D] hover:bg-green-500 rounded-md px-5 py-2">
+              <button className="bg-dark-primary hover:bg-green-500 rounded-md px-5 py-2">
                 View All Blog
               </button>
             </Link>
