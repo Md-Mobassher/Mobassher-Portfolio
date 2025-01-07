@@ -11,8 +11,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
-import { uniqueTechnologies } from "../../portfolios/components/Technology";
-import ProjectCard from "../../portfolios/components/ProjectCard";
+import { uniqueTechnologies } from "../../projects/components/Technology";
+import ProjectCard from "../../projects/components/ProjectCard";
 
 interface AllProjectsProps {
   projects: TProject[];
@@ -72,7 +72,7 @@ const Projects = ({ projects }: AllProjectsProps) => {
             </SelectTrigger>
             <SelectContent className="w-[200px] bg-gray-700">
               <SelectGroup>
-                {uniqueTechnologies.map((tech) => (
+                {uniqueTechnologies?.map((tech) => (
                   <SelectItem
                     key={tech}
                     value={tech}

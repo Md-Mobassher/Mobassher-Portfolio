@@ -7,11 +7,7 @@ const Button = ({
   clickEvent,
   onMouseOver,
   onMouseOut,
-  color,
-  bgColor,
-  borderColor,
-  margin,
-  padding,
+  className,
 }: any) => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -24,22 +20,20 @@ const Button = ({
       behavior: "smooth",
     });
   };
+
   return (
     <a
-      style={{
-        margin,
-        padding,
-        color,
-        borderColor,
-        backgroundColor: bgColor,
-      }}
       target={target}
       onClick={clickEvent && handleClick}
       onMouseOver={onMouseOver}
       onMouseOut={onMouseOut}
       rel={target ? "noopener noreferrer" : ""}
       href={link}
-      className="border rounded-lg"
+      className={`border rounded-lg  px-5 py-3 border-dark-primary transition-all duration-300 font-semibold  ${
+        className
+          ? className
+          : "dark:bg-dark-secondary bg-light-secondary hover:text-light-background hover:bg-dark-primary dark:hover:bg-dark-primary"
+      }`}
     >
       {title}
     </a>
@@ -50,11 +44,6 @@ Button.defaultProps = {
   title: "Button",
   link: "https://mobassher.vercel.app",
   target: "",
-  margin: "0 0 0 0",
-  padding: "15px 25px",
-  color: "black",
-  bgColor: "transparent",
-  borderColor: "#00cf5d",
 };
 
 export default Button;

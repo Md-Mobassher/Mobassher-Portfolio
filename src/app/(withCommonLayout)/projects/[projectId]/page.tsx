@@ -1,14 +1,14 @@
 import Container from "@/components/ui/Container";
 import Title from "@/components/ui/Title";
-import PortfolioDetails from "../components/PortfolioDetails";
+import ProjectDetails from "../components/PtojectDetails";
 
-type TPortfolioParams = {
+type TProjectParams = {
   params: {
     projectId: string;
   };
 };
 
-const PortfolioDetailsPage = async ({ params }: TPortfolioParams) => {
+const PortfolioDetailsPage = async ({ params }: TProjectParams) => {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_SERVER_URL}/projects/${params.projectId}`,
@@ -29,19 +29,19 @@ const PortfolioDetailsPage = async ({ params }: TPortfolioParams) => {
     // console.log(data);
 
     return (
-      <div id="projects" className=" ">
+      <div id="projects" className=" md:mt-28 mt-20">
         <Container>
           <Title title="Project Details" />
-          <PortfolioDetails {...data?.data} />
+          <ProjectDetails {...data?.data} />
         </Container>
       </div>
     );
   } catch (error) {
     console.error("Error fetching projects:", error);
     return (
-      <div id="projects" className=" ">
+      <div id="projects" className=" md:mt-28 mt-20">
         <Container>
-          <Title title="All Projects" />
+          <Title title="Project Details" />
           <p>Error loading projects.</p>
         </Container>
       </div>

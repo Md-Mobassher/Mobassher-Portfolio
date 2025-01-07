@@ -17,7 +17,7 @@ const ProjectCard = ({ project }: { project: TProject }) => {
   const router = useRouter();
 
   const navigateToProjectDetail = (id: string) => {
-    router.push(`/portfolios/${id}`);
+    router.push(`/projects/${id}`);
   };
 
   return (

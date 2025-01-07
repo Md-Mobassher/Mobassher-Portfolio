@@ -1,5 +1,5 @@
 import { TBlog } from "@/type";
-import BlogCard from "../../blog/components/BlogCard";
+import BlogCard from "../../blogs/components/BlogCard";
 
 interface BlogsProps {
   blogs: TBlog[];
@@ -8,8 +8,8 @@ interface BlogsProps {
 const Blogs = ({ blogs }: BlogsProps) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 md:gap-7 gap-6 mx-auto">
-      {blogs.slice(0, 3).map((blog) => (
-        <BlogCard key={blog._id} blog={blog} />
+      {blogs?.slice(0, 3).map((blog) => (
+        <BlogCard key={blog?._id} blog={blog} />
       ))}
     </div>
   );

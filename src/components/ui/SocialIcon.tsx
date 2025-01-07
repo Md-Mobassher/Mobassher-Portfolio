@@ -15,7 +15,7 @@ const SocialIcon = () => {
             <Image
               src={item?.image}
               alt={item?.title}
-              className="object-cover filter grayscale transition duration-500 ease-in-out p-1 hover:grayscale-0"
+              className="object-cover filter grayscale transition duration-500 ease-in-out p-1 hover:grayscale-0 "
               width={50}
               height={50}
             />

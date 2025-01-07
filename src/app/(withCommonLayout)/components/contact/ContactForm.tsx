@@ -56,7 +56,7 @@ const ContactForm = () => {
                 <Input
                   type="text"
                   placeholder="Your Name"
-                  className="border border-green-500 w-full bg-gray-800 mb-5 p-5"
+                  className="border border-green-500 w-full dark:bg-dark-secondary bg-light-secondary mb-5 p-5"
                   {...register("name", {
                     required: {
                       value: true,
@@ -77,7 +77,7 @@ const ContactForm = () => {
                 <Input
                   type="email"
                   placeholder="Your Email"
-                  className="border border-green-500 w-full bg-gray-800 mb-5 p-5"
+                  className="border border-green-500 w-full dark:bg-dark-secondary bg-light-secondary mb-5 p-5"
                   {...register("email", {
                     required: {
                       value: true,
@@ -107,7 +107,7 @@ const ContactForm = () => {
                 <Input
                   type="text"
                   placeholder="Subject"
-                  className="border border-green-500 w-full bg-gray-800 mb-5 p-5"
+                  className="border border-green-500 w-full dark:bg-dark-secondary bg-light-secondary mb-5 p-5"
                   {...register("subject", {
                     required: {
                       value: true,
@@ -127,7 +127,7 @@ const ContactForm = () => {
               <div className="form-control w-full ">
                 <textarea
                   placeholder="Your Message"
-                  className="border border-green-500 w-full bg-gray-800 mb-5 p-5 text-sm rounded-md"
+                  className="border border-green-500 w-full dark:bg-dark-secondary bg-light-secondary mb-5 p-5 text-sm rounded-md"
                   {...register("message", {
                     required: {
                       value: true,

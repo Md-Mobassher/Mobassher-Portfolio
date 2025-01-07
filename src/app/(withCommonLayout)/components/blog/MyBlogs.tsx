@@ -2,7 +2,7 @@ import Container from "@/components/ui/Container";
 import Title from "@/components/ui/Title";
 import { TBlog } from "@/type";
 import Blogs from "./Blogs";
-import Link from "next/link";
+import Button from "@/components/ui/Button";
 
 const MyBlogs = async () => {
   try {
@@ -31,11 +31,7 @@ const MyBlogs = async () => {
           <Title title="My Blog" />
           <Blogs blogs={blogs as TBlog[]} />
           <div className="mt-10 text-center">
-            <Link href={"/blog"}>
-              <button className="bg-dark-primary hover:bg-green-500 rounded-md px-5 py-2">
-                View All Blog
-              </button>
-            </Link>
+            <Button clickEvent link="/blogs" title="View All Blogs" />
           </div>
         </Container>
       </div>

@@ -3,7 +3,7 @@ import Title from "@/components/ui/Title";
 import { TBlog } from "@/type";
 import AllBlogs from "./components/AllBlogs";
 
-const BlogPage = async () => {
+const BlogsPage = async () => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/blogs`, {
       method: "GET",
@@ -21,7 +21,7 @@ const BlogPage = async () => {
     // console.log(data);
 
     return (
-      <div id="blog" className="">
+      <div id="blog" className="md:mt-28 mt-20">
         <Container>
           <Title title="My Blogs" />
           <AllBlogs blogs={data?.data as TBlog[]} />
@@ -31,9 +31,9 @@ const BlogPage = async () => {
   } catch (error) {
     console.error(error);
     return (
-      <div id="blog" className="">
+      <div id="blog" className="md:mt-28 mt-20">
         <Container>
-          <Title title="My Blog" />
+          <Title title="My Blogs" />
           <p>Error loading blogs. Please try again later.</p>
         </Container>
       </div>
@@ -41,4 +41,4 @@ const BlogPage = async () => {
   }
 };
 
-export default BlogPage;
+export default BlogsPage;

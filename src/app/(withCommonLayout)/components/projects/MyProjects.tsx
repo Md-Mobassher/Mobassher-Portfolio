@@ -1,7 +1,7 @@
 import Container from "@/components/ui/Container";
 import Title from "@/components/ui/Title";
 import Projects from "./Projects";
-import Link from "next/link";
+import Button from "@/components/ui/Button";
 
 const MyProjects = async () => {
   try {
@@ -31,11 +31,7 @@ const MyProjects = async () => {
           <Title title="My Projects" />
           <Projects projects={projects} />
           <div className="mt-10 text-center">
-            <Link href={"/projects"}>
-              <button className="bg-[#00CF5D] hover:bg-green-500 rounded-md px-5 py-2">
-                View All Projects
-              </button>
-            </Link>
+            <Button clickEvent link="/projects" title="View All Projects" />
           </div>
         </Container>
       </div>

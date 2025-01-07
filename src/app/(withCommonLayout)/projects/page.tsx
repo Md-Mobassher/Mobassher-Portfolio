@@ -1,8 +1,8 @@
 import Container from "@/components/ui/Container";
 import Title from "@/components/ui/Title";
-import AllPortfolios from "./components/AllPortfolios";
+import AllProjects from "./components/AllProjects";
 
-const PortfoliosPage = async () => {
+const ProjectsPage = async () => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/projects`, {
       method: "GET",
@@ -13,7 +13,7 @@ const PortfoliosPage = async () => {
     });
 
     if (!res.ok) {
-      throw new Error("Failed to fetch portfolios");
+      throw new Error("Failed to fetch projects");
     }
 
     const data = await res.json();
@@ -23,24 +23,24 @@ const PortfoliosPage = async () => {
     const projects = Array.isArray(data?.data) ? data?.data : [];
 
     return (
-      <div id="portfolios" className=" ">
+      <div id="projects" className=" md:mt-28 mt-20">
         <Container>
-          <Title title="All Portfolios" />
-          <AllPortfolios portfolios={projects} />
+          <Title title="All Projects" />
+          <AllProjects projects={projects} />
         </Container>
       </div>
     );
   } catch (error) {
-    console.error("Error fetching portfolios:", error);
+    console.error("Error fetching projects:", error);
     return (
-      <div id="portfolios" className=" ">
+      <div id="projects" className=" md:mt-28 mt-20">
         <Container>
-          <Title title="All Portfolios" />
-          <p>Error loading portfolios.</p>
+          <Title title="All Projects" />
+          <p>Error loading projects.</p>
         </Container>
       </div>
     );
   }
 };
 
-export default PortfoliosPage;
+export default ProjectsPage;

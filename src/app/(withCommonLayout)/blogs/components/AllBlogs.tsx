@@ -66,7 +66,7 @@ const AllBlogs = ({ blogs }: AllBlogsProps) => {
             All
           </button>
           <Select onValueChange={setSelectedCategory} defaultValue="">
-            <SelectTrigger className="lg:w-[180px] md:w-[170px] w-[140px]   text-md hover:bg-green-500 bg-gray-700 text-white border-green-500 rounded-md transition duration-500   cursor-pointer text-center">
+            <SelectTrigger className="lg:w-[180px] md:w-[170px] w-[140px]   text-md hover:bg-green-500 bg-secondary dark:text-dark-text text-light-text hover:text-white border-dark-primary rounded-md transition duration-500   cursor-pointer text-center">
               <SelectValue className="" placeholder="Category" />
             </SelectTrigger>
             <SelectContent className="w-[200px] bg-gray-700">
@@ -98,7 +98,7 @@ const AllBlogs = ({ blogs }: AllBlogsProps) => {
         <div className="lg:w-[180px] md:w-[170px] w-[120px] ">
           <Input
             type="text"
-            className="border-green-500 text-center text-white focus:border-0  bg-gray-700 text-md"
+            className="border-dark-primary text-center dark:text-dark-text focus:border-0  dark:bg-dark-secondary text-light-text text-md"
             onChange={handleInputChange}
             placeholder="Search"
           />
