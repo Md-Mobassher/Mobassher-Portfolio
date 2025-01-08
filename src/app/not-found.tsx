@@ -1,4 +1,5 @@
 import assets from "@/assets";
+import Button from "@/components/ui/Button";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,9 +13,11 @@ const NotFound = () => {
       <div className="flex justify-center mt-16">
         <p>
           Go Back to
-          <Link className="btn btn-primary bg-primary text-white ml-4" href="/">
-            Home
-          </Link>
+          <Button
+            className="bg-dark-primary text-white ml-4 px-4 py-2 hover:bg-green-600"
+            link="/"
+            title="Home"
+          ></Button>
         </p>
       </div>
     </div>
