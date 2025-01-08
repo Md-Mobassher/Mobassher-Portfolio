@@ -6,7 +6,7 @@ import mobassher from "@/assets/images/mobassher.png";
 
 const About = () => {
   return (
-    <div id="about" className="lg:mt-28 md:mt-20 mt-14">
+    <div id="about" className="lg:py-14 md:py-10 py-7 ">
       <Container>
         <Title title="About Me" />
         <div className="lg:flex sm:flex-row-reverse  md:flex  items-center justify-between">

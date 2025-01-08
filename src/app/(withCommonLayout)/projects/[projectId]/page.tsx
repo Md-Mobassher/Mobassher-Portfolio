@@ -29,7 +29,7 @@ const PortfolioDetailsPage = async ({ params }: TProjectParams) => {
     // console.log(data);
 
     return (
-      <div id="projects" className=" md:mt-28 mt-20">
+      <div id="projects" className=" md:pt-28 pt-20">
         <Container>
           <Title title="Project Details" />
           <ProjectDetails {...data?.data} />
@@ -39,7 +39,7 @@ const PortfolioDetailsPage = async ({ params }: TProjectParams) => {
   } catch (error) {
     console.error("Error fetching projects:", error);
     return (
-      <div id="projects" className=" md:mt-28 mt-20">
+      <div id="projects" className=" md:pt-28 pt-20">
         <Container>
           <Title title="Project Details" />
           <p>Error loading projects.</p>

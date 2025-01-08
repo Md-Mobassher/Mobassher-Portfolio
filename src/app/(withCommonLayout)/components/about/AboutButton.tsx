@@ -8,7 +8,7 @@ const AboutButton = () => {
       <Button
         link="https://drive.google.com/file/d/1lrAMInBo2I610RC-oMsihi2_Tt2sZW7j/view?usp=sharing"
         target="__blank"
-        className="bg-dark-primary mr-5 text-white hover:bg-green-600"
+        className="bg-dark-primary mr-5 text-white hover:bg-green-600 px-5 py-3"
         title="Get Resume"
       />
 

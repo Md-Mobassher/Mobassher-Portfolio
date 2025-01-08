@@ -34,11 +34,15 @@ const Navbar = () => {
   return (
     <>
       <div
-        className={`py-2 fixed  top-0 left-0 w-full z-50 transition-colors duration-300 ${
+        className={`fixed top-0 left-0 w-full z-50 ${
           isScrolled
-            ? "dark:bg-background bg-light-background  border-b dark:border-gray-600"
-            : "bg-transparent "
-        } `}
+            ? "dark:bg-background bg-light-background border-b dark:border-gray-600 shadow-md transition-all duration-300"
+            : "bg-transparent transition-all duration-300"
+        }`}
+        style={{
+          paddingTop: isScrolled ? "0.5rem" : "1.5rem",
+          paddingBottom: isScrolled ? "0.5rem" : "1.5rem",
+        }}
       >
         <Container className="container mx-auto px-4  flex justify-between items-center">
           {/* Left Section: Logo */}

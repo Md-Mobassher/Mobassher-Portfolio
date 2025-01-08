@@ -21,7 +21,7 @@ const BlogsPage = async () => {
     // console.log(data);
 
     return (
-      <div id="blog" className="md:mt-28 mt-20">
+      <div id="blog" className="md:pt-28 pt-20">
         <Container>
           <Title title="My Blogs" />
           <AllBlogs blogs={data?.data as TBlog[]} />
@@ -31,7 +31,7 @@ const BlogsPage = async () => {
   } catch (error) {
     console.error(error);
     return (
-      <div id="blog" className="md:mt-28 mt-20">
+      <div id="blog" className="md:pt-28 pt-20">
         <Container>
           <Title title="My Blogs" />
           <p>Error loading blogs. Please try again later.</p>

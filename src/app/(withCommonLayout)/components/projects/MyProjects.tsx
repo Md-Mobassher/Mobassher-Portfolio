@@ -26,7 +26,7 @@ const MyProjects = async () => {
     const projects = Array.isArray(data?.data) ? data?.data : [];
 
     return (
-      <div id="projects" className=" lg:mt-28 md:mt-24 mt-20">
+      <div id="projects" className=" lg:py-14 md:py-10 py-7">
         <Container>
           <Title title="My Projects" />
           <Projects projects={projects} />
@@ -39,7 +39,7 @@ const MyProjects = async () => {
   } catch (error) {
     console.error("Error fetching projects:", error);
     return (
-      <div id="projects" className=" ">
+      <div id="projects" className=" lg:py-14 md:py-10 py-7">
         <Container>
           <Title title="My Projects" />
           <p>Error loading Projects.</p>

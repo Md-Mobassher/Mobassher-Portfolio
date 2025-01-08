@@ -29,10 +29,10 @@ const Button = ({
       onMouseOut={onMouseOut}
       rel={target ? "noopener noreferrer" : ""}
       href={link}
-      className={`border rounded-lg  px-5 py-3 border-dark-primary transition-all duration-300 font-semibold  ${
+      className={`border rounded-lg   border-dark-primary transition-all duration-300 font-semibold  ${
         className
           ? className
-          : "dark:bg-dark-secondary bg-light-secondary hover:text-light-background hover:bg-dark-primary dark:hover:bg-dark-primary"
+          : "dark:bg-dark-secondary bg-light-secondary hover:text-light-background hover:bg-dark-primary dark:hover:bg-dark-primary px-5 py-3"
       }`}
     >
       {title}

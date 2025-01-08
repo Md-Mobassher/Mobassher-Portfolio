@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const SocialIcon = () => {
   return (
-    <div className="transition duration-100 ">
+    <div className="transition duration-100 flex justify-center md:justify-start items-center">
       <div className="flex flex-wrap mt-4 lg:gap-5 md:gap-4 gap-3">
         {socialData?.map((item) => (
           <a

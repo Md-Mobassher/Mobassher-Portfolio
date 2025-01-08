@@ -22,7 +22,7 @@ const MySkills = async () => {
     const { data: skills } = await res.json();
 
     return (
-      <div id="myskills" className="lg:mt-28 md:mt-20 mt-14 min-h-20">
+      <div id="myskills" className="lg:py-14 md:py-10 py-7 min-h-20">
         <Container>
           <Title title="My Skills" />
           <Skills skills={skills as TSkill[]} />
@@ -32,7 +32,7 @@ const MySkills = async () => {
   } catch (error) {
     console.error(error);
     return (
-      <div id="myskills" className="lg:mt-28 md:mt-20 mt-14 min-h-20">
+      <div id="myskills" className="lg:py-14 md:py-10 py-7 min-h-20">
         <Container>
           <Title title="My Skills" />
           <p>Error loading skills. Please try again later.</p>

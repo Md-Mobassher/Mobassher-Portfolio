@@ -26,7 +26,7 @@ const MyBlogs = async () => {
     const blogs = Array.isArray(data?.data) ? data?.data : [];
 
     return (
-      <div id="blog" className=" lg:mt-28 md:mt-24 mt-20">
+      <div id="blog" className=" lg:py-14 md:py-10 py-7">
         <Container>
           <Title title="My Blog" />
           <Blogs blogs={blogs as TBlog[]} />
@@ -39,7 +39,7 @@ const MyBlogs = async () => {
   } catch (error) {
     console.error(error);
     return (
-      <div id="blog" className="">
+      <div id="blog" className="lg:py-14 md:py-10 py-7">
         <Container>
           <Title title="My Blog" />
           <p>Error loading blogs. Please try again later.</p>

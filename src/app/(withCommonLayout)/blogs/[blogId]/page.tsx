@@ -28,7 +28,7 @@ const BlogDetailsPage = async ({ params }: TBlogParams) => {
     // console.log(data);
 
     return (
-      <div id="blogDetails" className=" ">
+      <div id="blogDetails" className="lg:mt-28 md:mt-24 mt-20 ">
         <Container>
           <Title title="Blog Details" />
           <BlogDetails {...data?.data} />
@@ -38,7 +38,7 @@ const BlogDetailsPage = async ({ params }: TBlogParams) => {
   } catch (error) {
     console.error("Error fetching projects:", error);
     return (
-      <div id="blogDetails" className=" ">
+      <div id="blogDetails" className=" lg:mt-28 md:mt-24 mt-20">
         <Container>
           <Title title="Blog Details" />
           <p>Error loading projects.</p>
