@@ -50,8 +50,8 @@ const Skills = ({ skills }: SkillsProps) => {
         </ul>
       </div>
 
-      <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 lg:gap-6 gap-4 md:gap-5">
-        {getFilteredSkills().map((skill) => (
+      <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 lg:gap-6 gap-4 md:gap-5 mx-auto">
+        {getFilteredSkills()?.map((skill) => (
           <SkillCard key={skill._id} {...skill} />
         ))}
       </div>
