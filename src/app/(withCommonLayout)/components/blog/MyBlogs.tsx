@@ -2,7 +2,7 @@ import Container from "@/components/ui/Container";
 import Title from "@/components/ui/Title";
 import { TBlog } from "@/type";
 import Blogs from "./Blogs";
-import Link from "next/link";
+import Button from "@/components/ui/Button";
 
 const MyBlogs = async () => {
   try {
@@ -26,16 +26,12 @@ const MyBlogs = async () => {
     const blogs = Array.isArray(data?.data) ? data?.data : [];
 
     return (
-      <div id="blog" className=" lg:mt-28 md:mt-24 mt-20">
+      <div id="blog" className=" lg:py-14 md:py-10 py-7">
         <Container>
           <Title title="My Blog" />
           <Blogs blogs={blogs as TBlog[]} />
           <div className="mt-10 text-center">
-            <Link href={"/blog"}>
-              <button className="bg-[#00CF5D] hover:bg-green-500 rounded-md px-5 py-2">
-                View All Blog
-              </button>
-            </Link>
+            <Button clickEvent link="/blogs" title="View All Blogs" />
           </div>
         </Container>
       </div>
@@ -43,7 +39,7 @@ const MyBlogs = async () => {
   } catch (error) {
     console.error(error);
     return (
-      <div id="blog" className="">
+      <div id="blog" className="lg:py-14 md:py-10 py-7">
         <Container>
           <Title title="My Blog" />
           <p>Error loading blogs. Please try again later.</p>

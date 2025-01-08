@@ -10,13 +10,13 @@ export const navItemsData = [
   },
 
   {
-    title: "Portfolios",
-    url: "/#portfolios",
+    title: "Projects",
+    url: "/projects",
   },
 
   {
-    title: "Blog",
-    url: "/#blog",
+    title: "Blogs",
+    url: "/blogs",
   },
   // {
   //   title: "Testimonials",

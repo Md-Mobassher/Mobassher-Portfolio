@@ -8,18 +8,10 @@ const IntroButton = () => {
       <Button
         link="https://drive.google.com/file/d/1lrAMInBo2I610RC-oMsihi2_Tt2sZW7j/view?usp=sharing"
         target="__blank"
-        color="white"
-        bgColor="#00cf5d"
         title="Get Resume"
+        className="bg-dark-primary mr-5 text-white hover:bg-green-600 px-5 py-3"
       />
-      <Button
-        clickEvent
-        link="#about"
-        color="white"
-        bgColor="#1F2937"
-        margin="0 0 0 15px"
-        title="About Me"
-      />
+      <Button clickEvent link="#about" title="About Me" />
     </div>
   );
 };

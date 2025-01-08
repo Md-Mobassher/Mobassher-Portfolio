@@ -1,10 +1,10 @@
 import assets from "@/assets";
-import { TPortfolio } from "@/type";
+import { TProject } from "@/type";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FaGithub, FaShareSquare } from "react-icons/fa";
 
-const PortfolioCard = ({ project }: { project: TPortfolio }) => {
+const ProjectCard = ({ project }: { project: TProject }) => {
   const {
     image,
     name,
@@ -17,11 +17,11 @@ const PortfolioCard = ({ project }: { project: TPortfolio }) => {
   const router = useRouter();
 
   const navigateToProjectDetail = (id: string) => {
-    router.push(`/portfolios/${id}`);
+    router.push(`/projects/${id}`);
   };
 
   return (
-    <div className="card bg-slate-800 rounded-md  max-w-sm mx-auto shadow-2xl">
+    <div className="card dark:bg-dark-secondary bg-light-secondary rounded-md  max-w-md mx-auto shadow-lg border">
       <div className="h-48">
         <figure className="h-full">
           {image?.cover ? (
@@ -47,7 +47,7 @@ const PortfolioCard = ({ project }: { project: TPortfolio }) => {
       <div className="card-body px-5 pt-5 pb-6 justify-between items-between">
         <div className="">
           <h2 className=" mb-1 text-xl font-bold ">{name}</h2>
-          <p className="text-justify text-sm mt-2 text-gray-300">
+          <p className="text-justify text-sm mt-2 text-dark-destructive dark:text-gray-300">
             {description[0]}
           </p>
         </div>
@@ -97,7 +97,7 @@ const PortfolioCard = ({ project }: { project: TPortfolio }) => {
           </div>
 
           <div className="pt-4">
-            <div className="text-sm text-gray-300 flex flex-wrap justify-start items-center gap-[3px]">
+            <div className="text-sm text-dark-destructive dark:text-gray-300 flex flex-wrap justify-start items-center gap-[3px]">
               {technology?.map((item, index) => (
                 <span key={index} className="">
                   {item},
@@ -111,4 +111,4 @@ const PortfolioCard = ({ project }: { project: TPortfolio }) => {
   );
 };
 
-export default PortfolioCard;
+export default ProjectCard;

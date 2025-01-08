@@ -1,8 +1,8 @@
 "use client";
 
-import { TPortfolio } from "@/type";
+import { TProject } from "@/type";
 import { ChangeEvent, useState } from "react";
-import PortfolioCard from "./PortfolioCard";
+import ProjectCard from "./ProjectCard";
 import {
   Select,
   SelectContent,
@@ -15,32 +15,32 @@ import { Input } from "@/components/ui/input";
 import { uniqueTechnologies } from "./Technology";
 
 interface AllPortfoliosProps {
-  portfolios: TPortfolio[];
+  projects: TProject[];
 }
 
-const AllPortfolios = ({ portfolios }: AllPortfoliosProps) => {
+const AllProjects = ({ projects }: AllPortfoliosProps) => {
   const [selectedTechnology, setSelectedTechnology] = useState<
     string | undefined
   >();
   const [search, setSearch] = useState<string>("");
 
-  const getFilteredPortfolios = () => {
+  const getFilteredProjects = () => {
     let portfolio;
 
     if (!selectedTechnology) {
-      portfolio = portfolios;
+      portfolio = projects;
     }
     if (!search) {
-      portfolio = portfolios;
+      portfolio = projects;
     }
 
     if (selectedTechnology) {
-      portfolio = portfolios.filter((item: TPortfolio) =>
+      portfolio = projects.filter((item: TProject) =>
         item.technology.includes(selectedTechnology)
       );
     }
     if (search) {
-      portfolio = portfolios.filter((item: TPortfolio) =>
+      portfolio = projects.filter((item: TProject) =>
         item.name.toLowerCase().includes(search.toLowerCase())
       );
     }
@@ -67,12 +67,12 @@ const AllPortfolios = ({ portfolios }: AllPortfoliosProps) => {
             All
           </button>
           <Select onValueChange={setSelectedTechnology} defaultValue="">
-            <SelectTrigger className="lg:w-[180px] md:w-[170px] w-[140px]   text-md hover:bg-green-500 bg-gray-700 text-white border-green-500 rounded-md transition duration-500   cursor-pointer text-center">
+            <SelectTrigger className="lg:w-[180px] md:w-[170px] w-[140px]   text-md hover:bg-green-500 bg-secondary dark:text-dark-text text-light-text hover:text-white border-dark-primary rounded-md transition duration-500   cursor-pointer text-center">
               <SelectValue className="" placeholder="Technology" />
             </SelectTrigger>
             <SelectContent className="w-[200px] bg-gray-700">
               <SelectGroup>
-                {uniqueTechnologies.map((tech) => (
+                {uniqueTechnologies?.map((tech) => (
                   <SelectItem
                     key={tech}
                     value={tech}
@@ -89,9 +89,9 @@ const AllPortfolios = ({ portfolios }: AllPortfoliosProps) => {
           <h4 className="text-lg font-semibold">
             Total:{" "}
             <span className="text-green-500 px-1">
-              {getFilteredPortfolios()?.length || 0}
+              {getFilteredProjects()?.length || 0}
             </span>{" "}
-            Portfolio Found
+            Projects Found
           </h4>
         </div>
 
@@ -99,7 +99,7 @@ const AllPortfolios = ({ portfolios }: AllPortfoliosProps) => {
         <div className="lg:w-[180px] md:w-[170px] w-[120px] ">
           <Input
             type="text"
-            className="border-green-500 text-center text-white focus:border-0  bg-gray-700 text-md"
+            className="border-dark-primary text-center dark:text-dark-text focus:border-0  dark:bg-dark-secondary text-light-text text-md"
             onChange={handleInputChange}
             placeholder="Search"
           />
@@ -110,19 +110,19 @@ const AllPortfolios = ({ portfolios }: AllPortfoliosProps) => {
         <h4 className="text-md font-semibold">
           Total:{" "}
           <span className="text-cyan-500 px-1">
-            {getFilteredPortfolios()?.length || 0}
+            {getFilteredProjects()?.length || 0}
           </span>{" "}
-          Portfolio Found
+          Projects Found
         </h4>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 md:gap-7 gap-6 pt-5">
-        {getFilteredPortfolios()?.map((project: TPortfolio) => (
-          <PortfolioCard key={project._id} project={project} />
+        {getFilteredProjects()?.map((project: TProject) => (
+          <ProjectCard key={project._id} project={project} />
         ))}
       </div>
     </div>
   );
 };
 
-export default AllPortfolios;
+export default AllProjects;

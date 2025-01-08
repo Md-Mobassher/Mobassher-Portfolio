@@ -1,8 +1,8 @@
-import { TPortfolio } from "@/type";
+import { TProject } from "@/type";
 import { MoveRight } from "lucide-react";
 import Image from "next/image";
 
-const PortfolioDetails = (project: TPortfolio) => {
+const ProjectDetails = (project: TProject) => {
   const {
     name,
     type,
@@ -12,11 +12,11 @@ const PortfolioDetails = (project: TPortfolio) => {
     liveUrl,
     clientUrl,
     serverUrl,
-  } = project as TPortfolio;
+  } = project as TProject;
 
   return (
     <div>
-      <div className=" bg-gray-800 border-gray-700 border rounded-lg mt-1 z-0">
+      <div className=" dark:bg-dark-secondary bg-light-secondary  border rounded-lg mt-1 z-0">
         <div className="items-center justify-start  lg:py-10 p-5 lg:px-20 ">
           {name && (
             <div className="flex lg:text-2xl md:text-2xl text-xl ">
@@ -124,4 +124,4 @@ const PortfolioDetails = (project: TPortfolio) => {
   );
 };
 
-export default PortfolioDetails;
+export default ProjectDetails;

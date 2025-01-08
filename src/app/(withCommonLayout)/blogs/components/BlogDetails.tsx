@@ -16,7 +16,7 @@ const BlogDetails = ({
   updatedAt,
 }: TBlog) => {
   return (
-    <div className=" rounded-lg shadow-lg py-4 md:py-6 lg:py-10">
+    <div className=" rounded-lg py-4 md:py-6 lg:py-10">
       <div className="text-center">
         <h1 className="text-3xl lg:text-5xl font-bold mb-4">{title}</h1>
         <div className="text-sm text-gray-300 mb-6 flex lg:gap-5 md:gap-4 gap-3 justify-center lg:flex-row md:flex-row flex-col">

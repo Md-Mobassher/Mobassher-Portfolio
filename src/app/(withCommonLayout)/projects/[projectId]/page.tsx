@@ -1,46 +1,47 @@
 import Container from "@/components/ui/Container";
 import Title from "@/components/ui/Title";
-import BlogDetails from "../components/BlogDetails";
+import ProjectDetails from "../components/PtojectDetails";
 
-type TBlogParams = {
+type TProjectParams = {
   params: {
-    blogId: string;
+    projectId: string;
   };
 };
-const BlogDetailsPage = async ({ params }: TBlogParams) => {
+
+const PortfolioDetailsPage = async ({ params }: TProjectParams) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}/blogs/${params.blogId}`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/projects/${params.projectId}`,
       {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
-        cache: "no-store",
+        cache: "force-cache",
       }
     );
 
     if (!res.ok) {
-      throw new Error("Failed to fetch blog");
+      throw new Error("Failed to fetch project");
     }
 
     const data = await res.json();
     // console.log(data);
 
     return (
-      <div id="blogDetails" className=" ">
+      <div id="projects" className=" md:pt-28 pt-20">
         <Container>
-          <Title title="Blog Details" />
-          <BlogDetails {...data?.data} />
+          <Title title="Project Details" />
+          <ProjectDetails {...data?.data} />
         </Container>
       </div>
     );
   } catch (error) {
     console.error("Error fetching projects:", error);
     return (
-      <div id="blogDetails" className=" ">
+      <div id="projects" className=" md:pt-28 pt-20">
         <Container>
-          <Title title="Blog Details" />
+          <Title title="Project Details" />
           <p>Error loading projects.</p>
         </Container>
       </div>
@@ -48,4 +49,4 @@ const BlogDetailsPage = async ({ params }: TBlogParams) => {
   }
 };
 
-export default BlogDetailsPage;
+export default PortfolioDetailsPage;

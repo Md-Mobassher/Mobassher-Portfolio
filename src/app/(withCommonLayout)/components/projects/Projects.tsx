@@ -1,6 +1,6 @@
 "use client";
 
-import { TPortfolio } from "@/type";
+import { TProject } from "@/type";
 import { ChangeEvent, useState } from "react";
 import {
   Select,
@@ -11,49 +11,49 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
-import PortfolioCard from "../../portfolios/components/PortfolioCard";
-import { uniqueTechnologies } from "../../portfolios/components/Technology";
+import { uniqueTechnologies } from "../../projects/components/Technology";
+import ProjectCard from "../../projects/components/ProjectCard";
 
-interface AllPortfoliosProps {
-  portfolios: TPortfolio[];
+interface AllProjectsProps {
+  projects: TProject[];
 }
 
-const Portfolios = ({ portfolios }: AllPortfoliosProps) => {
+const Projects = ({ projects }: AllProjectsProps) => {
   const [selectedTechnology, setSelectedTechnology] = useState<
     string | undefined
   >();
   const [search, setSearch] = useState<string>("");
 
-  const getFilteredPortfolios = () => {
-    let portfolio;
+  const getFilteredprojects = () => {
+    let project;
 
     if (!selectedTechnology) {
-      portfolio = portfolios;
+      project = projects;
     }
     if (!search) {
-      portfolio = portfolios;
+      project = projects;
     }
 
     if (selectedTechnology) {
-      portfolio = portfolios.filter((item: TPortfolio) =>
+      project = projects.filter((item: TProject) =>
         item.technology.includes(selectedTechnology)
       );
     }
     if (search) {
-      portfolio = portfolios.filter((item: TPortfolio) =>
+      project = projects.filter((item: TProject) =>
         item.name.toLowerCase().includes(search.toLowerCase())
       );
     }
 
-    return portfolio;
+    return project;
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
 
-  // const uniqueTechnologies = Array.isArray(portfolios)
-  //   ? Array.from(new Set(portfolios.flatMap((project) => project.technology)))
+  // const uniqueTechnologies = Array.isArray(projects)
+  //   ? Array.from(new Set(projects.flatMap((project) => project.technology)))
   //   : [];
 
   return (
@@ -62,17 +62,17 @@ const Portfolios = ({ portfolios }: AllPortfoliosProps) => {
         <div className="flex items-center gap-1">
           <button
             onClick={() => setSelectedTechnology("")}
-            className="border border-green-500 text-md py-2 bg-green-500 hover:bg-green-700 text-white rounded-md transition duration-500 lg:px-6 md:px-5 px-3 uppercase cursor-pointer"
+            className="border border-dark-primary text-md py-2 bg-dark-primary hover:bg-green-700 text-white rounded-md transition duration-500 lg:px-6 md:px-5 px-3 uppercase cursor-pointer"
           >
             All
           </button>
           <Select onValueChange={setSelectedTechnology} defaultValue="">
-            <SelectTrigger className="lg:w-[180px] md:w-[170px] w-[140px]   text-md hover:bg-green-500 bg-gray-700 text-white border-green-500 rounded-md transition duration-500   cursor-pointer text-center">
+            <SelectTrigger className="lg:w-[180px] md:w-[170px] w-[140px]   text-md hover:bg-green-500 bg-secondary dark:text-dark-text text-light-text hover:text-white border-dark-primary rounded-md transition duration-500   cursor-pointer text-center">
               <SelectValue className="" placeholder="Technology" />
             </SelectTrigger>
             <SelectContent className="w-[200px] bg-gray-700">
               <SelectGroup>
-                {uniqueTechnologies.map((tech) => (
+                {uniqueTechnologies?.map((tech) => (
                   <SelectItem
                     key={tech}
                     value={tech}
@@ -89,9 +89,9 @@ const Portfolios = ({ portfolios }: AllPortfoliosProps) => {
           <h4 className="text-lg font-semibold">
             Total:{" "}
             <span className="text-green-500 px-1">
-              {getFilteredPortfolios()?.length || 0}
+              {getFilteredprojects()?.length || 0}
             </span>{" "}
-            Portfolios Found
+            Projects Found
           </h4>
         </div>
 
@@ -99,7 +99,7 @@ const Portfolios = ({ portfolios }: AllPortfoliosProps) => {
         <div className="lg:w-[180px] md:w-[170px] w-[120px] ">
           <Input
             type="text"
-            className="border-green-500 text-center text-white focus:border-0  bg-gray-700 text-md"
+            className="border-dark-primary text-center dark:text-dark-text focus:border-0  dark:bg-dark-secondary text-light-text text-md"
             onChange={handleInputChange}
             placeholder="Search"
           />
@@ -110,22 +110,22 @@ const Portfolios = ({ portfolios }: AllPortfoliosProps) => {
         <h4 className="text-md font-semibold">
           Total:{" "}
           <span className="text-cyan-500 px-1">
-            {getFilteredPortfolios()?.length || 0}
+            {getFilteredprojects()?.length || 0}
           </span>{" "}
-          Portfolios Found
+          Projects Found
         </h4>
       </div>
 
       {/* show projects */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  lg:gap-8 md:gap-7 gap-6 pt-5">
-        {getFilteredPortfolios()
+        {getFilteredprojects()
           ?.slice(0, 6)
-          ?.map((project: TPortfolio) => (
-            <PortfolioCard key={project._id} project={project} />
+          ?.map((project: TProject) => (
+            <ProjectCard key={project._id} project={project} />
           ))}
       </div>
     </div>
   );
 };
 
-export default Portfolios;
+export default Projects;

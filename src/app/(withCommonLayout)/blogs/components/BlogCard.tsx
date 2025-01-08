@@ -4,6 +4,7 @@ import { TBlog } from "@/type";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import ShareButton from "./ShareButton";
+import Button from "@/components/ui/Button";
 
 interface BlogCardProps {
   blog: TBlog;
@@ -16,7 +17,7 @@ const BlogCard = ({ blog }: BlogCardProps) => {
   };
 
   return (
-    <div className="border bg-gray-800 rounded-md border-gray-700 max-w-sm mx-auto">
+    <div className="border dark:bg-dark-secondary bg-light-background rounded-md shadow-lg max-w-md mx-auto">
       <div className="h-48 ">
         <figure className="h-full">
           {blog?.coverImage ? (
@@ -42,13 +43,12 @@ const BlogCard = ({ blog }: BlogCardProps) => {
       <div className="card-body p-4">
         <h5 className=" text-xl font-bold">{blog?.title}</h5>
 
-        <div className="flex justify-between items-end mt-auto">
-          <button
-            onClick={() => navigateToBlogDetail(blog?._id)}
-            className="bg-[#00CF5D] hover:bg-green-500 px-5 py-2 rounded-md mt-5"
-          >
-            Details
-          </button>
+        <div className="flex justify-between items-end mt-4">
+          <Button
+            title="Details"
+            link={`/blogs/${blog?._id}`}
+            className="py-2 bg-dark-primary px-4 hover:bg-green-600 text-white"
+          />
           <ShareButton title={blog?.title} />
         </div>
       </div>

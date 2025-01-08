@@ -1,4 +1,4 @@
-export type TPortfolio = {
+export type TProject = {
   _id: string;
   name: string;
   type: string;
