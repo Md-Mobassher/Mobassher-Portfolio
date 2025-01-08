@@ -4,7 +4,7 @@ import Image from "next/image";
 const SocialIcon = () => {
   return (
     <div className="transition duration-100 flex justify-center md:justify-start items-center">
-      <div className="flex flex-wrap mt-4 lg:gap-5 md:gap-4 gap-3">
+      <div className="flex flex-wrap mt-4 lg:gap-5 md:gap-4 gap-2">
         {socialData?.map((item) => (
           <a
             href={item?.link}

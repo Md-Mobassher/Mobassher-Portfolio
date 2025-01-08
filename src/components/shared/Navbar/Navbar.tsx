@@ -60,10 +60,10 @@ const Navbar = () => {
           {/* Drawer and Interactive Elements (Client Component) */}
           <>
             {/* Hamburger Menu Icon for Mobile */}
-            <div className="lg:hidden">
+            <div className="lg:hidden flex gap-3 justify-end items-center">
               <ThemeToggle />
               <button onClick={toggleDrawer} className="text-2xl">
-                <div className="p-1 flex justify-center items-center gap-2 rounded-md text-white hover:border bg-green-500">
+                <div className="p-1 flex justify-center items-center gap-2 rounded-md text-white  bg-green-500">
                   <MenuIcon className="size-8" />
                 </div>
               </button>

@@ -6,9 +6,9 @@ import Container from "@/components/ui/Container";
 
 const Intro = () => {
   return (
-    <div className="">
+    <div className="pt-10">
       <Container>
-        <div className="min-h-screen flex items-center">
+        <div className=" min-h-screen flex items-center md:justify-start justify-center">
           <div className="text-center md:text-start lg:text-start">
             <p className="lg:text-2xl md:text-xl text-xl font-semibold text-[#02CF5F]">
               Hello! I am
