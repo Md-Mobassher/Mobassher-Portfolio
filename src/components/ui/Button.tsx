@@ -1,49 +1,68 @@
 "use client";
 
+type ButtonProps = {
+  title?: string;
+  link?: string;
+  target?: string;
+  clickEvent?: boolean;
+  onMouseOver?: () => void;
+  onMouseOut?: () => void;
+  className?: string;
+};
+
 const Button = ({
-  title,
-  link,
-  target,
+  title = "Button",
+  link = "https://mobassher.vercel.app",
+  target = "",
   clickEvent,
   onMouseOver,
   onMouseOut,
   className,
-}: any) => {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+}: ButtonProps) => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
-    const hash = e.currentTarget.hash;
-    const el = document.querySelector(hash) as HTMLElement;
-    const offsetTop = el?.offsetTop || 0;
-    window.scrollTo({
-      top: offsetTop,
-      left: 0,
-      behavior: "smooth",
-    });
+
+    if (!link) return;
+
+    // If link is a hash link (starts with #), scroll smoothly
+    if (clickEvent && link.startsWith("#")) {
+      const el = document.querySelector(link) as HTMLElement;
+      if (!el) return;
+      const offsetTop = el.offsetTop || 0;
+      window.scrollTo({
+        top: offsetTop,
+        left: 0,
+        behavior: "smooth",
+      });
+    } else {
+      // If external or regular link, open it
+      if (target === "_blank") {
+        window.open(link, "_blank", "noopener,noreferrer");
+      } else {
+        window.location.href = link;
+      }
+    }
   };
 
   return (
-    <a
-      target={target}
-      onClick={clickEvent && handleClick}
+    <div
+      onClick={handleClick}
       onMouseOver={onMouseOver}
       onMouseOut={onMouseOut}
-      rel={target ? "noopener noreferrer" : ""}
-      href={link}
-      className={`border rounded-lg   border-dark-primary transition-all duration-300 font-semibold  ${
+      className={`cursor-pointer border rounded-lg border-dark-primary transition-all duration-300 font-semibold ${
         className
           ? className
-          : "dark:bg-dark-secondary bg-light-secondary hover:text-light-background hover:bg-dark-primary dark:hover:bg-dark-primary px-5 py-3"
+          : "dark:bg-dark-secondary bg-light-secondary hover:text-light-background hover:bg-dark-primary dark:hover:bg-dark-primary px-5 py-3 inline-block"
       }`}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") handleClick(e as any);
+      }}
     >
       {title}
-    </a>
+    </div>
   );
-};
-
-Button.defaultProps = {
-  title: "Button",
-  link: "https://mobassher.vercel.app",
-  target: "",
 };
 
 export default Button;

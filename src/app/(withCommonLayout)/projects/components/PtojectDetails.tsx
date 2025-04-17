@@ -119,7 +119,11 @@ const ProjectDetails = (project: TProject) => {
         </div>
       </div>
 
-      <div>{image.landing && <Image src={image?.landing} alt={name} />}</div>
+      <div>
+        {image.landing && (
+          <Image src={image?.landing} alt={name} width={600} height={500} />
+        )}
+      </div>
     </div>
   );
 };
