@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import assets from "@/assets";
 
 const ShareButton = ({ title }: { title: string }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,7 +46,7 @@ const ShareButton = ({ title }: { title: string }) => {
         onClick={toggleDropdown}
         className="border border-dark-primary rounded-lg px-4 py-2 flex justify-center items-center gap-2 dark:bg-dark-secondary bg-light-secondary hover:text-light-background hover:bg-dark-primary dark:hover:bg-dark-primary font-semibold"
       >
-        <Image src={assets.icons.share} alt="share" width={20} height={20} />{" "}
+        <Image src={"/icons/share.png"} alt="share" width={20} height={20} />{" "}
         Share
       </button>
 
@@ -58,7 +57,7 @@ const ShareButton = ({ title }: { title: string }) => {
             className="w-full px-4 py-2 text-left flex items-center gap-2 hover:bg-green-500 rounded-t-lg"
           >
             <Image
-              src={assets.icons.linkedIn}
+              src={"/icons/linkedin.png"}
               alt="share"
               width={20}
               height={20}
@@ -70,7 +69,7 @@ const ShareButton = ({ title }: { title: string }) => {
             className="w-full px-4 py-2 text-left flex items-center gap-2 hover:bg-green-500 "
           >
             <Image
-              src={assets.icons.facebook}
+              src={"/icons/facebook.png"}
               alt="share"
               width={20}
               height={20}
@@ -82,7 +81,7 @@ const ShareButton = ({ title }: { title: string }) => {
             className="w-full px-4 py-2 text-left flex items-center gap-2 hover:bg-green-500"
           >
             <Image
-              src={assets.icons.twitter}
+              src={"/icons/twitter.png"}
               alt="share"
               width={20}
               height={20}
@@ -95,7 +94,7 @@ const ShareButton = ({ title }: { title: string }) => {
             className="w-full px-4 py-2 text-left flex items-center gap-2 hover:bg-green-500"
           >
             <Image
-              src={assets.icons.whatsapp}
+              src={"/icons/whatsapp.png"}
               alt="share"
               width={20}
               height={20}
@@ -106,7 +105,12 @@ const ShareButton = ({ title }: { title: string }) => {
             onClick={() => shareOnSocialMedia("copy")}
             className="w-full px-4 py-2 text-left flex items-center gap-2 hover:bg-green-500 rounded-b-lg"
           >
-            <Image src={assets.icons.link} alt="share" width={20} height={20} />{" "}
+            <Image
+              src={"/icons/share.png"}
+              alt="share"
+              width={20}
+              height={20}
+            />{" "}
             Copy Link
           </button>
         </div>

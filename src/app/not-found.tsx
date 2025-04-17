@@ -1,7 +1,5 @@
-import assets from "@/assets";
 import Button from "@/components/ui/Button";
 import Image from "next/image";
-import Link from "next/link";
 
 const NotFound = () => {
   return (
@@ -9,7 +7,7 @@ const NotFound = () => {
       className="min-h-screen flex-col bg-[#011F41] text-slate-200 flex justify-center items-center
     "
     >
-      <Image className="flex" src={assets.image.notFound} alt="" />
+      <Image className="flex" src={"/images/notFound.png"} alt="" />
       <div className="flex justify-center mt-16">
         <p>
           Go Back to

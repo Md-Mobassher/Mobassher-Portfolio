@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Link from "next/link";
-import assets from "@/assets";
 import SocialIcon from "@/components/ui/SocialIcon";
 import Container from "@/components/ui/Container";
 

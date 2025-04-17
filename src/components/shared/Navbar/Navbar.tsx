@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import assets from "@/assets";
 import { navItemsData } from "./navItemData";
 import { useEffect, useState } from "react";
 import { MenuIcon, X } from "lucide-react";
@@ -49,7 +48,7 @@ const Navbar = () => {
           <div className=" ">
             <Link href="/">
               <Image
-                src={assets?.image?.logo}
+                src={"/images/logo.png"}
                 alt="logo"
                 width={60}
                 height={60}

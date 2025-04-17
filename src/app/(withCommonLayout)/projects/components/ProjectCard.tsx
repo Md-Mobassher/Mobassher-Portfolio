@@ -1,4 +1,3 @@
-import assets from "@/assets";
 import { TProject } from "@/type";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -35,7 +34,7 @@ const ProjectCard = ({ project }: { project: TProject }) => {
           ) : (
             <Image
               className="w-full h-full object-fill object-center rounded-t-md "
-              src={assets?.image?.noImage}
+              src={"/images/noImage.png"}
               alt={name}
               width={600}
               height={300}
@@ -48,7 +47,7 @@ const ProjectCard = ({ project }: { project: TProject }) => {
         <div className="">
           <h2 className=" mb-1 text-xl font-bold ">{name}</h2>
           <p className="text-justify text-sm mt-2 text-dark-destructive dark:text-gray-300">
-            {description[0]}
+            {description[0]?.slice(0, 160)}...
           </p>
         </div>
 
