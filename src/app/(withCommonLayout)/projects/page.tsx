@@ -21,7 +21,7 @@ const ProjectsPage = async () => {
 
     // Ensure the fetched data is an array
     const projects = Array.isArray(data?.data) ? data?.data : [];
-
+    // console.log(projects);
     return (
       <div id="projects" className=" md:pt-28 pt-20">
         <Container>
