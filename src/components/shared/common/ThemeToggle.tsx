@@ -15,15 +15,15 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="border rounded-full w-12 relative h-7 flex items-center justify-center p-2 dark:border-gray-500 border-gray-500"
+      className=" relative flex items-center justify-center cursor-pointer"
     >
       {theme === "dark" ? (
-        <span className="mr-3 text-yellow-400">
-          <Sun className="size-5" />
+        <span className=" text-yellow-400">
+          <Sun className="size-6" />
         </span>
       ) : (
-        <span className="ml-4">
-          <MoonStar className="size-5 text-black-400" />
+        <span className="">
+          <MoonStar className="size-6 text-gray-500" />
         </span>
       )}
     </button>
