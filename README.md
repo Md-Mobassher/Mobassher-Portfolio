@@ -1,41 +1,58 @@
-# Md Mobassher Portfolio
+# Mobassher Portfolio
 
 ## Deployment
 
-- **Live Link**: [Mobassher Portfolio](https://mobassher.vercel.app)
+- **Live Link**: [Live server link](https://mobassher.vercel.app)
 
 ## Technologies Used
 
-- **Next.js**: React framework for building server-side rendered and static web applications.
-- **TypeScript**: Typed superset of JavaScript for enhanced developer productivity and code maintainability.
-- **Tailwind CSS**: Utility-first CSS framework for building custom designs with ease.
+- TypeScript
+- Next.js
+- Redux
 
 ## Getting Started
 
 To get a local copy of the project up and running, follow these steps:
 
-1. Clone the repository:
+1. **Clone the Repository:**
 
-```
-git clone <repository_url>
-```
-
-2. Install dependencies:
-
-```
-cd <project_name> yarn
+```shell
+git clone <repository-link>
 ```
 
-3. Set up environment variables:
-   Create a `.env` file in the root directory and add necessary environment variables.
+2. **Navigate to the Project Directory:**
 
-4. Start the development server:
-
+```shell
+cd <project_name>
 ```
+
+3. Please update the filename from `.env.example` to `.env` and Fill your own data
+
+4. **Install Dependencies:**
+
+```shell
+yarn
+```
+
+or
+
+```shell
+npm install
+```
+
+5. **Start the Server:**
+
+```shell
 yarn dev
 ```
 
-5. Open your browser and navigate to `http://localhost:3000` to view the application.
+or
+
+```shell
+npm run dev
+```
+
+The server will be running at **`http://localhost:3000`** .
 
 ## Contributing
 

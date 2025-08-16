@@ -1,6 +1,6 @@
+import Container from "@/components/layout/Container";
+import SocialIcon from "@/components/layout/SocialIcon";
 import Link from "next/link";
-import SocialIcon from "@/components/ui/SocialIcon";
-import Container from "@/components/ui/Container";
 
 const Footer = () => {
   return (

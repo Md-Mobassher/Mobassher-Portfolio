@@ -1,9 +1,11 @@
-const Loading = () => {
+// File: src/app/loading.tsx
+
+import { Loader2 } from "lucide-react";
+
+export default function Loading() {
   return (
-    <div className="flex items-center justify-center h-[300px]">
-      <div className="w-16 h-16 border-b-2 border-gray-900 rounded-full animate-spin"></div>
+    <div className="w-full h-full flex items-center justify-center min-h-screen bg-gradient-to-r from-[#FFE6F0] to-[#D6EAFF] text-black">
+      <Loader2 className="animate-spin text-[#E25A6F]" size={64} />
     </div>
   );
-};
-
-export default Loading;
+}

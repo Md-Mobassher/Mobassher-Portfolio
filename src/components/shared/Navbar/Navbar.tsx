@@ -1,11 +1,11 @@
 "use client";
-import Link from "next/link";
-import Image from "next/image";
-import { navItemsData } from "./navItemData";
-import { useEffect, useState } from "react";
+import Container from "@/components/layout/Container";
+import ThemeToggle from "@/components/shared/common/ThemeToggle";
 import { MenuIcon, X } from "lucide-react";
-import Container from "@/components/ui/Container";
-import ThemeToggle from "@/components/ui/ThemeToggle";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { navItemsData } from "./navItemData";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +35,7 @@ const Navbar = () => {
       <div
         className={`fixed top-0 left-0 w-full z-50 ${
           isScrolled
-            ? "dark:bg-background bg-light-background border-b dark:border-gray-600 shadow-md transition-all duration-300"
+            ? "dark:bg-dark-background bg-background border-b dark:border-gray-600 shadow-md transition-all duration-300"
             : "bg-transparent transition-all duration-300"
         }`}
         style={{
