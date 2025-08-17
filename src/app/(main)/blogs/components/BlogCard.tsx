@@ -17,7 +17,7 @@ const BlogCard = ({ blog }: BlogCardProps) => {
   };
 
   return (
-    <div className="border bg-gray-200 dark:bg-gray-800 rounded-md shadow-md max-w-md mx-auto border-gray-300 dark:border-gray-700 shadow-primary/40">
+    <div className="border bg-gray-200 dark:bg-gray-800 rounded-md shadow-md max-w-md mx-auto border-gray-300 dark:border-gray-700 shadow-primary/40 scale-100 hover:scale-105 transition-all duration-300">
       <div className="h-48 ">
         <figure className="h-full">
           {blog?.coverImage ? (

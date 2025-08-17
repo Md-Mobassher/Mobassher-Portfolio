@@ -41,6 +41,7 @@
     "cmdk": "^1.0.4",
     "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",
+    "gsap": "^3.13.0",
     "jodit-react": "^4.1.2",
     "js-cookie": "^3.0.5",
     "jwt-decode": "^4.0.0",

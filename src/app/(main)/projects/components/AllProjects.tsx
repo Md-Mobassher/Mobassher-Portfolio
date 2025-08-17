@@ -66,7 +66,7 @@ const AllProjects = ({ projects }: AllPortfoliosProps) => {
       />
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-5 md:gap-6 gap-5 pt-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 md:gap-6 gap-5 pt-5">
         {filteredProjects?.map((project: TProject) => (
           <ProjectCard key={project._id} project={project} />
         ))}

@@ -61,7 +61,7 @@ const AllBlogs = ({ blogs }: AllBlogsProps) => {
       />
 
       {/* Blogs Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 md:gap-7 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 md:gap-7 gap-6 pt-5">
         {filteredBlogs?.map((blog) => (
           <BlogCard key={blog._id} blog={blog} />
         ))}

@@ -4,9 +4,15 @@ import { FormInput } from "@/components/form/FormInput";
 import { FormTextarea } from "@/components/form/FormTextarea";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 // Zod schema for contact form validation
 const contactFormSchema = z.object({
@@ -39,8 +45,132 @@ const ContactForm = () => {
     },
   });
 
+  const titleRef = useRef(null);
+  const formFieldsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const submitButtonRef = useRef(null);
+
+  useEffect(() => {
+    // Wait for next tick to ensure refs are populated
+    const timeoutId = setTimeout(() => {
+      if (
+        titleRef.current &&
+        formFieldsRef.current.length > 0 &&
+        submitButtonRef.current
+      ) {
+        // GSAP Timeline for smooth sequential animations
+        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+        // Initial state - hide elements
+        gsap.set(
+          [titleRef.current, ...formFieldsRef.current, submitButtonRef.current],
+          {
+            opacity: 0,
+            y: 50,
+          }
+        );
+
+        // Animate title first
+        tl.to(titleRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "back.out(1.7)",
+        })
+          // Then animate form fields with stagger
+          .to(
+            formFieldsRef.current,
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              stagger: {
+                each: 0.1,
+                from: "start",
+                ease: "power2.out",
+              },
+            },
+            "-=0.3"
+          )
+          // Finally animate submit button
+          .to(
+            submitButtonRef.current,
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              ease: "power2.out",
+            },
+            "-=0.2"
+          );
+
+        // Add hover animations for form fields
+        formFieldsRef.current.forEach((fieldRef) => {
+          if (fieldRef) {
+            // Hover in effect
+            fieldRef.addEventListener("mouseenter", () => {
+              gsap.to(fieldRef, {
+                scale: 1.02,
+                y: -2,
+                duration: 0.3,
+                ease: "power2.out",
+              });
+            });
+
+            // Hover out effect
+            fieldRef.addEventListener("mouseleave", () => {
+              gsap.to(fieldRef, {
+                scale: 1,
+                y: 0,
+                duration: 0.3,
+                ease: "power2.out",
+              });
+            });
+          }
+        });
+
+        // Add hover animation for submit button
+        if (submitButtonRef.current) {
+          submitButtonRef.current.addEventListener("mouseenter", () => {
+            gsap.to(submitButtonRef.current, {
+              scale: 1.05,
+              y: -3,
+              duration: 0.3,
+              ease: "power2.out",
+            });
+          });
+
+          submitButtonRef.current.addEventListener("mouseleave", () => {
+            gsap.to(submitButtonRef.current, {
+              scale: 1,
+              y: 0,
+              duration: 0.3,
+              ease: "power2.out",
+            });
+          });
+        }
+      }
+    }, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+      // Clean up ScrollTrigger
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
   const onSubmit = async (data: ContactFormData) => {
     try {
+      // Add submission animation
+      if (submitButtonRef.current) {
+        gsap.to(submitButtonRef.current, {
+          scale: 0.95,
+          duration: 0.1,
+          ease: "power2.out",
+          yoyo: true,
+          repeat: 1,
+        });
+      }
+
       const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/contact`, {
         method: "POST",
         headers: {
@@ -59,6 +189,17 @@ const ContactForm = () => {
       if (responseData.success) {
         toast.success("Successfully sent your message.");
         form.reset();
+
+        // Add success animation
+        if (submitButtonRef.current) {
+          gsap.to(submitButtonRef.current, {
+            backgroundColor: "#10b981",
+            duration: 0.3,
+            ease: "power2.out",
+            yoyo: true,
+            repeat: 1,
+          });
+        }
       }
     } catch (err) {
       if (err instanceof Error) {
@@ -69,37 +210,65 @@ const ContactForm = () => {
     }
   };
 
+  // Function to add ref to each form field
+  const addFormFieldRef = (el: HTMLDivElement | null, index: number) => {
+    formFieldsRef.current[index] = el;
+  };
+
   return (
     <div className="flex-1">
-      <h1 className="lg:text-3xl md:text-2xl text-xl font-semibold text-center ">
-        Contact{" "}
-        <span className="text-primary lg:text-3xl md:text-2xl text-xl font-semibold">
-          Me
-        </span>
-      </h1>
+      <div ref={titleRef}>
+        <h1 className="lg:text-3xl md:text-2xl text-xl font-semibold text-center ">
+          Contact{" "}
+          <span className="text-primary lg:text-3xl md:text-2xl text-xl font-semibold">
+            Me
+          </span>
+        </h1>
+      </div>
       <div className=" max-w-sm mx-auto lg:mt-10 mt-6">
         <div className="">
           <div className="">
             <FormProvider {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)}>
                 <div className="flex flex-col gap-4">
-                  <FormInput name="name" placeholder="Your Name" required />
-                  <FormInput
-                    name="email"
-                    type="email"
-                    placeholder="Your Email"
-                    required
-                  />
-                  <FormInput name="subject" placeholder="Subject" required />
-                  <FormTextarea
-                    name="message"
-                    placeholder="Your Message"
-                    required
-                  />
+                  <div ref={(el) => addFormFieldRef(el, 0)}>
+                    <FormInput
+                      name="name"
+                      placeholder="Your Name"
+                      required
+                      className="bg-gray-200 dark:bg-gray-800"
+                    />
+                  </div>
+                  <div ref={(el) => addFormFieldRef(el, 1)}>
+                    <FormInput
+                      name="email"
+                      type="email"
+                      placeholder="Your Email"
+                      required
+                      className="bg-gray-200 dark:bg-gray-800"
+                    />
+                  </div>
+                  <div ref={(el) => addFormFieldRef(el, 2)}>
+                    <FormInput
+                      name="subject"
+                      placeholder="Subject"
+                      required
+                      className="bg-gray-200 dark:bg-gray-800"
+                    />
+                  </div>
+                  <div ref={(el) => addFormFieldRef(el, 3)}>
+                    <FormTextarea
+                      name="message"
+                      placeholder="Your Message"
+                      required
+                      className="bg-gray-200 dark:bg-gray-800"
+                    />
+                  </div>
                 </div>
 
                 <div className="flex lg:justify-end md:justify-end justify-center mt-4">
                   <Button
+                    ref={submitButtonRef}
                     type="submit"
                     className="px-10 bg-primary hover:bg-green-600 border-0 text-white text-md font-semibold"
                     size="lg"
