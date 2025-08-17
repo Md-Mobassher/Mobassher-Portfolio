@@ -12,7 +12,7 @@ const Footer = () => {
               <FooterLink href="/" text="Home" />
               <FooterLink href="/#about" text="About" />
               <FooterLink href="/#myskill" text="Skills" />
-              <FooterLink href="/" text="Education" />
+              <FooterLink href="/#about" text="Experience" />
             </div>
             <div className="flex lg:flex-col md:flex-row flex-row md:gap-4 gap-3">
               <FooterLink href="/projects" text="Projects" />

@@ -1,4 +1,4 @@
-import { TProject } from "@/type";
+import { TProject } from "@/types";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FaGithub, FaShareSquare } from "react-icons/fa";
@@ -20,7 +20,7 @@ const ProjectCard = ({ project }: { project: TProject }) => {
   };
 
   return (
-    <div className="card dark:bg-dark-secondary bg-light-secondary rounded-md  max-w-md mx-auto shadow-lg border">
+    <div className="bg-gray-200 dark:bg-gray-800 rounded-md  max-w-md mx-auto shadow-md border border-gray-300 dark:border-gray-700 shadow-primary/40 h-full scale-100 hover:scale-105 transition-all duration-300">
       <div className="h-48">
         <figure className="h-full">
           {image?.cover ? (
@@ -43,7 +43,7 @@ const ProjectCard = ({ project }: { project: TProject }) => {
         </figure>
       </div>
 
-      <div className="card-body px-5 pt-5 pb-6 justify-between items-between">
+      <div className=" px-4 pt-4 pb-4 justify-between items-between">
         <div className="">
           <h2 className=" mb-1 text-xl font-bold ">{name}</h2>
           <p className="text-justify text-sm mt-2 text-dark-destructive dark:text-gray-300">
@@ -57,7 +57,7 @@ const ProjectCard = ({ project }: { project: TProject }) => {
               {clientUrl && (
                 <div className="group  relative">
                   <a target="_blank" href={clientUrl}>
-                    <FaGithub className="size-6  hover:text-green-500  transition duration-400"></FaGithub>
+                    <FaGithub className="size-6  hover:text-primary  transition duration-400"></FaGithub>
                     <div className="absolute bottom-7 left-20 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-[#00CF5D] hover:bg-green-500 text-white text-center p-1 w-36 rounded-sm  transition-opacity duration-300 ">
                       Client Site Code
                     </div>
@@ -68,7 +68,7 @@ const ProjectCard = ({ project }: { project: TProject }) => {
               {serverUrl && (
                 <div className="group  relative">
                   <a target="_blank" href={serverUrl}>
-                    <FaGithub className="size-6  hover:text-green-500 transition duration-400"></FaGithub>
+                    <FaGithub className="size-6  hover:text-primary transition duration-400"></FaGithub>
                     <div className="absolute bottom-7 left-20 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-[#00CF5D] hover:bg-green-500 text-white text-center p-1 w-36 rounded-sm  transition-opacity duration-300">
                       Server Site Code
                     </div>
@@ -79,7 +79,7 @@ const ProjectCard = ({ project }: { project: TProject }) => {
               {liveUrl && (
                 <div className="group  relative">
                   <a target="_blank" href={liveUrl}>
-                    <FaShareSquare className="size-6  hover:text-green-500 transition duration-400"></FaShareSquare>
+                    <FaShareSquare className="size-6  hover:text-primary transition duration-400"></FaShareSquare>
                     <div className="absolute bottom-7 left-12 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-[#00CF5D] hover:bg-green-500 text-white text-center p-1 w-20 rounded-sm  transition-opacity duration-300">
                       Live Site
                     </div>
@@ -98,7 +98,7 @@ const ProjectCard = ({ project }: { project: TProject }) => {
           <div className="pt-4">
             <div className="text-sm text-dark-destructive dark:text-gray-300 flex flex-wrap justify-start items-center gap-[3px]">
               {technology?.map((item, index) => (
-                <span key={index} className="">
+                <span key={index} className="text-sm">
                   {item},
                 </span>
               ))}

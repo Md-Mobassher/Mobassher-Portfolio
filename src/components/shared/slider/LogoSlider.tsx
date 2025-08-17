@@ -1,9 +1,19 @@
 "use client";
 
-import { Partner } from "@/types";
 import Image from "next/image";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+export interface Partner {
+  id: string;
+  name: string;
+  logoUrl: string | any;
+  url?: string;
+  description?: string;
+  order?: number;
+  createdAt?: string;
+  updatedAt?: string;
+}
 
 interface LogoSliderProps {
   partners: Partner[];

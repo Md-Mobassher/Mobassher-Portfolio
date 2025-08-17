@@ -1,17 +1,18 @@
-import Container from "@/components/ui/Container";
-import Title from "@/components/ui/Title";
+import Container from "@/components/layout/Container";
+import Title from "@/components/layout/Title";
 import ProjectDetails from "../components/PtojectDetails";
 
 type TProjectParams = {
-  params: {
+  params: Promise<{
     projectId: string;
-  };
+  }>;
 };
 
 const PortfolioDetailsPage = async ({ params }: TProjectParams) => {
+  const { projectId } = await params;
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}/projects/${params.projectId}`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/projects/${projectId}`,
       {
         method: "GET",
         headers: {
@@ -31,7 +32,7 @@ const PortfolioDetailsPage = async ({ params }: TProjectParams) => {
     return (
       <div id="projects" className=" md:pt-28 pt-20">
         <Container>
-          <Title title="Project Details" />
+          <Title title="Project" titleColor="Details" />
           <ProjectDetails {...data?.data} />
         </Container>
       </div>
@@ -41,7 +42,7 @@ const PortfolioDetailsPage = async ({ params }: TProjectParams) => {
     return (
       <div id="projects" className=" md:pt-28 pt-20">
         <Container>
-          <Title title="Project Details" />
+          <Title title="Project" titleColor="Details" />
           <p>Error loading projects.</p>
         </Container>
       </div>

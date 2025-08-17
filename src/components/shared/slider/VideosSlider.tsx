@@ -1,9 +1,17 @@
 "use client";
 
-import { Video } from "@/types";
 import { getEmbedUrl } from "@/utils/getVideoUrl";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+export interface Video {
+  id: string;
+  title: string;
+  videoUrl: string;
+  order?: number;
+  createdAt?: string;
+  updatedAt?: string;
+}
 
 interface VideosSliderProps {
   videos: Video[];

@@ -3,14 +3,15 @@ import Title from "@/components/layout/Title";
 import BlogDetails from "../components/BlogDetails";
 
 type TBlogParams = {
-  params: {
+  params: Promise<{
     blogId: string;
-  };
+  }>;
 };
 const BlogDetailsPage = async ({ params }: TBlogParams) => {
+  const { blogId } = await params;
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}/blogs/${params.blogId}`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/blogs/${blogId}`,
       {
         method: "GET",
         headers: {
@@ -28,9 +29,9 @@ const BlogDetailsPage = async ({ params }: TBlogParams) => {
     // console.log(data);
 
     return (
-      <div id="blogDetails" className="lg:mt-28 md:mt-24 mt-20 ">
+      <div id="blogDetails" className="lg:mt-32 md:mt-24 mt-20 ">
         <Container>
-          <Title title="Blog Details" />
+          <Title title="Blog" titleColor="Details" />
           <BlogDetails {...data?.data} />
         </Container>
       </div>
@@ -40,7 +41,7 @@ const BlogDetailsPage = async ({ params }: TBlogParams) => {
     return (
       <div id="blogDetails" className=" lg:mt-28 md:mt-24 mt-20">
         <Container>
-          <Title title="Blog Details" />
+          <Title title="Blog" titleColor="Details" />
           <p>Error loading projects.</p>
         </Container>
       </div>

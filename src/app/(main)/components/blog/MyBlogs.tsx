@@ -26,12 +26,17 @@ const MyBlogs = async () => {
     const blogs = Array.isArray(data?.data) ? data?.data : [];
 
     return (
-      <div id="blog" className=" lg:py-14 md:py-10 py-7">
+      <div id="blog" className=" lg:py-10 md:py-8 py-6">
         <Container>
-          <Title title="My Blog" />
+          <Title title="My" titleColor="Blogs" />
           <Blogs blogs={blogs as TBlog[]} />
           <div className="mt-10 text-center">
-            <Button clickEvent link="/blogs" title="View All Blogs" />
+            <Button
+              clickEvent
+              link="/blogs"
+              title="View All Blogs"
+              className="bg-primary text-white hover:bg-green-600 px-5 py-2 inline-block border border-primary  "
+            />
           </div>
         </Container>
       </div>
@@ -39,9 +44,9 @@ const MyBlogs = async () => {
   } catch (error) {
     console.error(error);
     return (
-      <div id="blog" className="lg:py-14 md:py-10 py-7">
+      <div id="blog" className="lg:py-10 md:py-8 py-6">
         <Container>
-          <Title title="My Blog" />
+          <Title title="My" titleColor="Blogs" />
           <p>Error loading blogs. Please try again later.</p>
         </Container>
       </div>

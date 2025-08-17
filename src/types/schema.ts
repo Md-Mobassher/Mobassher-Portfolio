@@ -1,5 +1,4 @@
 import z from "zod";
-import { InquiryType } from ".";
 
 // ============================================================================
 // ENUMS
@@ -319,7 +318,7 @@ export const createContactFormSchema = z.object({
     .min(11, "Phone number must be 11 digits")
     .max(14, "Phone number must be maximum 14 digits"),
   message: z.string().min(10, "Message must be at least 10 characters"),
-  type: z.nativeEnum(InquiryType).default(InquiryType.CONTACT),
+  inquiryType: z.enum(["CONTACT", "INQUIRY"]),
 });
 
 // ============================================================================

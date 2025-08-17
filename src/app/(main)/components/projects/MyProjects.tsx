@@ -28,10 +28,15 @@ const MyProjects = async () => {
     return (
       <div id="projects" className=" lg:py-14 md:py-10 py-7">
         <Container>
-          <Title title="My Projects" />
+          <Title title="My" titleColor="Projects" />
           <Projects projects={projects} />
           <div className="mt-10 text-center">
-            <Button clickEvent link="/projects" title="View All Projects" />
+            <Button
+              clickEvent
+              link="/projects"
+              title="View All Projects"
+              className="bg-primary text-white hover:bg-green-600 px-5 py-2 inline-block border border-primary  "
+            />
           </div>
         </Container>
       </div>
@@ -41,7 +46,7 @@ const MyProjects = async () => {
     return (
       <div id="projects" className=" lg:py-14 md:py-10 py-7">
         <Container>
-          <Title title="My Projects" />
+          <Title title="My" titleColor="Projects" />
           <p>Error loading Projects.</p>
         </Container>
       </div>

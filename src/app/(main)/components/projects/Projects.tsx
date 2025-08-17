@@ -1,129 +1,231 @@
 "use client";
 
-import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import FilterControls from "@/components/shared/common/FilterControls";
+import MobileCountDisplay from "@/components/shared/common/MobileCountDisplay";
+import useFilterAndSearch from "@/hooks/useFilterAndSearch";
 import { TProject } from "@/types";
-import { ChangeEvent, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
 import ProjectCard from "../../projects/components/ProjectCard";
 import { uniqueTechnologies } from "../../projects/components/Technology";
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 interface AllProjectsProps {
   projects: TProject[];
 }
 
 const Projects = ({ projects }: AllProjectsProps) => {
-  const [selectedTechnology, setSelectedTechnology] = useState<
-    string | undefined
-  >();
-  const [search, setSearch] = useState<string>("");
+  const filterControlsRef = useRef<HTMLDivElement>(null);
+  const mobileCountRef = useRef<HTMLDivElement>(null);
+  const projectsGridRef = useRef<HTMLDivElement>(null);
+  const projectCardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const noResultsRef = useRef<HTMLDivElement>(null);
 
-  const getFilteredprojects = () => {
-    let project;
+  // Use the reusable hook for filtering and searching
+  const {
+    filteredData: filteredProjects,
+    selectedFilter,
+    searchValue,
+    setSelectedFilter,
+    setSearchValue,
+    resetFilters,
+    uniqueFilterOptions,
+  } = useFilterAndSearch({
+    data: projects,
+    filterField: "technology",
+    searchFields: ["name", "description", "technology"],
+  });
 
-    if (!selectedTechnology) {
-      project = projects;
-    }
-    if (!search) {
-      project = projects;
-    }
+  // Use hook results or fallback to existing technologies
+  const availableTechnologies =
+    uniqueFilterOptions.length > 0 ? uniqueFilterOptions : uniqueTechnologies;
 
-    if (selectedTechnology) {
-      project = projects.filter((item: TProject) =>
-        item.technology.includes(selectedTechnology)
-      );
-    }
-    if (search) {
-      project = projects.filter((item: TProject) =>
-        item.name.toLowerCase().includes(search.toLowerCase())
-      );
-    }
+  // Convert filter options to the format expected by FilterControls
+  const filterOptions = availableTechnologies.map((tech) => ({
+    value: tech,
+    label: tech,
+  }));
 
-    return project;
+  useEffect(() => {
+    // Wait for next tick to ensure refs are populated
+    const timeoutId = setTimeout(() => {
+      if (projectsGridRef.current) {
+        // GSAP Timeline for smooth sequential animations
+        const tl = gsap.timeline({
+          defaults: { ease: "power3.out" },
+          scrollTrigger: {
+            trigger: projectsGridRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        // Initial state - hide all elements
+        gsap.set(
+          [
+            filterControlsRef.current,
+            mobileCountRef.current,
+            projectsGridRef.current,
+          ],
+          {
+            opacity: 0,
+            y: 50,
+          }
+        );
+
+        // Animate elements in sequence
+        tl.to(filterControlsRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+        })
+          .to(
+            mobileCountRef.current,
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              ease: "power2.out",
+            },
+            "-=0.4"
+          )
+          .to(
+            projectsGridRef.current,
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              ease: "power2.out",
+            },
+            "-=0.4"
+          );
+
+        // Animate project cards with stagger effect
+        if (projectCardRefs.current.length > 0) {
+          gsap.fromTo(
+            projectCardRefs.current,
+            {
+              opacity: 0,
+              scale: 0.8,
+              y: 60,
+              rotation: -5,
+            },
+            {
+              opacity: 1,
+              scale: 1,
+              y: 0,
+              rotation: 0,
+              duration: 0.8,
+              ease: "back.out(1.7)",
+              stagger: {
+                amount: 1.2,
+                from: "start",
+                ease: "power2.out",
+              },
+              scrollTrigger: {
+                trigger: projectsGridRef.current,
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+            }
+          );
+        }
+
+        // Animate no results message if it exists
+        if (noResultsRef.current && filteredProjects.length === 0) {
+          gsap.fromTo(
+            noResultsRef.current,
+            { opacity: 0, scale: 0.8, y: 30 },
+            {
+              opacity: 1,
+              scale: 1,
+              y: 0,
+              duration: 0.8,
+              ease: "back.out(1.7)",
+              scrollTrigger: {
+                trigger: noResultsRef.current,
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+            }
+          );
+        }
+      }
+    }, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+      // Clean up ScrollTrigger
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, [filteredProjects]);
+
+  // Function to add ref to each project card
+  const addProjectCardRef = (el: HTMLDivElement | null, index: number) => {
+    projectCardRefs.current[index] = el;
   };
-
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearch(event.target.value);
-  };
-
-  // const uniqueTechnologies = Array.isArray(projects)
-  //   ? Array.from(new Set(projects.flatMap((project) => project.technology)))
-  //   : [];
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-5">
-        <div className="flex items-center gap-1">
-          <button
-            onClick={() => setSelectedTechnology("")}
-            className="border border-dark-primary text-md py-2 bg-dark-primary hover:bg-green-700 text-white rounded-md transition duration-500 lg:px-6 md:px-5 px-3 uppercase cursor-pointer"
-          >
-            All
-          </button>
-          <Select onValueChange={setSelectedTechnology} defaultValue="">
-            <SelectTrigger className="lg:w-[180px] md:w-[170px] w-[140px]   text-md hover:bg-green-500 bg-secondary dark:text-dark-text text-light-text hover:text-white border-dark-primary rounded-md transition duration-500   cursor-pointer text-center">
-              <SelectValue className="" placeholder="Technology" />
-            </SelectTrigger>
-            <SelectContent className="w-[200px] bg-gray-700">
-              <SelectGroup>
-                {uniqueTechnologies?.map((tech) => (
-                  <SelectItem
-                    key={tech}
-                    value={tech}
-                    className="py-2 m-0 text-md  bg-gray-700 hover:bg-white text-white hover:text-green-500 hover:font-semibold rounded-md transition duration-300 lg:px-6 md:px-5 pl-4  cursor-pointer"
-                  >
-                    {tech}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="hidden md:flex">
-          <h4 className="text-lg font-semibold">
-            Total:{" "}
-            <span className="text-green-500 px-1">
-              {getFilteredprojects()?.length || 0}
-            </span>{" "}
-            Projects Found
-          </h4>
-        </div>
-
-        {/* Search */}
-        <div className="lg:w-[180px] md:w-[170px] w-[120px] ">
-          <Input
-            type="text"
-            className="border-dark-primary text-center dark:text-dark-text focus:border-0  dark:bg-dark-secondary text-light-text text-md"
-            onChange={handleInputChange}
-            placeholder="Search"
-          />
-        </div>
+      {/* Reusable Filter Controls */}
+      <div ref={filterControlsRef}>
+        <FilterControls
+          filterOptions={filterOptions}
+          selectedFilter={selectedFilter}
+          onFilterChange={setSelectedFilter}
+          searchValue={searchValue}
+          onSearchChange={setSearchValue}
+          searchPlaceholder="Search projects..."
+          allButtonLabel="All"
+          onAllClick={resetFilters}
+          totalCount={filteredProjects.length}
+          countLabel="Total"
+          countSuffix="Projects Found"
+          showCount={true}
+          showSearch={true}
+          showFilter={true}
+        />
       </div>
 
-      <div className="flex md:hidden justify-center mb-5">
-        <h4 className="text-md font-semibold">
-          Total:{" "}
-          <span className="text-cyan-500 px-1">
-            {getFilteredprojects()?.length || 0}
-          </span>{" "}
-          Projects Found
-        </h4>
+      {/* Mobile Count Display */}
+      <div ref={mobileCountRef}>
+        <MobileCountDisplay
+          totalCount={filteredProjects.length}
+          countLabel="Total"
+          countSuffix="Projects Found"
+          color="text-cyan-500"
+        />
       </div>
 
-      {/* show projects */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  lg:gap-8 md:gap-7 gap-6 pt-5">
-        {getFilteredprojects()
+      {/* Show projects */}
+      <div
+        ref={projectsGridRef}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 md:gap-7 gap-6 pt-5"
+      >
+        {filteredProjects
           ?.slice(0, 6)
-          ?.map((project: TProject) => (
-            <ProjectCard key={project._id} project={project} />
+          ?.map((project: TProject, index: number) => (
+            <div key={project._id} ref={(el) => addProjectCardRef(el, index)}>
+              <ProjectCard project={project} />
+            </div>
           ))}
       </div>
+
+      {/* No results message */}
+      {filteredProjects.length === 0 && (
+        <div ref={noResultsRef} className="text-center py-10">
+          <p className="text-gray-500 text-lg">
+            No projects found matching your criteria.
+          </p>
+        </div>
+      )}
     </div>
   );
 };

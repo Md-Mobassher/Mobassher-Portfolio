@@ -1,6 +1,6 @@
 // File: src/app/(main)/layout.tsx
 
-import DashboardNavbar from "@/components/shared/navbar/DashboardNavbar";
+import Navbar from "@/components/shared/navbar/Navbar";
 import { ReactNode } from "react";
 
 export default function DashboardLayout({
@@ -10,7 +10,7 @@ export default function DashboardLayout({
 }>) {
   return (
     <div className="flex flex-col min-h-screen">
-      <DashboardNavbar header={1} menu={1} />
+      <Navbar />
       {children}
     </div>
   );

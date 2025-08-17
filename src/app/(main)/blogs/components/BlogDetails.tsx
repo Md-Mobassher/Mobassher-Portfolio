@@ -1,6 +1,7 @@
+import Button from "@/components/shared/button/Button";
+import HtmlViewer from "@/components/shared/common/HtmlViewer";
 import { TBlog } from "@/types";
 import Image from "next/image";
-import BlogContent from "./BlogContent";
 import ShareButton from "./ShareButton";
 
 const BlogDetails = ({
@@ -16,9 +17,11 @@ const BlogDetails = ({
   updatedAt,
 }: TBlog) => {
   return (
-    <div className=" rounded-lg py-4 md:py-6 lg:py-10">
+    <div className="">
       <div className="text-center">
-        <h1 className="text-3xl lg:text-5xl font-bold mb-4">{title}</h1>
+        <h1 className="text-2xl lg:text-4xl md:text-3xl font-bold mb-4">
+          {title}
+        </h1>
         <div className="text-sm text-gray-300 mb-6 flex lg:gap-5 md:gap-4 gap-3 justify-center lg:flex-row md:flex-row flex-col">
           <p>Author: {author?.name}</p>
           <p>Updated At: {new Date(updatedAt).toLocaleDateString()}</p>
@@ -36,7 +39,7 @@ const BlogDetails = ({
       </div>
       <div className="lg:flex gap-10">
         <div className="lg:w-3/4 mx-auto w-full">
-          {content && <BlogContent content={content} />}
+          {content && <HtmlViewer html={content} />}
         </div>
         {/* <div className="lg:w-1/4 border border-gray-700 p-4 rounded-lg ">
           <h2 className="text-xl font-semibold mb-4">Category</h2>
@@ -61,6 +64,15 @@ const BlogDetails = ({
             </li>
           </ul>
         </div> */}
+      </div>
+
+      <div className="mt-10 text-center">
+        <Button
+          clickEvent
+          link="/blogs"
+          title="View All Blogs"
+          className="bg-primary text-white hover:bg-green-600 px-5 py-2 inline-block border border-primary  "
+        />
       </div>
     </div>
   );

@@ -48,9 +48,9 @@ body {
   --card-foreground: hsl(0 0% 3.9%);
   --popover: hsl(0 0% 100%);
   --popover-foreground: hsl(0 0% 3.9%);
-  --primary: #bf8034;
-  --primary-foreground: #bf8034;
-  --secondary: #000;
+  --primary: #00d05c;
+  --primary-foreground: #000;
+  --secondary: #02cf5f;
   --secondary-foreground: hsl(0 0% 9%);
   --muted: hsl(0 0% 96.1%);
   --muted-foreground: hsl(0 0% 45.1%);
@@ -84,10 +84,10 @@ body {
   --card-foreground: hsl(0 0% 98%);
   --popover: hsl(0 0% 3.9%);
   --popover-foreground: hsl(0 0% 98%);
-  --primary: #bf8034;
-  --primary-foreground: hsl(0 0% 9%);
-  --secondary: #000;
-  --secondary-foreground: hsl(0 0% 98%);
+  --primary: #00d05c;
+  --primary-foreground: #000;
+  --secondary: #02cf5f;
+  --secondary-foreground: hsl(0 0% 9%);
   --muted: hsl(0 0% 14.9%);
   --muted-foreground: hsl(0 0% 63.9%);
   --accent: #005889;
