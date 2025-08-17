@@ -1,25 +1,52 @@
 "use client";
 
-import { Input } from "@/components/ui/input";
-import { useForm } from "react-hook-form";
+import { FormInput } from "@/components/form/FormInput";
+import { FormTextarea } from "@/components/form/FormTextarea";
+import { Button } from "@/components/ui/button";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FormProvider, useForm } from "react-hook-form";
 import { toast } from "sonner";
+import { z } from "zod";
+
+// Zod schema for contact form validation
+const contactFormSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z
+    .string()
+    .email("Please enter a valid email address")
+    .max(100, "Email must be less than 100 characters"),
+  subject: z
+    .string()
+    .min(5, "Subject must be at least 5 characters")
+    .regex(/^[a-zA-Z0-9\s\-_.,!?]+$/, "Subject contains invalid characters"),
+  message: z
+    .string()
+    .min(10, "Message must be at least 10 characters")
+    .max(1000, "Message must be less than 1000 characters"),
+});
+
+// TypeScript type derived from the Zod schema
+type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const ContactForm = () => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+  });
 
-  const onSubmit = async (value: Record<string, string>) => {
+  const onSubmit = async (data: ContactFormData) => {
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(value),
+        body: JSON.stringify(data),
         cache: "no-store",
       });
 
@@ -27,18 +54,17 @@ const ContactForm = () => {
         throw new Error("Failed to contact.");
       }
 
-      const data = await res.json();
-      // console.log(data);
+      const responseData = await res.json();
 
-      if (data.success) {
-        toast.success(data?.message || "Successfully Contacted.");
+      if (responseData.success) {
+        toast.success("Successfully sent your message.");
+        form.reset();
       }
-      reset();
     } catch (err) {
       if (err instanceof Error) {
-        toast.error(`FAILED to Contact... ${err.message}`);
+        toast.error(`FAILED to send your message... ${err.message}`);
       } else {
-        toast.error("FAILED to Contact...");
+        toast.error("FAILED to send your message...");
       }
     }
   };
@@ -46,112 +72,44 @@ const ContactForm = () => {
   return (
     <div className="flex-1">
       <h1 className="lg:text-3xl md:text-2xl text-xl font-semibold text-center ">
-        Contact <span className="text-green-500"> Me</span>
+        Contact{" "}
+        <span className="text-primary lg:text-3xl md:text-2xl text-xl font-semibold">
+          Me
+        </span>
       </h1>
       <div className=" max-w-sm mx-auto lg:mt-10 mt-6">
         <div className="">
           <div className="">
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="form-control">
-                <Input
-                  type="text"
-                  placeholder="Your Name"
-                  className="border border-green-500 w-full dark:bg-dark-secondary bg-light-secondary mb-5 p-5"
-                  {...register("name", {
-                    required: {
-                      value: true,
-                      message: "Name is Required",
-                    },
-                  })}
-                />
-                <label className="label">
-                  {errors?.name?.type === "required" && (
-                    <span className="label-text-alt text-red-500">
-                      {"Name is Required"}
-                    </span>
-                  )}
-                </label>
-              </div>
+            <FormProvider {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)}>
+                <div className="flex flex-col gap-4">
+                  <FormInput name="name" placeholder="Your Name" required />
+                  <FormInput
+                    name="email"
+                    type="email"
+                    placeholder="Your Email"
+                    required
+                  />
+                  <FormInput name="subject" placeholder="Subject" required />
+                  <FormTextarea
+                    name="message"
+                    placeholder="Your Message"
+                    required
+                  />
+                </div>
 
-              <div className="form-control w-full ">
-                <Input
-                  type="email"
-                  placeholder="Your Email"
-                  className="border border-green-500 w-full dark:bg-dark-secondary bg-light-secondary mb-5 p-5"
-                  {...register("email", {
-                    required: {
-                      value: true,
-                      message: "Email is Required",
-                    },
-                    pattern: {
-                      value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                      message: "Provide a valid Email",
-                    },
-                  })}
-                />
-                <label className="label">
-                  {errors.email?.type === "required" && (
-                    <span className="label-text-alt text-red-500">
-                      {"Email is Required"}
-                    </span>
-                  )}
-                  {errors.email?.type === "pattern" && (
-                    <span className="label-text-alt text-red-500">
-                      {"Provide a valid Email"}
-                    </span>
-                  )}
-                </label>
-              </div>
-
-              <div className="form-control w-full ">
-                <Input
-                  type="text"
-                  placeholder="Subject"
-                  className="border border-green-500 w-full dark:bg-dark-secondary bg-light-secondary mb-5 p-5"
-                  {...register("subject", {
-                    required: {
-                      value: true,
-                      message: "Subject is Required",
-                    },
-                  })}
-                />
-                <label className="label">
-                  {errors.subject?.type === "required" && (
-                    <span className="label-text-alt text-red-500">
-                      {"Subject is Required"}
-                    </span>
-                  )}
-                </label>
-              </div>
-
-              <div className="form-control w-full ">
-                <textarea
-                  placeholder="Your Message"
-                  className="border border-green-500 w-full dark:bg-dark-secondary bg-light-secondary mb-5 p-5 text-sm rounded-md"
-                  {...register("message", {
-                    required: {
-                      value: true,
-                      message: "Message is Required",
-                    },
-                  })}
-                />
-                <label className="label">
-                  {errors.message?.type === "required" && (
-                    <span className="label-text-alt text-red-500">
-                      {"Message is Required"}
-                    </span>
-                  )}
-                </label>
-              </div>
-
-              <div className="flex lg:justify-end md:justify-end justify-center hover:text-white">
-                <Input
-                  className="btn px-10  btn-primary bg-[#00CF5D] hover:bg-green-500 border-0 text-center text-white cursor-pointer"
-                  type="submit"
-                  value="Contact"
-                />
-              </div>
-            </form>
+                <div className="flex lg:justify-end md:justify-end justify-center mt-4">
+                  <Button
+                    type="submit"
+                    className="px-10 bg-primary hover:bg-green-600 border-0 text-white text-md font-semibold"
+                    size="lg"
+                    disabled={form.formState.isSubmitting}
+                  >
+                    {form.formState.isSubmitting ? "Sending..." : "Contact"}
+                  </Button>
+                </div>
+              </form>
+            </FormProvider>
           </div>
         </div>
       </div>

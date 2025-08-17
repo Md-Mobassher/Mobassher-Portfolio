@@ -1,5 +1,5 @@
-import Container from "@/components/ui/Container";
-import Title from "@/components/ui/Title";
+import Container from "@/components/layout/Container";
+import Title from "@/components/layout/Title";
 import AllProjects from "./components/AllProjects";
 
 const ProjectsPage = async () => {
@@ -25,7 +25,7 @@ const ProjectsPage = async () => {
     return (
       <div id="projects" className=" md:pt-28 pt-20">
         <Container>
-          <Title title="All Projects" />
+          <Title title="All" titleColor="Projects" />
           <AllProjects projects={projects} />
         </Container>
       </div>
@@ -35,7 +35,7 @@ const ProjectsPage = async () => {
     return (
       <div id="projects" className=" md:pt-28 pt-20">
         <Container>
-          <Title title="All Projects" />
+          <Title title="All" titleColor="Projects" />
           <p>Error loading projects.</p>
         </Container>
       </div>

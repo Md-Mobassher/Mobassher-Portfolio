@@ -10,8 +10,8 @@ const Intro = () => {
       <Container>
         <div className=" mt-20 flex items-center  justify-between lg:flex-row md:flex-row flex-col md:gap-5 gap-10">
           <div className="">
-            <div className="flex justify-start items-center gap-5 mb-2">
-              <span className="bg-primary text-white px-3 py-1 rounded-md text-lg font-semibold">
+            <div className="flex justify-start items-center md:gap-5 gap-3 mb-2">
+              <span className="bg-primary text-white px-3  py-0.5 rounded-md text-lg font-semibold">
                 Hello!
               </span>{" "}
               <span className="text-xl font-semibold">I&apos;m</span>
@@ -25,7 +25,7 @@ const Intro = () => {
                 Developer
               </span>
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 text-lg mt-5 max-w-lg md:py-5 py-3">
+            <p className="text-gray-600 dark:text-gray-400 text-lg mt-5 max-w-lg md:py-5 py-2">
               A dedicated professional with 2+ years of experience, committed to
               delivering excellence in every service and building lasting client
               relationships that keep them coming back.

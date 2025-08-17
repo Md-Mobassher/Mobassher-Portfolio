@@ -74,7 +74,7 @@ const About = () => {
           </div> */}
 
           {/* Right Section - Work Experience Timeline */}
-          <div className="lg:w-1/2  w-full">
+          <div className="lg:w-1/2  w-full md:mt-0 mt-5">
             <div className="relative">
               {/* Timeline line */}
               <div className="absolute lg:left-5 left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary to-primary/20 rounded-full h-full"></div>
@@ -85,7 +85,7 @@ const About = () => {
                     {/* Timeline node */}
                     <div className="absolute lg:left-5.5 left-0.5 w-3 h-3 bg-primary rounded-full -translate-x-1/2 mt-2"></div>
 
-                    <div className="lg:ml-14  ml-6 flex  justify-between lg:items-center md:items-center items-start w-full border-b border-primary border-dashed  md:pb-2 pb-5">
+                    <div className="lg:ml-14  ml-6 flex  justify-between lg:items-center md:items-center items-start w-full border-b border-primary border-dashed  md:pb-2 pb-3">
                       <div className="w-full flex flex-col gap-1">
                         <div className="flex flex-wrap items-center gap-2">
                           <h3 className="font-semibold dark:text-white md:text-xl text-lg">

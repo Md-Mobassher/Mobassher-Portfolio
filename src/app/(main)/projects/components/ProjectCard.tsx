@@ -43,7 +43,7 @@ const ProjectCard = ({ project }: { project: TProject }) => {
         </figure>
       </div>
 
-      <div className=" px-5 pt-5 pb-6 justify-between items-between">
+      <div className=" px-4 pt-4 pb-4 justify-between items-between">
         <div className="">
           <h2 className=" mb-1 text-xl font-bold ">{name}</h2>
           <p className="text-justify text-sm mt-2 text-dark-destructive dark:text-gray-300">

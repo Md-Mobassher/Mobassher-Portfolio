@@ -23,7 +23,7 @@ const BlogsPage = async () => {
     return (
       <div id="blog" className="md:pt-28 pt-20">
         <Container>
-          <Title title="My Blogs" />
+          <Title title="My" titleColor="Blogs" />
           <AllBlogs blogs={data?.data as TBlog[]} />
         </Container>
       </div>
@@ -33,7 +33,7 @@ const BlogsPage = async () => {
     return (
       <div id="blog" className="md:pt-28 pt-20">
         <Container>
-          <Title title="My Blogs" />
+          <Title title="My" titleColor="Blogs" />
           <p>Error loading blogs. Please try again later.</p>
         </Container>
       </div>

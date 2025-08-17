@@ -1,16 +1,9 @@
 "use client";
 
-import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import FilterControls from "@/components/shared/common/FilterControls";
+import MobileCountDisplay from "@/components/shared/common/MobileCountDisplay";
+import useFilterAndSearch from "@/hooks/useFilterAndSearch";
 import { TBlog } from "@/types";
-import { ChangeEvent, useState } from "react";
 import BlogCard from "./BlogCard";
 
 interface AllBlogsProps {
@@ -18,108 +11,70 @@ interface AllBlogsProps {
 }
 
 const AllBlogs = ({ blogs }: AllBlogsProps) => {
-  const [selectedCategory, setSelectedCategory] = useState<
-    string | undefined
-  >();
-  const [search, setSearch] = useState<string>("");
+  // Use the reusable hook for filtering and searching
+  const {
+    filteredData: filteredBlogs,
+    selectedFilter,
+    searchValue,
+    setSelectedFilter,
+    setSearchValue,
+    resetFilters,
+    uniqueFilterOptions,
+  } = useFilterAndSearch({
+    data: blogs,
+    filterField: "category",
+    searchFields: ["title", "category"],
+  });
 
-  const getFilteredBlogs = () => {
-    let blog;
-
-    if (!selectedCategory) {
-      blog = blogs;
-    }
-    if (!search) {
-      blog = blogs;
-    }
-
-    if (selectedCategory) {
-      blog = blogs.filter((item: TBlog) =>
-        item.category.includes(selectedCategory)
-      );
-    }
-    if (search) {
-      blog = blogs?.filter((item: TBlog) =>
-        item?.title?.toLowerCase().includes(search.toLowerCase())
-      );
-    }
-
-    return blog;
-  };
-
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearch(event.target.value);
-  };
-
-  const uniqueCategories = Array.from(
-    new Set(blogs.map((blog) => blog.category))
-  );
+  // Convert filter options to the format expected by FilterControls
+  const filterOptions = uniqueFilterOptions.map((cat) => ({
+    value: cat,
+    label: cat,
+  }));
 
   return (
     <div className="min-h-[300px]">
-      <div className="flex justify-between items-center mb-10">
-        <div className="flex items-center gap-1">
-          <button
-            onClick={() => setSelectedCategory(undefined)}
-            className="border border-green-500 text-md py-2 bg-green-500 hover:bg-green-700 text-white rounded-md transition duration-500 lg:px-6 md:px-5 px-3 uppercase cursor-pointer"
-          >
-            All
-          </button>
-          <Select onValueChange={setSelectedCategory} defaultValue="">
-            <SelectTrigger className="lg:w-[180px] md:w-[170px] w-[140px]   text-md hover:bg-green-500 bg-secondary dark:text-dark-text text-light-text hover:text-white border-dark-primary rounded-md transition duration-500   cursor-pointer text-center">
-              <SelectValue className="" placeholder="Category" />
-            </SelectTrigger>
-            <SelectContent className="w-[200px] bg-gray-700">
-              <SelectGroup>
-                {uniqueCategories.map((cat) => (
-                  <SelectItem
-                    key={cat}
-                    value={cat}
-                    className="py-2 m-0 text-md  bg-gray-700 hover:bg-white text-white hover:text-green-600 hover:font-semibold rounded-md transition duration-300 lg:px-6 md:px-5 pl-4  cursor-pointer"
-                  >
-                    {cat}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="hidden md:flex">
-          <h4 className="text-lg font-semibold">
-            Total:{" "}
-            <span className="text-green-500 px-1">
-              {getFilteredBlogs()?.length || 0}
-            </span>{" "}
-            Blog Found
-          </h4>
-        </div>
+      {/* Reusable Filter Controls */}
+      <FilterControls
+        filterOptions={filterOptions}
+        selectedFilter={selectedFilter}
+        onFilterChange={setSelectedFilter}
+        searchValue={searchValue}
+        onSearchChange={setSearchValue}
+        searchPlaceholder="Search blogs..."
+        allButtonLabel="All"
+        onAllClick={resetFilters}
+        totalCount={filteredBlogs.length}
+        countLabel="Total"
+        countSuffix="Blog Found"
+        showCount={true}
+        showSearch={true}
+        showFilter={true}
+      />
 
-        {/* Search */}
-        <div className="lg:w-[180px] md:w-[170px] w-[120px] ">
-          <Input
-            type="text"
-            className="border-dark-primary text-center dark:text-dark-text focus:border-0  dark:bg-dark-secondary text-light-text text-md"
-            onChange={handleInputChange}
-            placeholder="Search"
-          />
-        </div>
-      </div>
+      {/* Mobile Count Display */}
+      <MobileCountDisplay
+        totalCount={filteredBlogs.length}
+        countLabel="Total"
+        countSuffix="Blog Found"
+        color="text-cyan-500"
+      />
 
-      <div className="flex md:hidden justify-center mb-5">
-        <h4 className="text-md font-semibold">
-          Total:{" "}
-          <span className="text-cyan-500 px-1">
-            {getFilteredBlogs()?.length || 0}
-          </span>{" "}
-          Blog Found
-        </h4>
-      </div>
-
+      {/* Blogs Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 md:gap-7 gap-6">
-        {getFilteredBlogs()?.map((blog) => (
+        {filteredBlogs?.map((blog) => (
           <BlogCard key={blog._id} blog={blog} />
         ))}
       </div>
+
+      {/* No results message */}
+      {filteredBlogs.length === 0 && (
+        <div className="text-center py-10">
+          <p className="text-gray-500 text-lg">
+            No blogs found matching your criteria.
+          </p>
+        </div>
+      )}
     </div>
   );
 };

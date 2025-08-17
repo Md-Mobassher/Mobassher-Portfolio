@@ -28,9 +28,9 @@ const BlogDetailsPage = async ({ params }: TBlogParams) => {
     // console.log(data);
 
     return (
-      <div id="blogDetails" className="lg:mt-28 md:mt-24 mt-20 ">
+      <div id="blogDetails" className="lg:mt-32 md:mt-24 mt-20 ">
         <Container>
-          <Title title="Blog Details" />
+          <Title title="Blog" titleColor="Details" />
           <BlogDetails {...data?.data} />
         </Container>
       </div>
@@ -40,7 +40,7 @@ const BlogDetailsPage = async ({ params }: TBlogParams) => {
     return (
       <div id="blogDetails" className=" lg:mt-28 md:mt-24 mt-20">
         <Container>
-          <Title title="Blog Details" />
+          <Title title="Blog" titleColor="Details" />
           <p>Error loading projects.</p>
         </Container>
       </div>

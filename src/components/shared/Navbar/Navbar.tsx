@@ -113,6 +113,30 @@ const Navbar = () => {
 
             {/* Hamburger Menu Icon for Mobile */}
             <div className="lg:hidden flex gap-3 justify-end items-center">
+              <Link
+                href={"https://github.com/md-mobassher"}
+                target="_blank"
+                className=" text-lg font-medium  hover:text-primary rounded-md"
+              >
+                <Image
+                  src={"/icons/github.png"}
+                  alt="github"
+                  width={25}
+                  height={25}
+                />
+              </Link>
+              <Link
+                href={"https://www.linkedin.com/in/md-mobassher"}
+                target="_blank"
+                className="text-lg font-medium  hover:text-primary rounded-md grayscale"
+              >
+                <Image
+                  src={"/icons/linkedin.png"}
+                  alt="linkedin"
+                  width={25}
+                  height={25}
+                />
+              </Link>
               <ThemeToggle />
               <button onClick={toggleDrawer} className="text-2xl">
                 <div className="p-1 flex justify-center items-center gap-2 rounded-md text-white  bg-green-500">
@@ -123,13 +147,13 @@ const Navbar = () => {
 
             {/* Drawer Menu */}
             <div
-              className={`fixed top-0 right-0 w-64 h-full bg-white shadow-lg transition-transform transform ${
+              className={`fixed top-0 right-0 w-64 h-full bg-gray-300 dark:bg-gray-800 shadow-lg transition-transform transform ${
                 isOpen ? "translate-x-0" : "translate-x-full"
               } ease-in-out duration-300`}
             >
               <div className="flex justify-end items-center p-4">
                 <button onClick={toggleDrawer} className="text-2xl">
-                  <div className="p-1 border border-green-500 rounded-md hover:bg-green-500 hover:text-white text-black">
+                  <div className="p-1 border border-primary rounded-md hover:bg-primary hover:text-white dark:text-white text-black cursor-pointer">
                     <X className="size-8" />
                   </div>
                 </button>
@@ -144,6 +168,16 @@ const Navbar = () => {
                     {item?.title}
                   </Link>
                 ))}
+                <Link
+                  href={"https://wa.me/+8801706060647"}
+                  target="_blank"
+                  className="text-lg font-medium  rounded-md hover:bg-primary hover:text-white px-4 py-2 flex items-center justify-center gap-3 cursor-pointer"
+                >
+                  <div className="bg-primary w-3 h-3 rounded-full relative">
+                    <div className="bg-primary w-3 h-3 rounded-full absolute top-0 left-0 animate-ping"></div>
+                  </div>
+                  <span className="text-xl font-semibold">Say Hello</span>{" "}
+                </Link>
               </div>
             </div>
           </>

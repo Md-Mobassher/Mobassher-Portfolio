@@ -1,16 +1,9 @@
 "use client";
 
-import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import FilterControls from "@/components/shared/common/FilterControls";
+import MobileCountDisplay from "@/components/shared/common/MobileCountDisplay";
+import useFilterAndSearch from "@/hooks/useFilterAndSearch";
 import { TProject } from "@/types";
-import { ChangeEvent, useState } from "react";
 import ProjectCard from "../../projects/components/ProjectCard";
 import { uniqueTechnologies } from "../../projects/components/Technology";
 
@@ -19,111 +12,74 @@ interface AllProjectsProps {
 }
 
 const Projects = ({ projects }: AllProjectsProps) => {
-  const [selectedTechnology, setSelectedTechnology] = useState<
-    string | undefined
-  >();
-  const [search, setSearch] = useState<string>("");
+  // Use the reusable hook for filtering and searching
+  const {
+    filteredData: filteredProjects,
+    selectedFilter,
+    searchValue,
+    setSelectedFilter,
+    setSearchValue,
+    resetFilters,
+    uniqueFilterOptions,
+  } = useFilterAndSearch({
+    data: projects,
+    filterField: "technology",
+    searchFields: ["name", "description", "technology"],
+  });
 
-  const getFilteredprojects = () => {
-    let project;
+  // Use hook results or fallback to existing technologies
+  const availableTechnologies =
+    uniqueFilterOptions.length > 0 ? uniqueFilterOptions : uniqueTechnologies;
 
-    if (!selectedTechnology) {
-      project = projects;
-    }
-    if (!search) {
-      project = projects;
-    }
-
-    if (selectedTechnology) {
-      project = projects.filter((item: TProject) =>
-        item.technology.includes(selectedTechnology)
-      );
-    }
-    if (search) {
-      project = projects.filter((item: TProject) =>
-        item.name.toLowerCase().includes(search.toLowerCase())
-      );
-    }
-
-    return project;
-  };
-
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearch(event.target.value);
-  };
-
-  // const uniqueTechnologies = Array.isArray(projects)
-  //   ? Array.from(new Set(projects.flatMap((project) => project.technology)))
-  //   : [];
+  // Convert filter options to the format expected by FilterControls
+  const filterOptions = availableTechnologies.map((tech) => ({
+    value: tech,
+    label: tech,
+  }));
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-5">
-        <div className="flex items-center gap-1">
-          <button
-            onClick={() => setSelectedTechnology("")}
-            className="border border-primary text-md py-1.5 bg-gray-200 dark:bg-gray-800 hover:bg-primary text-primary hover:text-white dark:text-white dark:hover:bg-primary rounded-md transition duration-500 lg:px-6 md:px-5 px-3 uppercase cursor-pointer shadow-md shadow-primary/40 md:text-lg text-md font-semibold"
-          >
-            All
-          </button>
-          <Select onValueChange={setSelectedTechnology} defaultValue="">
-            <SelectTrigger className="lg:w-[180px] md:w-[170px] w-[140px] py-2  text-md hover:bg-primary bg-gray-200 dark:bg-gray-800 dark:text-white text-gray-800 hover:text-white border-primary rounded-md transition duration-500   cursor-pointer text-center shadow-md shadow-primary/40 md:text-lg text-md font-semibold">
-              <SelectValue className="" placeholder="Technology" />
-            </SelectTrigger>
-            <SelectContent className="w-[200px] bg-gray-200 dark:bg-gray-700 border-primary">
-              <SelectGroup>
-                {uniqueTechnologies?.map((tech) => (
-                  <SelectItem
-                    key={tech}
-                    value={tech}
-                    className="md:py-2 py-1.5 m-0 text-md  bg-gray-200 dark:bg-gray-700 hover:bg-primary dark:hover:bg-primary text-gray-800 dark:text-white  hover:font-semibold transition duration-300 lg:px-6 md:px-5 pl-4  cursor-pointer "
-                  >
-                    {tech}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="hidden md:flex">
-          <h4 className="text-lg font-semibold">
-            Total:{" "}
-            <span className="text-green-500 px-1">
-              {getFilteredprojects()?.length || 0}
-            </span>{" "}
-            Projects Found
-          </h4>
-        </div>
+      {/* Reusable Filter Controls */}
+      <FilterControls
+        filterOptions={filterOptions}
+        selectedFilter={selectedFilter}
+        onFilterChange={setSelectedFilter}
+        searchValue={searchValue}
+        onSearchChange={setSearchValue}
+        searchPlaceholder="Search projects..."
+        allButtonLabel="All"
+        onAllClick={resetFilters}
+        totalCount={filteredProjects.length}
+        countLabel="Total"
+        countSuffix="Projects Found"
+        showCount={true}
+        showSearch={true}
+        showFilter={true}
+      />
 
-        {/* Search */}
-        <div className="lg:w-[180px] md:w-[170px] w-[120px] ">
-          <Input
-            type="text"
-            className="border-primary text-center dark:text-white focus:border-0 bg-gray-200 dark:bg-gray-800 text-gray-800 text-md shadow-md shadow-primary/40 py-2"
-            onChange={handleInputChange}
-            placeholder="Search"
-          />
-        </div>
+      {/* Mobile Count Display */}
+      <MobileCountDisplay
+        totalCount={filteredProjects.length}
+        countLabel="Total"
+        countSuffix="Projects Found"
+        color="text-cyan-500"
+      />
+
+      {/* Show projects */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 md:gap-7 gap-6 pt-5">
+        {filteredProjects?.slice(0, 6)?.map((project: TProject) => (
+          <ProjectCard key={project._id} project={project} />
+        ))}
       </div>
 
-      <div className="flex md:hidden justify-center mb-5">
-        <h4 className="text-md font-semibold">
-          Total:{" "}
-          <span className="text-cyan-500 px-1">
-            {getFilteredprojects()?.length || 0}
-          </span>{" "}
-          Projects Found
-        </h4>
-      </div>
-
-      {/* show projects */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  lg:gap-8 md:gap-7 gap-6 pt-5">
-        {getFilteredprojects()
-          ?.slice(0, 6)
-          ?.map((project: TProject) => (
-            <ProjectCard key={project._id} project={project} />
-          ))}
-      </div>
+      {/* No results message */}
+      {filteredProjects.length === 0 && (
+        <div className="text-center py-10">
+          <p className="text-gray-500 text-lg">
+            No projects found matching your criteria.
+          </p>
+        </div>
+      )}
     </div>
   );
 };

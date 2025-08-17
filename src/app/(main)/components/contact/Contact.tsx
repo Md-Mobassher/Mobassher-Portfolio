@@ -5,9 +5,9 @@ import ContactInfo from "./ContactInfo";
 
 const Contact = () => {
   return (
-    <div id="contact" className="lg:py-14 md:py-10 py-7">
+    <div id="contact" className="lg:py-10 md:py-8 py-6">
       <Container>
-        <Title title="Hire Me" />
+        <Title title="Hire" titleColor="Me" />
         <div className="lg:flex md:flex lg:mt-10 mt-6 justify-center items-start">
           <ContactInfo />
           <ContactForm />
