@@ -3,15 +3,16 @@ import Title from "@/components/layout/Title";
 import ProjectDetails from "../components/PtojectDetails";
 
 type TProjectParams = {
-  params: {
+  params: Promise<{
     projectId: string;
-  };
+  }>;
 };
 
 const PortfolioDetailsPage = async ({ params }: TProjectParams) => {
+  const { projectId } = await params;
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}/projects/${params.projectId}`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/projects/${projectId}`,
       {
         method: "GET",
         headers: {

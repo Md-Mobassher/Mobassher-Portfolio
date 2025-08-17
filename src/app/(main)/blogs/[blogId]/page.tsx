@@ -3,14 +3,15 @@ import Title from "@/components/layout/Title";
 import BlogDetails from "../components/BlogDetails";
 
 type TBlogParams = {
-  params: {
+  params: Promise<{
     blogId: string;
-  };
+  }>;
 };
 const BlogDetailsPage = async ({ params }: TBlogParams) => {
+  const { blogId } = await params;
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}/blogs/${params.blogId}`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/blogs/${blogId}`,
       {
         method: "GET",
         headers: {

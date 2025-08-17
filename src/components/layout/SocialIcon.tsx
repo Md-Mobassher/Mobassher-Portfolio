@@ -1,6 +1,6 @@
 "use client";
-import { socialData } from "../shared/Footer/SocialData";
 import Image from "next/image";
+import { socialData } from "../shared/footer/SocialData";
 
 const SocialIcon = () => {
   return (
