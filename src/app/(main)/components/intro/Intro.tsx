@@ -8,7 +8,7 @@ const Intro = () => {
   return (
     <div className="pt-10">
       <Container>
-        <div className=" mt-20 flex items-center  justify-between lg:flex-row md:flex-row flex-col gap-5">
+        <div className=" mt-20 flex items-center  justify-between lg:flex-row md:flex-row flex-col md:gap-5 gap-10">
           <div className="">
             <div className="flex justify-start items-center gap-5 mb-2">
               <span className="bg-primary text-white px-3 py-1 rounded-md text-lg font-semibold">
@@ -25,20 +25,22 @@ const Intro = () => {
                 Developer
               </span>
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 text-lg mt-5 max-w-lg">
-              2+ years of experience, keeping clients coming back for more.
-              Committed to delivering excellence in every service.
+            <p className="text-gray-600 dark:text-gray-400 text-lg mt-5 max-w-lg md:py-5 py-3">
+              A dedicated professional with 2+ years of experience, committed to
+              delivering excellence in every service and building lasting client
+              relationships that keep them coming back.
             </p>
             <div className="flex flex-start gap-5 justify-start items-center  mt-5">
               <Button
                 clickEvent
                 link="#about"
                 title="More About Me"
-                className="bg-primary text-white hover:bg-green-600 px-5 py-2 inline-block"
+                className="bg-primary text-white hover:bg-green-600 px-5 py-2 inline-block border border-primary  "
               />
               <Link
-                href="#contact"
-                className="bg-gray-200/60 dark:bg-gray-600/60  text-gray-800 dark:text-white hover:bg-primary dark:hover:bg-primary hover:text-white px-5 py-2 rounded-md border border-gray-300 dark:border-gray-700 flex items-center gap-2 transition-all duration-300"
+                href="https://www.upwork.com/freelancers/~01950a903c93abad36?mp_source=share"
+                target="_blank"
+                className="bg-gray-200/60 dark:bg-gray-600/60  text-primary dark:text-white hover:bg-primary dark:hover:bg-primary hover:text-white px-5 py-2 rounded-md border border-primary flex items-center gap-2 transition-all duration-300"
               >
                 <FaSquareUpwork className="size-6 " /> Hire Me
               </Link>
@@ -49,8 +51,8 @@ const Intro = () => {
               className=" transform scale-[0.95] filter grayscale hover:scale-[1] hover:grayscale-0 transition-all duration-1000 z-0"
               alt="profile"
               src={"/images/mobassher.png"}
-              width={400}
-              height={450}
+              width={500}
+              height={400}
             />
           </div>
         </div>

@@ -74,7 +74,8 @@ const Navbar = () => {
           <>
             <div className="hidden lg:flex items-center gap-4">
               <Link
-                href={"#"}
+                href={"https://github.com/md-mobassher"}
+                target="_blank"
                 className=" text-lg font-medium  hover:text-primary rounded-md"
               >
                 <Image
@@ -85,7 +86,8 @@ const Navbar = () => {
                 />
               </Link>
               <Link
-                href={"#"}
+                href={"https://www.linkedin.com/in/md-mobassher"}
+                target="_blank"
                 className="text-lg font-medium  hover:text-primary rounded-md grayscale"
               >
                 <Image
@@ -98,7 +100,8 @@ const Navbar = () => {
 
               <ThemeToggle />
               <Link
-                href={"#"}
+                href={"https://wa.me/+8801706060647"}
+                target="_blank"
                 className="  text-lg font-medium  hover:text-primary rounded-md bg-gray-200/50 dark:bg-gray-800/50  px-4 py-2 flex items-center justify-center gap-3 cursor-pointer"
               >
                 <div className="bg-primary w-3 h-3 rounded-full relative">

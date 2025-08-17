@@ -1,0 +1,268 @@
+[
+  {
+    "_id": "1",
+    "name": "TypeScript",
+    "proficiencyLevel": "85",
+    "category": "Language"
+  },
+  {
+    "_id": "2",
+    "name": "JavaScript",
+    "proficiencyLevel": "90",
+    "category": "Language"
+  },
+  {
+    "_id": "3",
+    "name": "Python",
+    "proficiencyLevel": "70",
+    "category": "Language"
+  },
+
+  {
+    "_id": "4",
+    "name": "React",
+    "proficiencyLevel": "90",
+    "category": "Frontend"
+  },
+  {
+    "_id": "5",
+    "name": "Next.js",
+    "proficiencyLevel": "85",
+    "category": "Frontend"
+  },
+  {
+    "_id": "6",
+    "name": "Redux Toolkit",
+    "proficiencyLevel": "80",
+    "category": "Frontend"
+  },
+  {
+    "_id": "7",
+    "name": "Tailwind CSS",
+    "proficiencyLevel": "90",
+    "category": "Frontend"
+  },
+  {
+    "_id": "8",
+    "name": "Ant Design",
+    "proficiencyLevel": "80",
+    "category": "Frontend"
+  },
+  {
+    "_id": "9",
+    "name": "Material UI",
+    "proficiencyLevel": "80",
+    "category": "Frontend"
+  },
+  {
+    "_id": "10",
+    "name": "NextUI",
+    "proficiencyLevel": "75",
+    "category": "Frontend"
+  },
+  {
+    "_id": "11",
+    "name": "DaisyUI",
+    "proficiencyLevel": "75",
+    "category": "Frontend"
+  },
+  {
+    "_id": "12",
+    "name": "Shadcn",
+    "proficiencyLevel": "80",
+    "category": "Frontend"
+  },
+  {
+    "_id": "13",
+    "name": "Zustand",
+    "proficiencyLevel": "75",
+    "category": "Frontend"
+  },
+  {
+    "_id": "14",
+    "name": "HTML5",
+    "proficiencyLevel": "95",
+    "category": "Frontend"
+  },
+  {
+    "_id": "15",
+    "name": "CSS3",
+    "proficiencyLevel": "90",
+    "category": "Frontend"
+  },
+
+  {
+    "_id": "16",
+    "name": "Node.js",
+    "proficiencyLevel": "85",
+    "category": "Backend"
+  },
+  {
+    "_id": "17",
+    "name": "Express.js",
+    "proficiencyLevel": "85",
+    "category": "Backend"
+  },
+  {
+    "_id": "18",
+    "name": "JSON Web Token (JWT)",
+    "proficiencyLevel": "80",
+    "category": "Backend"
+  },
+  {
+    "_id": "19",
+    "name": "Bcrypt",
+    "proficiencyLevel": "75",
+    "category": "Backend"
+  },
+  {
+    "_id": "20",
+    "name": "Zod Validation",
+    "proficiencyLevel": "70",
+    "category": "Backend"
+  },
+  {
+    "_id": "21",
+    "name": "OAuth",
+    "proficiencyLevel": "70",
+    "category": "Backend"
+  },
+  {
+    "_id": "22",
+    "name": "Node Mailer",
+    "proficiencyLevel": "70",
+    "category": "Backend"
+  },
+
+  {
+    "_id": "23",
+    "name": "PostgreSQL",
+    "proficiencyLevel": "80",
+    "category": "Database"
+  },
+  {
+    "_id": "24",
+    "name": "SQL Server",
+    "proficiencyLevel": "70",
+    "category": "Database"
+  },
+  {
+    "_id": "25",
+    "name": "MySQL",
+    "proficiencyLevel": "75",
+    "category": "Database"
+  },
+  {
+    "_id": "26",
+    "name": "MongoDB",
+    "proficiencyLevel": "85",
+    "category": "Database"
+  },
+
+  {
+    "_id": "27",
+    "name": "Prisma",
+    "proficiencyLevel": "80",
+    "category": "ORM"
+  },
+  {
+    "_id": "28",
+    "name": "Mongoose",
+    "proficiencyLevel": "80",
+    "category": "ODM"
+  },
+
+  {
+    "_id": "29",
+    "name": "Git",
+    "proficiencyLevel": "85",
+    "category": "Version Control"
+  },
+  {
+    "_id": "30",
+    "name": "GitHub",
+    "proficiencyLevel": "90",
+    "category": "Version Control"
+  },
+  {
+    "_id": "31",
+    "name": "BitBucket",
+    "proficiencyLevel": "75",
+    "category": "Version Control"
+  },
+
+  {
+    "_id": "32",
+    "name": "Jest",
+    "proficiencyLevel": "70",
+    "category": "Testing"
+  },
+
+  {
+    "_id": "33",
+    "name": "Postman",
+    "proficiencyLevel": "90",
+    "category": "Tools"
+  },
+  {
+    "_id": "34",
+    "name": "Swagger",
+    "proficiencyLevel": "75",
+    "category": "Tools"
+  },
+  {
+    "_id": "35",
+    "name": "Figma",
+    "proficiencyLevel": "85",
+    "category": "Tools"
+  },
+  {
+    "_id": "36",
+    "name": "Vercel",
+    "proficiencyLevel": "90",
+    "category": "Tools"
+  },
+  {
+    "_id": "37",
+    "name": "Netlify",
+    "proficiencyLevel": "85",
+    "category": "Tools"
+  },
+
+  {
+    "_id": "38",
+    "name": "Leadership",
+    "proficiencyLevel": "85",
+    "category": "Interpersonal Skills"
+  },
+  {
+    "_id": "39",
+    "name": "Active Listening",
+    "proficiencyLevel": "85",
+    "category": "Interpersonal Skills"
+  },
+  {
+    "_id": "40",
+    "name": "Time Management",
+    "proficiencyLevel": "80",
+    "category": "Interpersonal Skills"
+  },
+  {
+    "_id": "41",
+    "name": "Teamwork",
+    "proficiencyLevel": "90",
+    "category": "Interpersonal Skills"
+  },
+  {
+    "_id": "42",
+    "name": "Fast Learning",
+    "proficiencyLevel": "95",
+    "category": "Interpersonal Skills"
+  },
+  {
+    "_id": "43",
+    "name": "Communication",
+    "proficiencyLevel": "85",
+    "category": "Interpersonal Skills"
+  }
+]

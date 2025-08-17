@@ -1,5 +1,5 @@
-import Container from "@/components/ui/Container";
-import Title from "@/components/ui/Title";
+import Container from "@/components/layout/Container";
+import Title from "@/components/layout/Title";
 import ProjectDetails from "../components/PtojectDetails";
 
 type TProjectParams = {
@@ -31,7 +31,7 @@ const PortfolioDetailsPage = async ({ params }: TProjectParams) => {
     return (
       <div id="projects" className=" md:pt-28 pt-20">
         <Container>
-          <Title title="Project Details" />
+          <Title title="Project" titleColor="Details" />
           <ProjectDetails {...data?.data} />
         </Container>
       </div>
@@ -41,7 +41,7 @@ const PortfolioDetailsPage = async ({ params }: TProjectParams) => {
     return (
       <div id="projects" className=" md:pt-28 pt-20">
         <Container>
-          <Title title="Project Details" />
+          <Title title="Project" titleColor="Details" />
           <p>Error loading projects.</p>
         </Container>
       </div>

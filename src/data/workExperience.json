@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "jobTitle": "Full-Stack Developer",
+    "jobType": "Full-Time",
+    "company": "Mobassher IT",
+    "location": "Kurigram, Bangladesh",
+    "duration": "Jan 2023 - Now",
+    "description": "Developed and maintained web applications using React, Next.js, and TypeScript",
+    "isCurrent": true
+  },
+  {
+    "id": 2,
+    "jobTitle": "Full-Stack Developer",
+    "jobType": "Contract (Remote)",
+    "company": "Ruskat.co",
+    "location": "South Korea",
+    "duration": "May 2025 - Jun 2025",
+    "description": "",
+    "isCurrent": false
+  },
+  {
+    "id": 3,
+    "jobTitle": "Full-Stack Developer",
+    "jobType": "Full-Time (Remote)",
+    "company": "Dev Cluster",
+    "location": "Dhaka, Bangladesh",
+    "duration": "Oct 2024 - Apr 2025",
+    "description": "Developed and maintained web applications using React, Node.js, and MongoDB",
+    "isCurrent": false
+  }
+]

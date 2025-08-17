@@ -1,4 +1,4 @@
-import { TProject } from "@/type";
+import { TProject } from "@/types";
 import { MoveRight } from "lucide-react";
 import Image from "next/image";
 
@@ -16,13 +16,15 @@ const ProjectDetails = (project: TProject) => {
 
   return (
     <div>
-      <div className=" dark:bg-dark-secondary bg-light-secondary  border rounded-lg mt-1 z-0">
+      <div className="bg-gray-200 dark:bg-gray-800 border rounded-lg mt-1 z-0">
         <div className="items-center justify-start  lg:py-10 p-5 lg:px-20 ">
           {name && (
-            <div className="flex lg:text-2xl md:text-2xl text-xl ">
-              <p className="mb-3 font-bold ">
+            <div className="flex items-center">
+              <p className="mb-3 font-bold  lg:text-2xl md:text-2xl text-xl ">
                 Name:
-                <span className=" ml-2 font-bold text-[#00CF5D]">{name}</span>
+                <span className=" ml-2 font-bold text-primary lg:text-2xl md:text-2xl text-xl ">
+                  {name}
+                </span>
               </p>
             </div>
           )}
@@ -57,7 +59,7 @@ const ProjectDetails = (project: TProject) => {
           )}
 
           {technology.length > 0 && (
-            <div className="lg:my-14 my-10">
+            <div className="lg:my-10 my-5">
               <p className=" font-bold lg:text-2xl md:text-2xl text-xl  mb-3 ">
                 Technology:{" "}
               </p>
@@ -75,42 +77,40 @@ const ProjectDetails = (project: TProject) => {
           )}
 
           {liveUrl && (
-            <div className="flex justify-between items-center max-w-sm mb-7">
-              <p className="font-bold  lg:text-2xl md:text-2xl text-xl ">
-                Go to Live site -{" "}
-              </p>{" "}
+            <div className="flex justify-between items-center max-w-sm mb-5">
+              <p className="font-bold md:text-xl text-lg">Go to Live site - </p>{" "}
               <a
                 target="_black"
                 href={liveUrl}
-                className="bg-[#00CF5D] hover:bg-green-400 rounded-md px-5 py-3 transition duration-300  text-md text-white font-semibold"
+                className="bg-primary hover:bg-green-600 rounded-md px-5 md:py-2 py-1.5 transition duration-300  text-md text-white font-semibold"
               >
                 Click here{" "}
               </a>
             </div>
           )}
           {clientUrl && (
-            <div className="flex justify-between items-center max-w-sm mb-7">
-              <p className=" font-bold  lg:text-2xl md:text-2xl text-xl ">
+            <div className="flex justify-between items-center max-w-sm mb-5">
+              <p className=" font-bold  md:text-xl text-lg">
                 Client-Side code -{" "}
               </p>
               <a
                 target="_black"
                 href={clientUrl}
-                className="bg-[#00CF5D] hover:bg-green-400 rounded-md px-5 py-3 transition duration-300  text-md text-white font-semibold"
+                className="bg-primary hover:bg-green-600 rounded-md px-5 md:py-2 py-1.5 transition duration-300  text-md text-white font-semibold"
               >
                 Click here{" "}
               </a>
             </div>
           )}
           {serverUrl && (
-            <div className="flex justify-between items-center max-w-sm mb-7">
-              <p className=" font-bold  lg:text-2xl md:text-2xl text-xl ">
+            <div className="flex justify-between items-center max-w-sm">
+              <p className=" font-bold  md:text-xl text-lg">
                 Server-Side code -{" "}
               </p>{" "}
               <a
                 target="_black"
                 href={serverUrl}
-                className="bg-[#00CF5D] hover:bg-green-400 rounded-md px-5 py-3 transition duration-300  text-md text-white font-semibold"
+                className="bg-primary hover:bg-green-600 rounded-md px-5 md:py-2 py-1.5 transition duration-300  text-md text-white font-semibold"
               >
                 Click here{" "}
               </a>

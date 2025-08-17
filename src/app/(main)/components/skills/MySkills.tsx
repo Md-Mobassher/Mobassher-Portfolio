@@ -1,5 +1,6 @@
 import Container from "@/components/layout/Container";
 import Title from "@/components/layout/Title";
+import skillsData from "@/data/skillsData.json";
 import { TSkill } from "@/types";
 import Skills from "./Skills";
 
@@ -20,22 +21,23 @@ const MySkills = async () => {
     }
 
     const { data: skills } = await res.json();
+    // console.log(skills);
 
     return (
-      <div id="myskills" className="lg:py-14 md:py-10 py-7 min-h-20">
+      <div id="myskills" className="lg:py-6 md:py-8 py-6 ">
         <Container>
-          <Title title="My Skills" />
-          <Skills skills={skills as TSkill[]} />
+          <Title title="My" titleColor="Skills" />
+          <Skills skills={skillsData as TSkill[]} />
         </Container>
       </div>
     );
   } catch (error) {
     console.error(error);
     return (
-      <div id="myskills" className="lg:py-14 md:py-10 py-7 min-h-20">
+      <div id="myskills" className="lg:py-10 md:py-8 py-6">
         <Container>
-          <Title title="My Skills" />
-          <p>Error loading skills. Please try again later.</p>
+          <Title title="My" titleColor="Skills" />
+          <Skills skills={skillsData as TSkill[]} />
         </Container>
       </div>
     );

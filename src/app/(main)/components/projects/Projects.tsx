@@ -62,21 +62,21 @@ const Projects = ({ projects }: AllProjectsProps) => {
         <div className="flex items-center gap-1">
           <button
             onClick={() => setSelectedTechnology("")}
-            className="border border-dark-primary text-md py-2 bg-dark-primary hover:bg-green-700 text-white rounded-md transition duration-500 lg:px-6 md:px-5 px-3 uppercase cursor-pointer"
+            className="border border-primary text-md py-1.5 bg-gray-200 dark:bg-gray-800 hover:bg-primary text-primary hover:text-white dark:text-white dark:hover:bg-primary rounded-md transition duration-500 lg:px-6 md:px-5 px-3 uppercase cursor-pointer shadow-md shadow-primary/40 md:text-lg text-md font-semibold"
           >
             All
           </button>
           <Select onValueChange={setSelectedTechnology} defaultValue="">
-            <SelectTrigger className="lg:w-[180px] md:w-[170px] w-[140px]   text-md hover:bg-green-500 bg-secondary dark:text-dark-text text-light-text hover:text-white border-dark-primary rounded-md transition duration-500   cursor-pointer text-center">
+            <SelectTrigger className="lg:w-[180px] md:w-[170px] w-[140px] py-2  text-md hover:bg-primary bg-gray-200 dark:bg-gray-800 dark:text-white text-gray-800 hover:text-white border-primary rounded-md transition duration-500   cursor-pointer text-center shadow-md shadow-primary/40 md:text-lg text-md font-semibold">
               <SelectValue className="" placeholder="Technology" />
             </SelectTrigger>
-            <SelectContent className="w-[200px] bg-gray-700">
+            <SelectContent className="w-[200px] bg-gray-200 dark:bg-gray-700 border-primary">
               <SelectGroup>
                 {uniqueTechnologies?.map((tech) => (
                   <SelectItem
                     key={tech}
                     value={tech}
-                    className="py-2 m-0 text-md  bg-gray-700 hover:bg-white text-white hover:text-green-500 hover:font-semibold rounded-md transition duration-300 lg:px-6 md:px-5 pl-4  cursor-pointer"
+                    className="md:py-2 py-1.5 m-0 text-md  bg-gray-200 dark:bg-gray-700 hover:bg-primary dark:hover:bg-primary text-gray-800 dark:text-white  hover:font-semibold transition duration-300 lg:px-6 md:px-5 pl-4  cursor-pointer "
                   >
                     {tech}
                   </SelectItem>
@@ -99,7 +99,7 @@ const Projects = ({ projects }: AllProjectsProps) => {
         <div className="lg:w-[180px] md:w-[170px] w-[120px] ">
           <Input
             type="text"
-            className="border-dark-primary text-center dark:text-dark-text focus:border-0  dark:bg-dark-secondary text-light-text text-md"
+            className="border-primary text-center dark:text-white focus:border-0 bg-gray-200 dark:bg-gray-800 text-gray-800 text-md shadow-md shadow-primary/40 py-2"
             onChange={handleInputChange}
             placeholder="Search"
           />

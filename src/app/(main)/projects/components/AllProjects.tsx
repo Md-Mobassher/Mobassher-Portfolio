@@ -1,8 +1,6 @@
 "use client";
 
-import { TProject } from "@/type";
-import { ChangeEvent, useState } from "react";
-import ProjectCard from "./ProjectCard";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -11,7 +9,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Input } from "@/components/ui/input";
+import { TProject } from "@/types";
+import { ChangeEvent, useState } from "react";
+import ProjectCard from "./ProjectCard";
 import { uniqueTechnologies } from "./Technology";
 
 interface AllPortfoliosProps {
