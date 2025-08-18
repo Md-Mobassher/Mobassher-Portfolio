@@ -13,15 +13,16 @@ export const navItemsData = [
     title: "Projects",
     url: "/projects",
   },
+  {
+    title: "Testimonials",
+    url: "/#testimonials",
+  },
 
   {
     title: "Blogs",
     url: "/blogs",
   },
-  // {
-  //   title: "Testimonials",
-  //   url: "/testimonials",
-  // },
+
   {
     title: "Contact",
     url: "/#contact",

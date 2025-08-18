@@ -171,96 +171,126 @@
     "proficiencyLevel": "80",
     "category": "ODM"
   },
-
   {
     "_id": "29",
+    "name": "Docker",
+    "proficiencyLevel": "80",
+    "category": "Tools"
+  },
+  {
+    "_id": "30",
+    "name": "CI/CD Pipeline",
+    "proficiencyLevel": "80",
+    "category": "Tools"
+  },
+
+  {
+    "_id": "31",
     "name": "Git",
     "proficiencyLevel": "85",
     "category": "Version Control"
   },
   {
-    "_id": "30",
+    "_id": "32",
     "name": "GitHub",
     "proficiencyLevel": "90",
     "category": "Version Control"
   },
   {
-    "_id": "31",
+    "_id": "33",
     "name": "BitBucket",
     "proficiencyLevel": "75",
     "category": "Version Control"
   },
 
   {
-    "_id": "32",
+    "_id": "34",
     "name": "Jest",
     "proficiencyLevel": "70",
     "category": "Testing"
   },
 
   {
-    "_id": "33",
+    "_id": "35",
     "name": "Postman",
     "proficiencyLevel": "90",
     "category": "Tools"
   },
   {
-    "_id": "34",
+    "_id": "36",
     "name": "Swagger",
     "proficiencyLevel": "75",
     "category": "Tools"
   },
   {
-    "_id": "35",
+    "_id": "37",
     "name": "Figma",
     "proficiencyLevel": "85",
     "category": "Tools"
   },
   {
-    "_id": "36",
+    "_id": "38",
     "name": "Vercel",
     "proficiencyLevel": "90",
     "category": "Tools"
   },
   {
-    "_id": "37",
+    "_id": "39",
     "name": "Netlify",
+    "proficiencyLevel": "85",
+    "category": "Tools"
+  },
+  {
+    "_id": "40",
+    "name": "WordPress",
+    "proficiencyLevel": "85",
+    "category": "Tools"
+  },
+  {
+    "_id": "41",
+    "name": "Divi",
+    "proficiencyLevel": "85",
+    "category": "Tools"
+  },
+  {
+    "_id": "42",
+    "name": "Elementor",
     "proficiencyLevel": "85",
     "category": "Tools"
   },
 
   {
-    "_id": "38",
+    "_id": "43",
     "name": "Leadership",
     "proficiencyLevel": "85",
     "category": "Interpersonal Skills"
   },
   {
-    "_id": "39",
+    "_id": "44",
     "name": "Active Listening",
     "proficiencyLevel": "85",
     "category": "Interpersonal Skills"
   },
   {
-    "_id": "40",
+    "_id": "45",
     "name": "Time Management",
     "proficiencyLevel": "80",
     "category": "Interpersonal Skills"
   },
   {
-    "_id": "41",
+    "_id": "46",
     "name": "Teamwork",
     "proficiencyLevel": "90",
     "category": "Interpersonal Skills"
   },
   {
-    "_id": "42",
+    "_id": "47",
     "name": "Fast Learning",
     "proficiencyLevel": "95",
     "category": "Interpersonal Skills"
   },
   {
-    "_id": "43",
+    "_id": "48",
     "name": "Communication",
     "proficiencyLevel": "85",
     "category": "Interpersonal Skills"
